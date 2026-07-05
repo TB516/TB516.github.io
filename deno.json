@@ -1,0 +1,16 @@
+{
+  "fmt": {
+    "exclude": [
+      ".svelte-kit",
+      "build",
+      "node_modules"
+    ]
+  },
+  "lint": {
+    "exclude": [
+      ".svelte-kit",
+      "build",
+      "node_modules"
+    ]
+  }
+}
