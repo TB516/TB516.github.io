@@ -1,2 +1,4 @@
 [tools]
 deno = "2.9.1"
+uv = "0.11.26"
+"pipx:rendercv" = { version = "2.8", extras = "full" }
