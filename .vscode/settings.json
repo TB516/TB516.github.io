@@ -1,27 +1,13 @@
 {
   "deno.enable": true,
-  "deno.lint": true,
-  "deno.config": "./deno.json",
-  "editor.formatOnSave": true,
-  "[javascript]": {
-    "editor.defaultFormatter": "denoland.vscode-deno"
+  "deno.lint": false,
+  "editor.defaultFormatter": "oxc.oxc-vscode",
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.format.oxc": "always",
+    "source.fixAll.oxc": "always"
   },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "denoland.vscode-deno"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "denoland.vscode-deno"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "denoland.vscode-deno"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "denoland.vscode-deno"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "denoland.vscode-deno"
-  },
-  "[markdown]": {
-    "editor.defaultFormatter": "denoland.vscode-deno"
-  }
+  "oxc.lint.run": "onSave",
+  "oxc.path.oxfmt": "./scripts/oxc/oxfmt",
+  "oxc.path.oxlint": "./scripts/oxc/oxlint"
 }

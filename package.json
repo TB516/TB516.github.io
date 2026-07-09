@@ -1,19 +1,25 @@
 {
   "name": "tb516.github.io",
-  "private": true,
   "version": "0.0.1",
+  "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
     "prepare": "svelte-kit sync || echo ''",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check",
     "rendercv": "mise exec -- rendercv render src/lib/data/resume_cv.yaml --pdf-path ../../../static/Thomas_Berrios_Resume.pdf --typst-path /tmp/Thomas_Berrios_Resume.typ --dont-generate-markdown --dont-generate-html --dont-generate-png && rm -f /tmp/Thomas_Berrios_Resume.typ"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^3.0.10",
     "@sveltejs/kit": "^2.63.0",
     "@sveltejs/vite-plugin-svelte": "^7.1.2",
+    "oxfmt": "^0.58.0",
+    "oxlint": "^1.73.0",
     "svelte": "^5.56.1",
     "svelte-check": "^4.6.0",
     "typescript": "^6.0.3",
