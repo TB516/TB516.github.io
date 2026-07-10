@@ -1,0 +1,23 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "overrides": [
+    {
+      "files": ["src/**/*.{ts,svelte}"],
+      "excludeFiles": ["src/**/*.server.*", "src/lib/server/**"],
+      "rules": {
+        "no-restricted-globals": [
+          "error",
+          {
+            "globals": [
+              {
+                "name": "Deno",
+                "message": "Deno APIs are unavailable in client-side code."
+              }
+            ],
+            "checkGlobalObject": true
+          }
+        ]
+      }
+    }
+  ]
+}
