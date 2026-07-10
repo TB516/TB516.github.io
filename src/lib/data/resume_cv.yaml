@@ -25,6 +25,8 @@ cv:
         details: SQL, PostgreSQL, MySQL, MongoDB, Redis
       - label: Devops
         details: Docker, Containerization, AWS, Cloud Computing, Ci/Cd, GitHub Actions, Linux (Ubuntu, RHEL, Fedora)
+      - label: Agentic Development
+        details: OpenAI Codex, Claude Code, T3 Code
     Work Experience:
       - company: iD Tech
         position: Lead Instructor
@@ -57,7 +59,9 @@ cv:
         start_date: 2026-06
         end_date: present
         highlights:
-          - "FILLER"
+          - Building a Flatpak-first bootc management app with React, TypeScript, and GTKX
+          - Built a reproducible GNOME Flatpak build and bundling pipeline with Node.js, pnpm, Vite hot module replacement, and automated scripts
+          - Developing flatpak friendly IPC using Unix Domain Sockets
       - name: r2modman
         summary: Open-source Contributor
         start_date: 2026-02
