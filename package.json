@@ -11,8 +11,7 @@
     "lint": "oxlint",
     "lint:fix": "oxlint --fix",
     "fmt": "oxfmt",
-    "fmt:check": "oxfmt --check",
-    "rendercv": "mise exec -- rendercv render src/lib/data/resume_cv.yaml --pdf-path ../../../static/Thomas_Berrios_Resume.pdf --typst-path /tmp/Thomas_Berrios_Resume.typ --dont-generate-markdown --dont-generate-html --dont-generate-png && rm -f /tmp/Thomas_Berrios_Resume.typ"
+    "fmt:check": "oxfmt --check"
   },
   "devDependencies": {
     "@jsonresume/types": "^0.2.1",
