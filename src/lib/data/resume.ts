@@ -9,10 +9,12 @@ export const resume = {
       {
         network: "LinkedIn",
         username: "thomas-berrios",
+        url: "https://linkedin.com/in/thomas-berrios",
       },
       {
         network: "GitHub",
         username: "TB516",
+        url: "https://github.com/TB516",
       },
     ],
   },
