@@ -49,7 +49,10 @@ try {
   }
 
   const resumeUrl = `http://${host}:${address.port}/resume`;
-  const browserInstance = await puppeteer.launch();
+  const browserInstance = await puppeteer.launch({
+    // GitHub-hosted runners disable the user namespaces Chromium needs for its sandbox.
+    args: Deno.env.get("CI") === "true" ? ["--no-sandbox", "--disable-setuid-sandbox"] : [],
+  });
   try {
     const page = await browserInstance.newPage();
     await page.goto(resumeUrl, { waitUntil: "networkidle0" });
