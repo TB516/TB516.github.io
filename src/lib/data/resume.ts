@@ -124,8 +124,9 @@ export const resume = {
       startDate: "2026-02",
       endDate: "present",
       highlights: [
-        "Improved Linux/Flatpak compatibility by enabling Steam launch via desktop portals, fixing sandbox execution limitations",
-        "Built Flatpak release pipeline to publish to Cloudflare R2, allowing for automatic updates",
+        "Contributed upstream Linux/Flatpak fixes to r2modmanPlus, implementing portal-based Steam launching with xdg-open, Flatpak Steam permissions, and Steam Deck game-mode fallbacks",
+        "Prepared a Flathub-compatible Flatpak distribution with AppStream metadata, desktop integration, sandbox configuration, CI builds, and a signed Cloudflare R2 repository pipeline for automatic updates",
+        "Continuing to triage Linux and Flatpak issues, test changes across Steam environments, and submit upstream fixes as the project evolves",
       ],
     },
   ],

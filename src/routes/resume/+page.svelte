@@ -118,7 +118,7 @@
 
   @page {
     size: Letter;
-    margin: 0.45in 0.5in 0.35in;
+    margin: 0.35in 0.45in 0.25in;
   }
 
   :global(*) {
@@ -129,7 +129,7 @@
     margin: 0;
     color: #000;
     font:
-      10pt/1.4 XCharter,
+      9.5pt/1.35 XCharter,
       Charter,
       serif;
   }
@@ -165,18 +165,18 @@
   }
 
   section {
-    margin-top: 0.18cm;
+    margin-top: 0.13cm;
   }
 
   h2 {
-    margin: 0 0 0.13cm;
+    margin: 0 0 0.1cm;
     border-bottom: 0.5pt solid;
     font-size: 12pt;
     line-height: 1.1;
   }
 
   article {
-    margin-bottom: 0.4cm;
+    margin-bottom: 0.28cm;
     break-inside: avoid;
   }
 
@@ -201,7 +201,7 @@
   }
 
   li {
-    line-height: 1.6;
+    line-height: 1.5;
   }
 
   li::marker {
@@ -209,6 +209,6 @@
   }
 
   .skill {
-    line-height: 1.6;
+    line-height: 1.45;
   }
 </style>
