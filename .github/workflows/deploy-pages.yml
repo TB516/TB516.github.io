@@ -28,7 +28,7 @@ jobs:
         run: deno install --frozen
 
       - name: Generate resume PDF
-        run: echo "--- ADD GENERATE TASK HERE ---"
+        run: deno task generate:pdf
 
       - name: Build site
         run: deno task build
