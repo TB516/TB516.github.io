@@ -197,11 +197,15 @@
 
   ul {
     margin: 0.05cm 0 0;
-    padding-left: 1em;
+    padding-left: 1.15em;
   }
 
   li {
     line-height: 1.6;
+  }
+
+  li::marker {
+    font-size: 0.75em;
   }
 
   .skill {
