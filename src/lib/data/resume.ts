@@ -74,7 +74,7 @@ export const resume = {
     {
       name: "iD Tech",
       position: "Lead Instructor",
-      date: "Jul 2026-Present; Jun 2024-Aug 2025",
+      date: "Jul 2026-Aug 2026; Jun 2024-Aug 2024",
       location: "New York, NY",
       highlights: [
         "Led instruction for multiple technical courses, including Unreal Engine, Unity VR, C#, C++, and Python fundamentals, teaching students core software engineering and game development concepts",
@@ -97,7 +97,7 @@ export const resume = {
     {
       name: "RIT School of Interactive Games and Media",
       position: "Backend Developer & Devops Lead",
-      startDate: "2025-06",
+      startDate: "2025-05",
       endDate: "2025-08",
       highlights: [
         "Led backend and DevOps efforts on a 20-person team, leading a full backend rewrite of a legacy Express/MySQL codebase into a modular architecture using Prisma, service/controller layers, and TypeScript",
@@ -129,4 +129,4 @@ export const resume = {
       ],
     },
   ],
-} satisfies Resume;
+} as const satisfies Resume;
