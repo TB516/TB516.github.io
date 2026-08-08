@@ -12,7 +12,7 @@
     "lint:fix": "oxlint --fix",
     "fmt": "oxfmt",
     "fmt:check": "oxfmt --check",
-    "generate:pdf": "deno run --allow-all scripts/generate-resume.ts"
+    "prepare:puppeteer": "deno run --allow-all scripts/prepare-puppeteer.ts"
   },
   "devDependencies": {
     "@jsonresume/types": "^0.2.1",

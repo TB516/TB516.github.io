@@ -27,8 +27,8 @@ jobs:
       - name: Install dependencies
         run: deno install --frozen
 
-      - name: Generate resume PDF
-        run: deno task generate:pdf
+      - name: Prepare Puppeteer
+        run: deno task prepare:puppeteer
 
       - name: Build site
         run: deno task build

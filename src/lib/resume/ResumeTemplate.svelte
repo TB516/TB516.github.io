@@ -1,9 +1,7 @@
 <script lang="ts">
   import type { Resume } from "@jsonresume/types";
 
-  import { resume as resumeData } from "$lib/data/resume";
-
-  const resume: Resume = resumeData;
+  const { resume }: { resume: Resume } = $props();
 
   const months = [
     "Jan",
@@ -29,6 +27,8 @@
   const dateRange = (entry: { date?: string; startDate?: string; endDate?: string }) =>
     entry.date ?? [formatDate(entry.startDate), formatDate(entry.endDate)].filter(Boolean).join(" – ");
 </script>
+
+<svelte:options css="injected" />
 
 <svelte:head>
   <title>{resume.basics?.name} - Resume</title>
@@ -104,18 +104,6 @@
 </main>
 
 <style>
-  @font-face {
-    font-family: XCharter;
-    src: url("./fonts/XCharter-Regular.woff2?inline") format("woff2");
-    font-weight: 400;
-  }
-
-  @font-face {
-    font-family: XCharter;
-    src: url("./fonts/XCharter-Bold.woff2?inline") format("woff2");
-    font-weight: 700;
-  }
-
   @page {
     size: Letter;
     margin: 0.35in 0.45in 0.25in;

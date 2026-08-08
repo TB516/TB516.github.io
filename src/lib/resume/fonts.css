@@ -1,0 +1,11 @@
+@font-face {
+  font-family: XCharter;
+  src: url("./fonts/XCharter-Regular.woff2?inline") format("woff2");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: XCharter;
+  src: url("./fonts/XCharter-Bold.woff2?inline") format("woff2");
+  font-weight: 700;
+}

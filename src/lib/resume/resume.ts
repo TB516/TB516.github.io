@@ -130,4 +130,4 @@ export const resume = {
       ],
     },
   ],
-} as const satisfies Resume;
+} satisfies Resume;

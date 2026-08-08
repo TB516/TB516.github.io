@@ -3,7 +3,7 @@
   "overrides": [
     {
       "files": ["src/**/*.{ts,svelte}"],
-      "excludeFiles": ["src/**/*.server.*", "src/lib/server/**"],
+      "excludeFiles": ["src/**/*.server.*", "src/lib/server/**", "src/routes/**/+server.ts"],
       "rules": {
         "no-restricted-globals": [
           "error",
