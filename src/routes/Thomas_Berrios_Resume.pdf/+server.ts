@@ -1,8 +1,9 @@
-import { render } from "svelte/server";
 import puppeteer from "puppeteer";
+import { render } from "svelte/server";
 
-import ResumeTemplate from "$lib/resume/ResumeTemplate.svelte";
 import { resume } from "$lib/resume/resume";
+import ResumeTemplate from "$lib/resume/ResumeTemplate.svelte";
+
 import fontCss from "$lib/resume/fonts.css?inline";
 
 export const prerender = true;

@@ -1,3 +1,5 @@
+<svelte:options css="injected" />
+
 <script lang="ts">
   import type { Resume } from "@jsonresume/types";
 
@@ -25,10 +27,9 @@
   };
 
   const dateRange = (entry: { date?: string; startDate?: string; endDate?: string }) =>
-    entry.date ?? [formatDate(entry.startDate), formatDate(entry.endDate)].filter(Boolean).join(" – ");
+    entry.date ??
+    [formatDate(entry.startDate), formatDate(entry.endDate)].filter(Boolean).join(" – ");
 </script>
-
-<svelte:options css="injected" />
 
 <svelte:head>
   <title>{resume.basics?.name} - Resume</title>
@@ -76,7 +77,10 @@
     {#each resume.work ?? [] as job}
       <article>
         <div class="heading">
-          <div><strong>{job.position}</strong>, {job.name}{#if job.location} – {job.location}{/if}</div>
+          <div>
+            <strong>{job.position}</strong>, {job.name}{#if job.location}
+              – {job.location}{/if}
+          </div>
           <div>{dateRange(job)}</div>
         </div>
         <ul>
