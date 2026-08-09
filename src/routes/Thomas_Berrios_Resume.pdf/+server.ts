@@ -3,7 +3,7 @@ import { render } from "svelte/server";
 
 import Resume from "./Resume.svelte";
 
-import fontCss from "./fonts.css";
+import fontCss from "./fonts.css?inline";
 
 export const prerender = true;
 
