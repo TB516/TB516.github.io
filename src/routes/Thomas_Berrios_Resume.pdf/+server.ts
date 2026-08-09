@@ -1,17 +1,14 @@
 import puppeteer from "puppeteer";
 import { render } from "svelte/server";
 
-import { resume } from "$lib/resume/resume";
-import ResumeTemplate from "$lib/resume/ResumeTemplate.svelte";
+import Resume from "./Resume.svelte";
 
-import fontCss from "$lib/resume/fonts.css?inline";
+import fontCss from "./fonts.css";
 
 export const prerender = true;
 
 export async function GET() {
-  const { head, body } = render(ResumeTemplate, {
-    props: { resume },
-  });
+  const { head, body } = render(Resume);
 
   const html = `
     <!doctype html>

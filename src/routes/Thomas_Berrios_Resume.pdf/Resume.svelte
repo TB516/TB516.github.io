@@ -1,9 +1,7 @@
 <svelte:options css="injected" />
 
 <script lang="ts">
-  import type { Resume } from "@jsonresume/types";
-
-  const { resume }: { resume: Resume } = $props();
+  import { resume } from "$lib/resume";
 
   const months = [
     "Jan",
