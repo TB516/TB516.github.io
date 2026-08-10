@@ -1,32 +1,8 @@
 <svelte:options css="injected" />
 
 <script lang="ts">
+  import { formatResumePeriods } from "$lib/resume/dates";
   import { resume } from "$lib/resume";
-
-  const months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "June",
-    "July",
-    "Aug",
-    "Sept",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
-
-  const formatDate = (date = "") => {
-    if (date.toLowerCase() === "present") return "present";
-    const [year, month] = date.split("-");
-    return month ? `${months[Number(month) - 1]} ${year}` : year;
-  };
-
-  const dateRange = (entry: { date?: string; startDate?: string; endDate?: string }) =>
-    entry.date ??
-    [formatDate(entry.startDate), formatDate(entry.endDate)].filter(Boolean).join(" – ");
 </script>
 
 <svelte:head>
@@ -43,7 +19,7 @@
       <a href={`tel:${resume.basics?.phone}`}>{resume.basics?.phone}</a>
       {#each resume.basics?.profiles ?? [] as profile}
         <span>|</span>
-        <a href={profile.url}>{profile.network}</a>
+        <a href={profile.url}>{profile.label}</a>
       {/each}
     </address>
   </header>
@@ -56,7 +32,7 @@
           <div>
             <strong>{education.institution}</strong>, {education.studyType} in {education.area}
           </div>
-          <div>{dateRange(education)}</div>
+          <div>{formatResumePeriods(education.periods)}</div>
         </div>
         <div>{education.summary}</div>
       </article>
@@ -79,7 +55,7 @@
             <strong>{job.position}</strong>, {job.name}{#if job.location}
               – {job.location}{/if}
           </div>
-          <div>{dateRange(job)}</div>
+          <div>{formatResumePeriods(job.periods)}</div>
         </div>
         <ul>
           {#each job.highlights ?? [] as highlight}<li>{highlight}</li>{/each}
@@ -94,7 +70,7 @@
       <article>
         <div class="heading">
           <strong>{project.name}</strong>
-          <div>{dateRange(project)}</div>
+          <div>{formatResumePeriods(project.periods)}</div>
         </div>
         <div>{project.roles?.join(", ")}</div>
         <ul>

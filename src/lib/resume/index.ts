@@ -1,4 +1,4 @@
-import type { Resume } from "@jsonresume/types";
+import type { Resume } from "./schema";
 
 export const resume = {
   basics: {
@@ -7,13 +7,11 @@ export const resume = {
     email: "thomas@thomasberrios.com",
     profiles: [
       {
-        network: "LinkedIn",
-        username: "thomas-berrios",
+        label: "LinkedIn",
         url: "https://linkedin.com/in/thomas-berrios",
       },
       {
-        network: "GitHub",
-        username: "TB516",
+        label: "GitHub",
         url: "https://github.com/TB516",
       },
     ],
@@ -23,15 +21,22 @@ export const resume = {
       institution: "Rochester Institute of Technology",
       area: "Game Design & Development",
       studyType: "BS",
-      startDate: "2022-08",
-      endDate: "2025-12",
+      periods: [{ start: "2022-08", end: "2025-12" }],
       summary: "summa cum laude; Minors: Software Engineering; History",
     },
   ],
   skills: [
     {
       name: "Programming Languages",
-      keywords: ["JavaScript", "TypeScript", "Node.js", "C#", "Python", "Java", "C++"],
+      keywords: [
+        "JavaScript",
+        "TypeScript",
+        "Node.js",
+        "C#",
+        "Python",
+        "Java",
+        "C++",
+      ],
     },
     {
       name: "Frameworks",
@@ -74,7 +79,10 @@ export const resume = {
     {
       name: "iD Tech",
       position: "Lead Instructor",
-      date: "Jul 2026-Aug 2026; Jun 2024-Aug 2024",
+      periods: [
+        { start: "2026-07", end: "2026-08" },
+        { start: "2024-06", end: "2024-08" },
+      ],
       location: "New York, NY",
       highlights: [
         "Led instruction for multiple technical courses, including Unreal Engine, Unity VR, C#, C++, and Python fundamentals, teaching students core software engineering and game development concepts",
@@ -85,8 +93,7 @@ export const resume = {
     {
       name: "Rochester Institute of Technology",
       position: "Teaching Assistant",
-      startDate: "2024-08",
-      endDate: "2025-12",
+      periods: [{ start: "2024-08", end: "2025-12" }],
       location: "Rochester, NY",
       highlights: [
         "Evaluated and provided feedback on C# assignments covering data structures, algorithms, object-oriented programming, and GUI development",
@@ -97,8 +104,7 @@ export const resume = {
     {
       name: "RIT School of Interactive Games and Media",
       position: "Backend Developer & Devops Lead",
-      startDate: "2025-05",
-      endDate: "2025-08",
+      periods: [{ start: "2025-05", end: "2025-08" }],
       highlights: [
         "Led backend and DevOps efforts on a 20-person team, leading a full backend rewrite of a legacy Express/MySQL codebase into a modular architecture using Prisma, service/controller layers, and TypeScript",
         "Containerized development and production environments using Docker Compose and Podman, eliminating manual database setup and improving onboarding with reproducible environments",
@@ -110,8 +116,7 @@ export const resume = {
     {
       name: "Bootc Buddy",
       roles: ["Lead Developer"],
-      startDate: "2026-06",
-      endDate: "present",
+      periods: [{ start: "2026-06", end: "present" }],
       highlights: [
         "Building a Flatpak-first bootc management app with React, TypeScript, and GTKX",
         "Built a reproducible GNOME Flatpak build and bundling pipeline with Node.js, pnpm, Vite hot module replacement, and automated scripts",
@@ -121,8 +126,7 @@ export const resume = {
     {
       name: "r2modman",
       roles: ["Open-source Contributor"],
-      startDate: "2026-02",
-      endDate: "present",
+      periods: [{ start: "2026-02", end: "present" }],
       highlights: [
         "Contributed upstream Linux/Flatpak fixes to r2modmanPlus, implementing portal-based Steam launching with xdg-open, Flatpak Steam permissions, and Steam Deck game-mode fallbacks",
         "Prepared a Flathub-compatible Flatpak distribution with AppStream metadata, desktop integration, sandbox configuration, CI builds, and a signed Cloudflare R2 repository pipeline for automatic updates",

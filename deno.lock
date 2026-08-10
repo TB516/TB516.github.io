@@ -1,7 +1,6 @@
 {
   "version": "5",
   "specifiers": {
-    "npm:@jsonresume/types@~0.2.1": "0.2.1",
     "npm:@puppeteer/browsers@^2.13.0": "2.13.2",
     "npm:@sveltejs/adapter-static@^3.0.10": "3.0.10_@sveltejs+kit@2.69.0__@sveltejs+vite-plugin-svelte@7.1.2___svelte@5.56.4___vite@8.1.2__svelte@5.56.4__typescript@6.0.3__vite@8.1.2_@sveltejs+vite-plugin-svelte@7.1.2__svelte@5.56.4__vite@8.1.2_svelte@5.56.4_typescript@6.0.3_vite@8.1.2",
     "npm:@sveltejs/kit@^2.63.0": "2.69.0_@sveltejs+vite-plugin-svelte@7.1.2__svelte@5.56.4__vite@8.1.2_svelte@5.56.4_typescript@6.0.3_vite@8.1.2",
@@ -72,9 +71,6 @@
         "@jridgewell/resolve-uri",
         "@jridgewell/sourcemap-codec"
       ]
-    },
-    "@jsonresume/types@0.2.1": {
-      "integrity": "sha512-Z+d4EUbpybCMsYaR0aJsbbqqwX6jSfn88WantnduwWs9Bx5zGaef7l1jWWFoALE25/XPvqLqIQNgO4twv6S8KQ=="
     },
     "@napi-rs/wasm-runtime@1.1.6_@emnapi+core@1.11.1_@emnapi+runtime@1.11.1": {
       "integrity": "sha512-ZLv/JdUfkvOy9eCnnBaGfiO+XimbjebAeO+MRQqD/B+FR1tnRN0tpKSJHRbE8sFfS6aqsXZ67TQjfwfsxULVbg==",
@@ -1326,7 +1322,6 @@
   "workspace": {
     "packageJson": {
       "dependencies": [
-        "npm:@jsonresume/types@~0.2.1",
         "npm:@puppeteer/browsers@^2.13.0",
         "npm:@sveltejs/adapter-static@^3.0.10",
         "npm:@sveltejs/kit@^2.63.0",

@@ -15,7 +15,6 @@
     "prepare:puppeteer": "deno run --allow-all scripts/prepare-puppeteer.ts"
   },
   "devDependencies": {
-    "@jsonresume/types": "^0.2.1",
     "@puppeteer/browsers": "^2.13.0",
     "@sveltejs/adapter-static": "^3.0.10",
     "@sveltejs/kit": "^2.63.0",
