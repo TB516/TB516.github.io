@@ -1,16 +1,4 @@
-type Month =
-  | "01"
-  | "02"
-  | "03"
-  | "04"
-  | "05"
-  | "06"
-  | "07"
-  | "08"
-  | "09"
-  | "10"
-  | "11"
-  | "12";
+type Month = "01" | "02" | "03" | "04" | "05" | "06" | "07" | "08" | "09" | "10" | "11" | "12";
 
 /** A calendar month in the `YYYY-MM` form used throughout the résumé. */
 export type YearMonth = `${number}-${Month}`;
@@ -43,6 +31,10 @@ export interface Basics {
   name: string;
   /** Professional title or headline. */
   label: string;
+  /** Concise professional overview used in page metadata. */
+  description: string;
+  /** Current availability or employment-search status. */
+  availability?: string;
   email: string;
   /** Public professional and social profiles. */
   profiles: Link[];
@@ -55,8 +47,12 @@ export interface Education extends Dated {
   area: string;
   /** Degree or credential earned. */
   studyType: string;
-  /** Honors, minors, or other relevant context about the program. */
-  summary: string;
+  /** Academic distinctions awarded as part of the program. */
+  honors?: string[];
+  /** Secondary fields of study completed alongside the primary degree. */
+  minors?: string[];
+  /** Other relevant context that does not fit a structured field. */
+  summary?: string;
 }
 
 /** A category of related technical or professional skills. */
@@ -67,6 +63,8 @@ export interface SkillGroup {
 
 /** Accomplishments, technologies, and references shared by work and project entries. */
 interface ResumeEntry {
+  /** Brief overview used in portfolio summaries. */
+  summary: string;
   /** Concrete accomplishments, responsibilities, or outcomes. */
   highlights: string[];
   /** Technologies, tools, and areas of expertise applied to the entry. */
@@ -82,8 +80,6 @@ export interface WorkExperience extends ResumeEntry, Dated {
   /** Title held within the organization. */
   position: string;
   location?: string;
-  /** Brief overview of the role's scope and primary responsibilities. */
-  summary?: string;
 }
 
 /** A personal, academic, professional, or open-source project. */
@@ -91,8 +87,6 @@ export interface Project extends ResumeEntry, Dated {
   name: string;
   /** Capacities in which the project was created or supported. */
   roles: string[];
-  /** Plain-language overview of the project's purpose and intended users. */
-  description?: string;
 }
 
 /** Complete source data for every résumé representation. */

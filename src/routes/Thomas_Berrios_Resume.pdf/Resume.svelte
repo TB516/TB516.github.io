@@ -1,23 +1,27 @@
 <svelte:options css="injected" />
 
 <script lang="ts">
-  import { formatResumePeriods } from "$lib/resume/dates";
   import { resume } from "$lib/resume";
+  import { formatResumePeriods } from "$lib/resume/dates";
+  import { formatEducationDetails } from "$lib/resume/education";
+
+  const work = resume.work.slice(0, 3);
+  const projects = resume.projects.slice(0, 2);
 </script>
 
 <svelte:head>
-  <title>{resume.basics?.name} - Resume</title>
+  <title>{resume.basics.name} - Resume</title>
 </svelte:head>
 
 <main>
   <header>
-    <h1>{resume.basics?.name}</h1>
-    <div class="headline">{resume.basics?.label}</div>
+    <h1>{resume.basics.name}</h1>
+    <div class="headline">{resume.basics.label}</div>
     <address>
-      <a href={`mailto:${resume.basics?.email}`}>{resume.basics?.email}</a>
+      <a href={`mailto:${resume.basics.email}`}>{resume.basics.email}</a>
       <span>|</span>
-      <a href={`tel:${resume.basics?.phone}`}>{resume.basics?.phone}</a>
-      {#each resume.basics?.profiles ?? [] as profile}
+      <a href={`tel:${resume.basics.phone}`}>{resume.basics.phone}</a>
+      {#each resume.basics.profiles as profile}
         <span>|</span>
         <a href={profile.url}>{profile.label}</a>
       {/each}
@@ -26,7 +30,7 @@
 
   <section>
     <h2>Education</h2>
-    {#each resume.education ?? [] as education}
+    {#each resume.education as education}
       <article>
         <div class="heading">
           <div>
@@ -34,31 +38,31 @@
           </div>
           <div>{formatResumePeriods(education.periods)}</div>
         </div>
-        <div>{education.summary}</div>
+        <div>{formatEducationDetails(education)}</div>
       </article>
     {/each}
   </section>
 
   <section>
     <h2>Technical Skills</h2>
-    {#each resume.skills ?? [] as skill}
-      <div class="skill"><strong>{skill.name}:</strong> {skill.keywords?.join(", ")}</div>
+    {#each resume.skills as skill}
+      <div class="skill"><strong>{skill.name}:</strong> {skill.keywords.join(", ")}</div>
     {/each}
   </section>
 
   <section>
     <h2>Work Experience</h2>
-    {#each resume.work ?? [] as job}
+    {#each work as job}
       <article>
         <div class="heading">
           <div>
             <strong>{job.position}</strong>, {job.name}{#if job.location}
               – {job.location}{/if}
           </div>
-          <div>{formatResumePeriods(job.periods)}</div>
+          <div>{formatResumePeriods(job.periods, "\n")}</div>
         </div>
         <ul>
-          {#each job.highlights ?? [] as highlight}<li>{highlight}</li>{/each}
+          {#each job.highlights as highlight}<li>{highlight}</li>{/each}
         </ul>
       </article>
     {/each}
@@ -66,15 +70,15 @@
 
   <section>
     <h2>Projects &amp; Open Source</h2>
-    {#each resume.projects ?? [] as project}
+    {#each projects as project}
       <article>
         <div class="heading">
           <strong>{project.name}</strong>
-          <div>{formatResumePeriods(project.periods)}</div>
+          <div>{formatResumePeriods(project.periods, "\n")}</div>
         </div>
-        <div>{project.roles?.join(", ")}</div>
+        <div>{project.roles.join(", ")}</div>
         <ul>
-          {#each project.highlights ?? [] as highlight}<li>{highlight}</li>{/each}
+          {#each project.highlights as highlight}<li>{highlight}</li>{/each}
         </ul>
       </article>
     {/each}
@@ -158,7 +162,8 @@
 
   .heading > :last-child {
     flex: none;
-    white-space: nowrap;
+    text-align: right;
+    white-space: pre-line;
   }
 
   ul {
