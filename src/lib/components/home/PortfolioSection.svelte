@@ -16,6 +16,7 @@
       primaryMeta?: string;
       roleTitle: string;
       summary: string;
+      keywords?: string[];
       href: string;
     }>;
     alternate?: boolean;

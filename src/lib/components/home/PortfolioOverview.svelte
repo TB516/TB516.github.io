@@ -12,6 +12,7 @@
     primaryMeta: job.location,
     roleTitle: job.roles.join(", "),
     summary: job.summary,
+    keywords: job.keywords,
     href: `/experience/${getResumeEntrySlug(job)}`,
   }));
 
@@ -21,6 +22,7 @@
     primaryTitle: project.name,
     roleTitle: project.roles.join(", "),
     summary: project.summary,
+    keywords: project.keywords,
     href: `/projects/${getResumeEntrySlug(project)}`,
   }));
 </script>

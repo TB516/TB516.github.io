@@ -1,4 +1,6 @@
 <script lang="ts">
+  import EntryKeywords from "$lib/components/resume/EntryKeywords.svelte";
+
   let {
     date,
     primaryLabel,
@@ -6,6 +8,7 @@
     primaryMeta,
     roleTitle,
     summary,
+    keywords,
     href,
   }: {
     date: string;
@@ -14,6 +17,7 @@
     primaryMeta?: string;
     roleTitle: string;
     summary: string;
+    keywords?: string[];
     href: string;
   } = $props();
 </script>
@@ -30,6 +34,12 @@
     <p class="entry-title">{roleTitle}</p>
   </div>
   <p class="summary">{summary}</p>
+  {#if keywords?.length}
+    <div class="entry-keywords">
+      <span class="label">Skills & technology</span>
+      <EntryKeywords {keywords} compact limit={3} moreHref={`${href}#entry-technologies`} />
+    </div>
+  {/if}
   <a class="entry-link" {href} aria-label={`View details for ${primaryTitle}`}>
     View details<span class="link-arrow" aria-hidden="true">→</span>
   </a>
@@ -40,7 +50,7 @@
     min-height: 290px;
     padding: clamp(22px, 2vw, 30px);
     display: grid;
-    grid-template-rows: auto auto auto 1fr auto;
+    grid-template-rows: auto auto auto 1fr auto auto;
     gap: 22px;
     align-items: start;
     background: var(--color-raised);
@@ -84,6 +94,10 @@
     color: var(--color-text-muted);
     font-size: 17px;
     line-height: 1.55;
+  }
+
+  .entry-keywords {
+    align-self: end;
   }
 
   .entry-link {

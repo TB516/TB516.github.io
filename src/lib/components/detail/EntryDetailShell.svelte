@@ -1,4 +1,5 @@
 <script lang="ts">
+  import EntryKeywords from "$lib/components/resume/EntryKeywords.svelte";
   import { formatResumePeriod } from "$lib/resume/dates";
   import type { ResumeEntry } from "$lib/resume/schema";
 
@@ -57,13 +58,11 @@
       </ul>
 
       {#if entry.keywords?.length || entry.links?.length}
-        <div class="entry-extras">
+        <div class:with-links={entry.links?.length} class="entry-extras">
           {#if entry.keywords?.length}
-            <section aria-labelledby="technologies-heading">
-              <h2 id="technologies-heading">Technologies</h2>
-              <ul class="keyword-list">
-                {#each entry.keywords as keyword}<li>{keyword}</li>{/each}
-              </ul>
+            <section id="entry-technologies" aria-labelledby="technologies-heading">
+              <h2 id="technologies-heading">Skills, tools & technology</h2>
+              <EntryKeywords keywords={entry.keywords} />
             </section>
           {/if}
 
@@ -221,16 +220,19 @@
   .entry-extras {
     margin-top: clamp(34px, 5vh, 60px);
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 22px;
+  }
+
+  .entry-extras.with-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .entry-extras > section {
     padding: clamp(24px, 2.4vw, 36px);
     background: var(--color-surface);
+    scroll-margin-top: calc(var(--header-height) + 24px);
   }
 
-  .keyword-list,
   .entry-links {
     margin: 20px 0 0;
     padding: 0;
@@ -240,7 +242,6 @@
     list-style: none;
   }
 
-  .keyword-list li,
   .entry-links a {
     color: var(--color-text-muted);
   }
@@ -320,8 +321,11 @@
       font-size: 18px;
     }
 
-    .entry-extras {
+    .entry-extras.with-links {
       grid-template-columns: 1fr;
+    }
+
+    .entry-extras {
       gap: 7px;
     }
   }
