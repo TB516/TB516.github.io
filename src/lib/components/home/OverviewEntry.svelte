@@ -1,32 +1,25 @@
 <script lang="ts">
   import EntryKeywords from "$lib/components/resume/EntryKeywords.svelte";
-  import type { Link } from "$lib/resume/schema";
+  import { formatResumePeriod } from "$lib/resume/dates";
+  import type { ResumeEntry } from "$lib/resume/schema";
+  import { getResumeEntrySlug } from "$lib/resume/slugs";
 
   let {
-    date,
-    primaryLabel,
-    primaryTitle,
-    primaryMeta,
-    roleTitle,
-    summary,
-    keywords,
-    links,
-    href,
+    entry,
+    kind,
   }: {
-    date: string;
-    primaryLabel: string;
-    primaryTitle: string;
-    primaryMeta?: string;
-    roleTitle: string;
-    summary: string;
-    keywords?: string[];
-    links?: Link[];
-    href: string;
+    entry: ResumeEntry;
+    kind: "experience" | "project";
   } = $props();
 
+  const date = $derived(formatResumePeriod(entry.period));
+  const primaryLabel = $derived(kind === "experience" ? "Company" : "Project");
+  const roleTitle = $derived(entry.roles.join(", "));
+  const entryPath = $derived(kind === "experience" ? "experience" : "projects");
+  const href = $derived(`/${entryPath}/${getResumeEntrySlug(entry)}`);
   const spokenDate = $derived(date.replace(/\s*\n\s*/g, ", "));
   const entryContext = $derived(
-    `${roleTitle} ${primaryLabel === "Company" ? "at" : "on"} ${primaryTitle}, ${spokenDate}`,
+    `${roleTitle} ${kind === "experience" ? "at" : "on"} ${entry.name}, ${spokenDate}`,
   );
 </script>
 
@@ -34,19 +27,19 @@
   <time>{date}</time>
   <div>
     <span class="label">{primaryLabel}</span>
-    <h3>{primaryTitle}</h3>
-    {#if primaryMeta}<p>{primaryMeta}</p>{/if}
+    <h3>{entry.name}</h3>
+    {#if entry.location}<p>{entry.location}</p>{/if}
   </div>
   <div>
     <span class="label">Role</span>
     <p class="entry-title">{roleTitle}</p>
   </div>
-  <p class="summary">{summary}</p>
-  {#if keywords?.length}
+  <p class="summary">{entry.summary}</p>
+  {#if entry.keywords?.length}
     <div class="entry-keywords">
       <span class="label">Skills & technology</span>
       <EntryKeywords
-        {keywords}
+        keywords={entry.keywords}
         compact
         limit={3}
         moreHref={`${href}#entry-technologies`}
@@ -58,14 +51,14 @@
     <a class="entry-link" {href} aria-label={`View details: ${entryContext}`}>
       View details<span class="link-arrow" aria-hidden="true">→</span>
     </a>
-    {#if links?.length}
+    {#if entry.links?.length}
       <div class="external-links">
-        {#each links as link}
+        {#each entry.links as link}
           <a
             href={link.url}
             target="_blank"
             rel="noreferrer"
-            aria-label={`${link.label} for ${primaryTitle}, opens in a new tab`}
+            aria-label={`${link.label} for ${entry.name}, opens in a new tab`}
           >
             {link.label}<span class="link-arrow" aria-hidden="true">↗</span>
           </a>

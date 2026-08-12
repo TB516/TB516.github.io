@@ -3,6 +3,12 @@
   import { page } from "$app/state";
   import { resume } from "$lib/resume";
 
+  const sections = [
+    { id: "experience", label: "Experience" },
+    { id: "projects", label: "Projects" },
+    { id: "skills", label: "Skills" },
+  ];
+
   const isHome = $derived(page.url.pathname === "/");
 
   const isUnmodifiedPrimaryClick = (event: MouseEvent) =>
@@ -41,18 +47,12 @@
 <header class="site-header">
   <a class="name" href="/" onclick={navigateToHomeTop}>{resume.basics.name}</a>
   <nav aria-label="Main navigation">
-    <a
-      href={isHome ? "#experience" : "/#experience"}
-      onclick={(event) => navigateToHomeSection(event, "experience")}>Experience</a
-    >
-    <a
-      href={isHome ? "#projects" : "/#projects"}
-      onclick={(event) => navigateToHomeSection(event, "projects")}>Projects</a
-    >
-    <a
-      href={isHome ? "#skills" : "/#skills"}
-      onclick={(event) => navigateToHomeSection(event, "skills")}>Skills</a
-    >
+    {#each sections as section}
+      <a
+        href={isHome ? `#${section.id}` : `/#${section.id}`}
+        onclick={(event) => navigateToHomeSection(event, section.id)}>{section.label}</a
+      >
+    {/each}
   </nav>
   <a
     class="resume-link"

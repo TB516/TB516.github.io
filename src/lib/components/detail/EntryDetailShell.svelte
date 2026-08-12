@@ -38,7 +38,7 @@
   </div>
 {/snippet}
 
-<main class="detail-page">
+<main>
   <section class="entry-intro" aria-labelledby="entry-title">
     <div class="entry-inner">
       <a class="back-link" href={backHref}>
@@ -84,7 +84,7 @@
       </ul>
 
       {#if hasKeywords || hasLinks}
-        <div class:with-links={hasLinks} class="entry-extras">
+        <div class:split={hasLinks && hasKeywords} class="entry-extras">
           {#if hasKeywords}
             <section id="entry-technologies" aria-labelledby="technologies-heading">
               <h2 id="technologies-heading">Skills, tools & technology</h2>
@@ -249,7 +249,7 @@
     gap: 22px;
   }
 
-  .entry-extras.with-links {
+  .entry-extras.split {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -348,7 +348,7 @@
       font-size: 18px;
     }
 
-    .entry-extras.with-links {
+    .entry-extras.split {
       grid-template-columns: 1fr;
     }
 

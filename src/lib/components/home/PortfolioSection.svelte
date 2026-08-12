@@ -1,19 +1,19 @@
 <script lang="ts">
-  import type { ComponentProps } from "svelte";
+  import type { ResumeEntry } from "$lib/resume/schema";
 
   import OverviewEntry from "./OverviewEntry.svelte";
-
-  type OverviewEntryProps = ComponentProps<typeof OverviewEntry>;
 
   let {
     id,
     title,
     entries,
+    kind,
     alternate = false,
   }: {
     id: string;
     title: string;
-    entries: OverviewEntryProps[];
+    entries: readonly ResumeEntry[];
+    kind: "experience" | "project";
     alternate?: boolean;
   } = $props();
 </script>
@@ -22,8 +22,8 @@
   <div class="section-inner">
     <h2>{title}</h2>
     <div class="entry-list">
-      {#each entries as entry (`${entry.primaryTitle}-${entry.date}`)}
-        <OverviewEntry {...entry} />
+      {#each entries as entry}
+        <OverviewEntry {entry} {kind} />
       {/each}
     </div>
   </div>
