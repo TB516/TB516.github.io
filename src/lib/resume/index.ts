@@ -68,7 +68,7 @@ export const resume = {
     },
     {
       name: "Agentic Development",
-      keywords: ["OpenAI Codex", "Claude Code", "T3 Code"],
+      keywords: ["OpenAI API", "OpenAI Codex", "Claude Code", "T3 Code"],
     },
   ],
   work: [
@@ -77,17 +77,19 @@ export const resume = {
       roles: ["Lead Instructor – Teen Academy"],
       period: { start: "2026-07", end: "2026-08" },
       location: "New York, NY",
-      summary: "Led project-based courses in Unreal Engine 5, Python, AI, and agentic development",
+      summary:
+        "Led project-based courses in Unreal Engine 5, Python, AI, and OpenAI API development",
       highlights: [
-        "Led project-based courses in Unreal Engine 5 and Python covering programming, game design, software engineering, and debugging",
-        "Coached students as they applied AI and agentic development workflows to build and iterate on software and game prototypes",
+        "Led project-based instruction in Unreal Engine 5 and Python, teaching game design, software engineering, debugging, and AI application development with OpenAI APIs",
+        "Coached students through hands-on game and software projects, helping them apply agentic workflows to turn course concepts into working prototypes",
         "Partnered with camp leadership to coordinate daily operations, supervise students, and maintain a safe, engaging learning environment",
       ],
       keywords: [
         "Unreal Engine 5",
         "Python",
-        "Agentic Development",
+        "OpenAI API",
         "AI",
+        "Agentic Development",
         "Game Design",
         "Software Engineering",
         "Debugging",
@@ -99,7 +101,7 @@ export const resume = {
       period: { start: "2024-08", end: "2025-12" },
       location: "Rochester, NY",
       summary:
-        "Evaluated C# assignments and supported students with debugging and project implementation",
+        "Evaluated C# coursework and guided students through debugging and project implementation",
       highlights: [
         "Evaluated C# assignments and delivered actionable feedback on data structures, algorithms, object-oriented programming, and GUI development",
         "Supported students in debugging and implementing projects with C#, Windows Forms, and MonoGame",
@@ -120,7 +122,8 @@ export const resume = {
       name: "RIT School of Interactive Games and Media",
       roles: ["Backend Developer", "DevOps Lead"],
       period: { start: "2025-05", end: "2025-08" },
-      summary: "Led a TypeScript backend rewrite and DevOps work for a 20-person team",
+      summary:
+        "Led a TypeScript backend rewrite and managed production infrastructure for a 20-person team",
       highlights: [
         "Led backend and DevOps work on a 20-person team, rewriting a legacy Express/MySQL backend as a modular TypeScript architecture with Prisma and service/controller layers",
         "Containerized development and production environments with Docker Compose and Podman, eliminating manual database setup and streamlining onboarding with reproducible environments",
@@ -145,10 +148,11 @@ export const resume = {
       roles: ["Lead Instructor – Teen Academy"],
       period: { start: "2024-07", end: "2024-08" },
       location: "New York, NY",
-      summary: "Led project-based C++ and Unreal Engine instruction for the Teen Academy program",
+      summary:
+        "Led project-based C++ and Unreal Engine instruction with an emphasis on graphics and gameplay programming",
       highlights: [
-        "Led project-based C++ and Unreal Engine instruction covering software engineering, gameplay programming, and game development",
-        "Mentored students through hands-on game projects in Unreal Engine and C++ graphics programming with SFML and Box2D, from initial design through final presentation",
+        "Led project-based instruction in C++ and Unreal Engine, teaching graphics programming, software engineering, gameplay programming, and game development",
+        "Mentored students through hands-on projects using SFML and Box2D, from initial design and implementation through debugging and final presentation",
         "Partnered with the camp director to coordinate daily operations, supervise students, and plan activities and off-site trips",
       ],
       keywords: [
@@ -167,7 +171,8 @@ export const resume = {
       roles: ["Lead Instructor – Tech Camp"],
       period: { start: "2024-06", end: "2024-07" },
       location: "New York, NY",
-      summary: "Led project-based courses spanning Unreal Engine, Unity VR, C#, C++, and Python",
+      summary:
+        "Led project-based courses across programming, game development, virtual reality, and machine learning",
       highlights: [
         "Taught Unreal Engine, Unity VR, C#, C++, and Python through hands-on lessons in software engineering and game development",
         "Guided students through projects spanning 3D asset creation, API-driven features, and introductory machine learning workflows",
@@ -190,7 +195,7 @@ export const resume = {
       roles: ["Lead Developer"],
       period: { start: "2026-08", end: "present" },
       summary:
-        "Developing a VS Code extension that uses Flatpaks as authoritative, devcontainer-like development environments",
+        "Developing a VS Code extension that turns Flatpaks into authoritative, devcontainer-like development environments",
       highlights: [
         "Building a VS Code extension that connects workspaces to Flatpak environments, creating a devcontainer-like workflow for reproducible Linux development",
         "Treating the connected Flatpak as the authoritative development environment so projects use its compilers, SDKs, language servers, and dependencies rather than tools installed on the host",
@@ -210,11 +215,12 @@ export const resume = {
       name: "r2modman",
       roles: ["Open-source Contributor"],
       period: { start: "2026-02", end: "present" },
-      summary: "Contributing upstream Linux and Flatpak fixes to r2modmanPlus",
+      summary:
+        "Building Linux and Flatpak distribution, CI/CD, and update infrastructure for r2modmanPlus alongside upstream compatibility fixes",
       highlights: [
-        "Contributed Linux and Flatpak fixes upstream to r2modmanPlus, implementing portal-based Steam launching with xdg-open, Flatpak Steam permissions, and Steam Deck game-mode fallbacks",
-        "Prepared a Flathub-compatible Flatpak distribution with AppStream metadata, desktop integration, sandbox configuration, CI builds, and a signed Cloudflare R2 repository pipeline for automatic updates",
-        "Continue to triage Linux and Flatpak issues, validate changes across Steam environments, and submit upstream fixes as the project evolves",
+        "Built an end-to-end Flatpak distribution pipeline for r2modmanPlus with sandbox configuration, AppStream metadata, desktop integration, automated CI builds, and signed updates through a Cloudflare R2 repository",
+        "Contributed Linux and Flatpak compatibility fixes upstream, implementing portal-based Steam launching with xdg-open, Flatpak Steam permissions, and Steam Deck game-mode fallbacks",
+        "Continue to maintain the packaging and update infrastructure, validate changes across Steam environments, triage Linux and Flatpak issues, and submit upstream fixes",
       ],
       keywords: [
         "Linux",
