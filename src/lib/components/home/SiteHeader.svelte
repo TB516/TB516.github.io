@@ -5,17 +5,23 @@
 
   const isHome = $derived(page.url.pathname === "/");
 
-  async function navigateToHomeSection(event: MouseEvent, id: string) {
-    if (
-      !isHome ||
-      event.button !== 0 ||
-      event.metaKey ||
-      event.ctrlKey ||
-      event.shiftKey ||
-      event.altKey
-    ) {
-      return;
+  const isUnmodifiedPrimaryClick = (event: MouseEvent) =>
+    event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey;
+
+  async function navigateToHomeTop(event: MouseEvent) {
+    if (!isHome || !isUnmodifiedPrimaryClick(event)) return;
+
+    event.preventDefault();
+
+    if (page.url.hash) {
+      await goto("/", { noScroll: true, keepFocus: true });
     }
+
+    window.scrollTo(0, 0);
+  }
+
+  async function navigateToHomeSection(event: MouseEvent, id: string) {
+    if (!isHome || !isUnmodifiedPrimaryClick(event)) return;
 
     const target = document.getElementById(id);
     if (!target) return;
@@ -33,7 +39,7 @@
 </script>
 
 <header class="site-header">
-  <a class="name" href={isHome ? "#" : "/"}>{resume.basics.name}</a>
+  <a class="name" href="/" onclick={navigateToHomeTop}>{resume.basics.name}</a>
   <nav aria-label="Main navigation">
     <a
       href={isHome ? "#experience" : "/#experience"}
