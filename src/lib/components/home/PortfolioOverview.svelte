@@ -1,6 +1,7 @@
 <script lang="ts">
   import { resume } from "$lib/resume";
   import { formatResumePeriod } from "$lib/resume/dates";
+  import { getResumeEntrySlug } from "$lib/resume/slugs";
 
   import PortfolioSection from "./PortfolioSection.svelte";
 
@@ -11,6 +12,7 @@
     primaryMeta: job.location,
     roleTitle: job.roles.join(", "),
     summary: job.summary,
+    href: `/experience/${getResumeEntrySlug(job)}`,
   }));
 
   const projectEntries = resume.projects.map((project) => ({
@@ -19,6 +21,7 @@
     primaryTitle: project.name,
     roleTitle: project.roles.join(", "),
     summary: project.summary,
+    href: `/projects/${getResumeEntrySlug(project)}`,
   }));
 </script>
 

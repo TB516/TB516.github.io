@@ -1,16 +1,52 @@
 <script lang="ts">
+  import { goto } from "$app/navigation";
   import { page } from "$app/state";
   import { resume } from "$lib/resume";
 
   const isHome = $derived(page.url.pathname === "/");
+
+  async function navigateToHomeSection(event: MouseEvent, id: string) {
+    if (
+      !isHome ||
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey
+    ) {
+      return;
+    }
+
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    event.preventDefault();
+
+    const hash = `#${id}`;
+    if (page.url.hash !== hash) {
+      await goto(hash, { noScroll: true, keepFocus: true });
+    }
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
+  }
 </script>
 
 <header class="site-header">
   <a class="name" href={isHome ? "#" : "/"}>{resume.basics.name}</a>
   <nav aria-label="Main navigation">
-    <a href={isHome ? "#experience" : "/#experience"}>Experience</a>
-    <a href={isHome ? "#projects" : "/#projects"}>Projects</a>
-    <a href={isHome ? "#skills" : "/#skills"}>Skills</a>
+    <a
+      href={isHome ? "#experience" : "/#experience"}
+      onclick={(event) => navigateToHomeSection(event, "experience")}>Experience</a
+    >
+    <a
+      href={isHome ? "#projects" : "/#projects"}
+      onclick={(event) => navigateToHomeSection(event, "projects")}>Projects</a
+    >
+    <a
+      href={isHome ? "#skills" : "/#skills"}
+      onclick={(event) => navigateToHomeSection(event, "skills")}>Skills</a
+    >
   </nav>
   <a class="resume-link" href="/Thomas_Berrios_Resume.pdf" target="_blank" rel="noreferrer"
     >Résumé<span class="link-arrow" aria-hidden="true">↗</span></a

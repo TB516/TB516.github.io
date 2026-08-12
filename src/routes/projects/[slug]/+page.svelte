@@ -1,7 +1,6 @@
 <script lang="ts">
   import EntryDetailShell from "$lib/components/detail/EntryDetailShell.svelte";
   import { resume } from "$lib/resume";
-  import { formatResumePeriod } from "$lib/resume/dates";
 
   import type { PageProps } from "./$types";
 
@@ -13,11 +12,4 @@
   <meta name="description" content={data.entry.summary} />
 </svelte:head>
 
-<EntryDetailShell
-  kind="Project"
-  title={data.entry.name}
-  role={data.entry.roles.join(", ")}
-  period={formatResumePeriod(data.entry.period)}
-  summary={data.entry.summary}
-  backHref="/#projects"
-/>
+<EntryDetailShell kind="Project" entry={data.entry} backHref="/#projects" />

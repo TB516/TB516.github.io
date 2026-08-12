@@ -6,6 +6,7 @@
     primaryMeta,
     roleTitle,
     summary,
+    href,
   }: {
     date: string;
     primaryLabel: string;
@@ -13,21 +14,25 @@
     primaryMeta?: string;
     roleTitle: string;
     summary: string;
+    href: string;
   } = $props();
 </script>
 
 <article>
   <time>{date}</time>
   <div>
-    <span>{primaryLabel}</span>
+    <span class="label">{primaryLabel}</span>
     <h3>{primaryTitle}</h3>
     {#if primaryMeta}<p>{primaryMeta}</p>{/if}
   </div>
   <div>
-    <span>Role</span>
+    <span class="label">Role</span>
     <p class="entry-title">{roleTitle}</p>
   </div>
   <p class="summary">{summary}</p>
+  <a class="entry-link" {href} aria-label={`View details for ${primaryTitle}`}>
+    View details<span class="link-arrow" aria-hidden="true">→</span>
+  </a>
 </article>
 
 <style>
@@ -35,7 +40,7 @@
     min-height: 290px;
     padding: clamp(22px, 2vw, 30px);
     display: grid;
-    grid-template-rows: auto auto auto 1fr;
+    grid-template-rows: auto auto auto 1fr auto;
     gap: 22px;
     align-items: start;
     background: var(--color-raised);
@@ -51,7 +56,7 @@
     white-space: pre-line;
   }
 
-  span {
+  .label {
     color: var(--color-accent);
     font-size: 11px;
     font-weight: 700;
@@ -81,12 +86,23 @@
     line-height: 1.55;
   }
 
+  .entry-link {
+    width: fit-content;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    align-self: end;
+    color: var(--color-text);
+    font-size: 15px;
+    font-weight: 600;
+  }
+
   @media (min-width: 901px) {
     time {
       font-size: 14px;
     }
 
-    span {
+    .label {
       font-size: 12px;
     }
 
@@ -101,6 +117,10 @@
 
     .summary {
       font-size: 18px;
+    }
+
+    .entry-link {
+      font-size: 16px;
     }
   }
 
