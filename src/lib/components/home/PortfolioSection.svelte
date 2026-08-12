@@ -76,7 +76,7 @@
     }
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 1200px) {
     .entry-list {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
