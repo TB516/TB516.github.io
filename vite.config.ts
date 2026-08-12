@@ -10,7 +10,7 @@ export default defineConfig({
         runes: ({ filename }) =>
           filename.split(/[/\\]/).includes("node_modules") ? undefined : true,
       },
-      adapter: adapter(),
+      adapter: adapter({ fallback: "404.html" }),
       typescript: {
         config: (config) => {
           config.include.push("../scripts/**/*.ts");
