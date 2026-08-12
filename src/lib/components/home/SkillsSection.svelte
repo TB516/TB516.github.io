@@ -122,6 +122,12 @@
     font-size: 14px;
   }
 
+  .contact-links a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
   .contact-email {
     font-size: 18px;
   }

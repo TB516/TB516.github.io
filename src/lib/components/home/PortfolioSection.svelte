@@ -1,7 +1,9 @@
 <script lang="ts">
-  import type { Link } from "$lib/resume/schema";
+  import type { ComponentProps } from "svelte";
 
   import OverviewEntry from "./OverviewEntry.svelte";
+
+  type OverviewEntryProps = ComponentProps<typeof OverviewEntry>;
 
   let {
     id,
@@ -11,17 +13,7 @@
   }: {
     id: string;
     title: string;
-    entries: Array<{
-      date: string;
-      primaryLabel: string;
-      primaryTitle: string;
-      primaryMeta?: string;
-      roleTitle: string;
-      summary: string;
-      keywords?: string[];
-      links?: Link[];
-      href: string;
-    }>;
+    entries: OverviewEntryProps[];
     alternate?: boolean;
   } = $props();
 </script>

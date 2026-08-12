@@ -16,12 +16,16 @@
   const role = $derived(entry.roles.join(", "));
   const period = $derived(formatResumePeriod(entry.period));
   const backLabel = $derived(kind === "Project" ? "projects" : "experience");
+  const links = $derived(entry.links ?? []);
+  const keywords = $derived(entry.keywords ?? []);
+  const hasLinks = $derived(links.length > 0);
+  const hasKeywords = $derived(keywords.length > 0);
 </script>
 
 {#snippet entryLinks(headingId: string)}
   <h2 id={headingId}>Links</h2>
   <div class="entry-links">
-    {#each entry.links ?? [] as link}
+    {#each links as link}
       <a
         href={link.url}
         target="_blank"
@@ -58,7 +62,7 @@
         </section>
       </div>
 
-      {#if entry.links?.length}
+      {#if hasLinks}
         <section class="mobile-entry-links" aria-labelledby="mobile-links-heading">
           {@render entryLinks("mobile-links-heading")}
         </section>
@@ -79,16 +83,16 @@
         {/each}
       </ul>
 
-      {#if entry.keywords?.length || entry.links?.length}
-        <div class:with-links={entry.links?.length} class="entry-extras">
-          {#if entry.keywords?.length}
+      {#if hasKeywords || hasLinks}
+        <div class:with-links={hasLinks} class="entry-extras">
+          {#if hasKeywords}
             <section id="entry-technologies" aria-labelledby="technologies-heading">
               <h2 id="technologies-heading">Skills, tools & technology</h2>
-              <EntryKeywords keywords={entry.keywords} />
+              <EntryKeywords {keywords} />
             </section>
           {/if}
 
-          {#if entry.links?.length}
+          {#if hasLinks}
             <section class="desktop-entry-links" aria-labelledby="desktop-links-heading">
               {@render entryLinks("desktop-links-heading")}
             </section>
@@ -124,6 +128,7 @@
   }
 
   .back-link {
+    min-height: 44px;
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -256,14 +261,15 @@
 
   .entry-links {
     margin: 20px 0 0;
-    padding: 0;
     display: flex;
     gap: 10px 20px;
     flex-wrap: wrap;
-    list-style: none;
   }
 
   .entry-links a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
     color: var(--color-text-muted);
   }
 

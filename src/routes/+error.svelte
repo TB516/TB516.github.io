@@ -81,6 +81,12 @@
     color: var(--color-text-muted);
   }
 
+  nav a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
   .home-link {
     color: var(--color-text);
   }

@@ -62,8 +62,10 @@
   }
 
   .email {
-    display: block;
+    min-height: 44px;
     margin-top: 10px;
+    display: inline-flex;
+    align-items: center;
     color: var(--color-text-muted);
     font-size: 19px;
     overflow-wrap: anywhere;
@@ -76,6 +78,12 @@
     flex-wrap: wrap;
     color: var(--color-text-muted);
     font-size: 14px;
+  }
+
+  nav a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
   }
 
   .education-facts article {

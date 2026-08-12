@@ -74,6 +74,12 @@
     backdrop-filter: blur(14px);
   }
 
+  .site-header a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
   .name {
     justify-self: start;
     font-weight: 650;
