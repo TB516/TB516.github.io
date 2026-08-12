@@ -191,6 +191,34 @@ export const resume = {
   ],
   projects: [
     {
+      name: "sveltekit-pdf",
+      roles: ["Lead Developer"],
+      period: { start: "2026-08", end: "present" },
+      summary:
+        "Building a typed SvelteKit library for rendering server-side Svelte components as configurable PDF responses",
+      highlights: [
+        "Designed a type-safe SvelteKit library that turns server-rendered Svelte components into configurable PDF responses with custom data, fonts, and download behavior",
+        "Built a reusable PDF generation service that shares browser resources for performance while keeping each request isolated and recovering cleanly from failures",
+        "Integrated PDF rendering with SvelteKit's request pipeline so application assets load reliably and documents wait for content and fonts before generation",
+      ],
+      keywords: [
+        "TypeScript",
+        "SvelteKit",
+        "Svelte 5",
+        "Puppeteer",
+        "Chromium",
+        "Server-Side Rendering",
+        "PDF Generation",
+        "Type-Safe API Design",
+      ],
+      links: [
+        {
+          label: "GitHub",
+          url: "https://github.com/TB516/sveltekit-pdf-handler",
+        },
+      ],
+    },
+    {
       name: "VS Code Remote Flatpak",
       roles: ["Lead Developer"],
       period: { start: "2026-08", end: "present" },
