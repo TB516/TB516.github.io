@@ -1,13 +1,16 @@
 <script lang="ts">
+  import { page } from "$app/state";
   import { resume } from "$lib/resume";
+
+  const isHome = $derived(page.url.pathname === "/");
 </script>
 
 <header class="site-header">
-  <a class="name" href="#top">{resume.basics.name}</a>
+  <a class="name" href={isHome ? "#top" : "/#top"}>{resume.basics.name}</a>
   <nav aria-label="Main navigation">
-    <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
+    <a href={isHome ? "#experience" : "/#experience"}>Experience</a>
+    <a href={isHome ? "#projects" : "/#projects"}>Projects</a>
+    <a href={isHome ? "#skills" : "/#skills"}>Skills</a>
   </nav>
   <a class="resume-link" href="/Thomas_Berrios_Resume.pdf" target="_blank" rel="noreferrer"
     >Résumé<span class="link-arrow" aria-hidden="true">↗</span></a
