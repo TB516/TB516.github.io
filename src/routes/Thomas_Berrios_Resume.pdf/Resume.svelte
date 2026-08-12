@@ -26,6 +26,9 @@
   };
 
   const workGroups = groupAdjacentEntries(work);
+
+  const getProjectRepositoryUrl = (project: ResumeEntry) =>
+    project.links?.find(({ label }) => label === "GitHub" || label === "Upstream repository")?.url;
 </script>
 
 <svelte:head>
@@ -110,9 +113,16 @@
   <section>
     <h2>Projects &amp; Open Source</h2>
     {#each projects as project}
+      {@const repositoryUrl = getProjectRepositoryUrl(project)}
       <article>
         <div class="heading">
-          <strong>{project.name}</strong>
+          <strong>
+            {#if repositoryUrl}
+              <a href={repositoryUrl}>{project.name}</a>
+            {:else}
+              {project.name}
+            {/if}
+          </strong>
           <div>{formatResumePeriod(project.period)}</div>
         </div>
         <div>{project.roles.join(", ")}</div>
