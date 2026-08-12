@@ -12,18 +12,10 @@ export interface DatePeriod {
   end: ResumeDate;
 }
 
-/** One or more intervals, ordered from most recent to oldest. */
-export type DatePeriods = [DatePeriod, ...DatePeriod[]];
-
 /** A labeled destination such as a profile, repository, or project page. */
 export interface Link {
   label: string;
   url: string;
-}
-
-/** Common chronological information for education, work, and projects. */
-interface Dated {
-  periods: DatePeriods;
 }
 
 /** Personal identity and contact information. */
@@ -41,12 +33,14 @@ export interface Basics {
 }
 
 /** A completed or ongoing course of formal study. */
-export interface Education extends Dated {
+export interface Education {
   institution: string;
   /** Primary subject or field of study. */
   area: string;
   /** Degree or credential earned. */
   studyType: string;
+  /** The single continuous interval covered by this course of study. */
+  period: DatePeriod;
   /** Academic distinctions awarded as part of the program. */
   honors?: string[];
   /** Secondary fields of study completed alongside the primary degree. */
@@ -61,12 +55,14 @@ export interface SkillGroup {
   keywords: string[];
 }
 
-/** A work or project entry displayed throughout the portfolio and résumé. */
-export interface ResumeEntry extends Dated {
+/** One continuous work or project engagement displayed throughout the portfolio and résumé. */
+export interface ResumeEntry {
   /** Employer, organization, or project name. */
   name: string;
   /** Capacities in which the work or project was performed. */
   roles: string[];
+  /** The single continuous interval covered by this engagement. */
+  period: DatePeriod;
   location?: string;
   /** Brief overview used in portfolio summaries. */
   summary: string;

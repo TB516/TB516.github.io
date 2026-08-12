@@ -30,6 +30,3 @@ export const formatResumePeriod = ({ start, end }: DatePeriod) => {
   if (start === end) return formatResumeDate(start);
   return `${formatResumeDate(start)} – ${formatResumeDate(end)}`;
 };
-
-export const formatResumePeriods = (periods: readonly DatePeriod[], separator = "; ") =>
-  periods.map(formatResumePeriod).join(separator);

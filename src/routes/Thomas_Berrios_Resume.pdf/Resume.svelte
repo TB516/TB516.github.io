@@ -2,11 +2,30 @@
 
 <script lang="ts">
   import { resume } from "$lib/resume";
-  import { formatResumePeriods } from "$lib/resume/dates";
+  import { formatResumePeriod } from "$lib/resume/dates";
   import { formatEducationDetails } from "$lib/resume/education";
+  import type { ResumeEntry } from "$lib/resume/schema";
 
   const work = resume.work.slice(0, 3);
   const projects = resume.projects.slice(0, 2);
+
+  const groupAdjacentEntries = (entries: readonly ResumeEntry[]) => {
+    const groups: ResumeEntry[][] = [];
+
+    for (const entry of entries) {
+      const previousGroup = groups.at(-1);
+
+      if (previousGroup?.[0].name === entry.name) {
+        previousGroup.push(entry);
+      } else {
+        groups.push([entry]);
+      }
+    }
+
+    return groups;
+  };
+
+  const workGroups = groupAdjacentEntries(work);
 </script>
 
 <svelte:head>
@@ -36,7 +55,7 @@
           <div>
             <strong>{education.institution}</strong>, {education.studyType} in {education.area}
           </div>
-          <div>{formatResumePeriods(education.periods)}</div>
+          <div>{formatResumePeriod(education.period)}</div>
         </div>
         <div>{formatEducationDetails(education)}</div>
       </article>
@@ -52,18 +71,38 @@
 
   <section>
     <h2>Work Experience</h2>
-    {#each work as job}
+    {#each workGroups as jobs}
       <article>
-        <div class="heading">
-          <div>
-            <strong>{job.roles.join(", ")}</strong>, {job.name}{#if job.location}
-              – {job.location}{/if}
+        {#if jobs.length === 1}
+          {@const job = jobs[0]}
+          <div class="heading">
+            <div>
+              <strong>{job.roles.join(", ")}</strong>, {job.name}{#if job.location}{" – "}{job.location}{/if}
+            </div>
+            <div>{formatResumePeriod(job.period)}</div>
           </div>
-          <div>{formatResumePeriods(job.periods, "\n")}</div>
-        </div>
-        <ul>
-          {#each job.highlights as highlight}<li>{highlight}</li>{/each}
-        </ul>
+          <ul>
+            {#each job.highlights as highlight}<li>{highlight}</li>{/each}
+          </ul>
+        {:else}
+          <div class="company-name"><strong>{jobs[0].name}</strong></div>
+          <div class="engagements">
+            {#each jobs as job}
+              <div class="engagement">
+                <div class="heading">
+                  <div>
+                    <strong>{job.roles.join(", ")}</strong
+                    >{#if job.location}{" – "}{job.location}{/if}
+                  </div>
+                  <div>{formatResumePeriod(job.period)}</div>
+                </div>
+                <ul>
+                  {#each job.highlights as highlight}<li>{highlight}</li>{/each}
+                </ul>
+              </div>
+            {/each}
+          </div>
+        {/if}
       </article>
     {/each}
   </section>
@@ -74,7 +113,7 @@
       <article>
         <div class="heading">
           <strong>{project.name}</strong>
-          <div>{formatResumePeriods(project.periods, "\n")}</div>
+          <div>{formatResumePeriod(project.period)}</div>
         </div>
         <div>{project.roles.join(", ")}</div>
         <ul>
@@ -164,6 +203,20 @@
     flex: none;
     text-align: right;
     white-space: pre-line;
+  }
+
+  .company-name {
+    margin-bottom: 0.05cm;
+  }
+
+  .engagements {
+    margin-left: 0.08cm;
+    padding-left: 0.16cm;
+    border-left: 0.6pt solid #888;
+  }
+
+  .engagement + .engagement {
+    margin-top: 0.14cm;
   }
 
   ul {

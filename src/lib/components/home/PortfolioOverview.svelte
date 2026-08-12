@@ -1,11 +1,11 @@
 <script lang="ts">
   import { resume } from "$lib/resume";
-  import { formatResumePeriods } from "$lib/resume/dates";
+  import { formatResumePeriod } from "$lib/resume/dates";
 
   import PortfolioSection from "./PortfolioSection.svelte";
 
   const experienceEntries = resume.work.map((job) => ({
-    date: formatResumePeriods(job.periods, "\n"),
+    date: formatResumePeriod(job.period),
     primaryLabel: "Company",
     primaryTitle: job.name,
     primaryMeta: job.location,
@@ -14,7 +14,7 @@
   }));
 
   const projectEntries = resume.projects.map((project) => ({
-    date: formatResumePeriods(project.periods, "\n"),
+    date: formatResumePeriod(project.period),
     primaryLabel: "Project",
     primaryTitle: project.name,
     roleTitle: project.roles.join(", "),

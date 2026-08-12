@@ -24,7 +24,7 @@ export const resume = {
       institution: "Rochester Institute of Technology",
       area: "Game Design & Development",
       studyType: "BS",
-      periods: [{ start: "2022-08", end: "2025-12" }],
+      period: { start: "2022-08", end: "2025-12" },
       honors: ["summa cum laude"],
       minors: ["Software Engineering", "History"],
     },
@@ -46,7 +46,7 @@ export const resume = {
         "Jest",
         "Vitest",
         "Playwright",
-        "ASP.net",
+        "ASP.NET",
         "Spring Boot",
       ],
     },
@@ -55,13 +55,13 @@ export const resume = {
       keywords: ["SQL", "PostgreSQL", "MySQL", "MongoDB", "Redis"],
     },
     {
-      name: "Devops",
+      name: "DevOps",
       keywords: [
         "Docker",
         "Containerization",
         "AWS",
         "Cloud Computing",
-        "Ci/Cd",
+        "CI/CD",
         "GitHub Actions",
         "Linux (Ubuntu, RHEL, Fedora)",
       ],
@@ -74,23 +74,20 @@ export const resume = {
   work: [
     {
       name: "iD Tech",
-      roles: ["Lead Instructor"],
-      periods: [
-        { start: "2026-07", end: "2026-08" },
-        { start: "2024-06", end: "2024-08" },
-      ],
+      roles: ["Lead Instructor – Teen Academy"],
+      period: { start: "2026-07", end: "2026-08" },
       location: "New York, NY",
-      summary: "Led project-based courses in Unreal Engine, Unity VR, C#, C++, and Python",
+      summary: "Led project-based courses in Unreal Engine 5, Python, AI, and agentic development",
       highlights: [
-        "Led instruction for multiple technical courses, including Unreal Engine, Unity VR, C#, C++, and Python fundamentals, teaching students core software engineering and game development concepts",
-        "Delivered project-based instruction integrating graphics programming (SFML, Box2D), 3D asset creation, and API-driven features, including introductory machine learning workflows",
-        "Collaborated with camp leadership to coordinate daily operations, supervise student activities, and manage off-site events across NYC, ensuring safety and engagement",
+        "Led project-based instruction in Unreal Engine 5 and Python, teaching core programming, game design, software engineering, and debugging concepts",
+        "Guided students through hands-on projects incorporating AI and agentic development workflows, helping them turn course concepts into working software and game prototypes",
+        "Collaborated with camp leadership on daily operations, student supervision, and activities, maintaining a safe and engaging learning environment",
       ],
     },
     {
       name: "Rochester Institute of Technology",
       roles: ["Teaching Assistant"],
-      periods: [{ start: "2024-08", end: "2025-12" }],
+      period: { start: "2024-08", end: "2025-12" },
       location: "Rochester, NY",
       summary:
         "Evaluated C# assignments and supported students with debugging and project implementation",
@@ -103,7 +100,7 @@ export const resume = {
     {
       name: "RIT School of Interactive Games and Media",
       roles: ["Backend Developer", "DevOps Lead"],
-      periods: [{ start: "2025-05", end: "2025-08" }],
+      period: { start: "2025-05", end: "2025-08" },
       summary: "Led a TypeScript backend rewrite and DevOps work for a 20-person team",
       highlights: [
         "Led backend and DevOps efforts on a 20-person team, leading a full backend rewrite of a legacy Express/MySQL codebase into a modular architecture using Prisma, service/controller layers, and TypeScript",
@@ -111,23 +108,47 @@ export const resume = {
         "Managed and configured production infrastructure including Apache HTTPD reverse proxy, Shibboleth SSO integration, and S3 storage",
       ],
     },
+    {
+      name: "iD Tech",
+      roles: ["Lead Instructor – Teen Academy"],
+      period: { start: "2024-07", end: "2024-08" },
+      location: "New York, NY",
+      summary: "Led project-based C++ and Unreal Engine instruction for the Teen Academy program",
+      highlights: [
+        "Led project-based instruction in C++ and Unreal Engine, teaching core software engineering, gameplay programming, and game development concepts",
+        "Guided students through hands-on game projects from initial design and implementation through debugging and final presentation",
+        "Assisted the director with daily camp operations, student supervision, and the planning of activities and off-site trips",
+      ],
+    },
+    {
+      name: "iD Tech",
+      roles: ["Lead Instructor – Tech Camp"],
+      period: { start: "2024-06", end: "2024-07" },
+      location: "New York, NY",
+      summary: "Led project-based courses spanning Unreal Engine, Unity VR, C#, C++, and Python",
+      highlights: [
+        "Led instruction in Unreal Engine, Unity VR, C#, C++, and Python fundamentals, teaching students core software engineering and game development concepts",
+        "Delivered hands-on projects integrating graphics programming with SFML and Box2D, 3D asset creation, API-driven features, and introductory machine learning workflows",
+        "Worked with the director to coordinate daily operations, supervise students, and support camp activities and events",
+      ],
+    },
   ],
   projects: [
     {
       name: "Bootc Buddy",
       roles: ["Lead Developer"],
-      periods: [{ start: "2026-06", end: "present" }],
+      period: { start: "2026-06", end: "present" },
       summary: "Building a Flatpak-first bootc management app with React, TypeScript, and GTKX",
       highlights: [
         "Building a Flatpak-first bootc management app with React, TypeScript, and GTKX",
         "Built a reproducible GNOME Flatpak build and bundling pipeline with Node.js, pnpm, Vite hot module replacement, and automated scripts",
-        "Developing flatpak friendly IPC using Unix Domain Sockets",
+        "Developing Flatpak-friendly IPC using Unix Domain Sockets",
       ],
     },
     {
       name: "r2modman",
       roles: ["Open-source Contributor"],
-      periods: [{ start: "2026-02", end: "present" }],
+      period: { start: "2026-02", end: "present" },
       summary: "Contributing upstream Linux and Flatpak fixes to r2modmanPlus",
       highlights: [
         "Contributed upstream Linux/Flatpak fixes to r2modmanPlus, implementing portal-based Steam launching with xdg-open, Flatpak Steam permissions, and Steam Deck game-mode fallbacks",
