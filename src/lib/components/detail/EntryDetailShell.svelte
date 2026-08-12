@@ -56,10 +56,18 @@
           </div>
         </header>
 
-        <section class="overview" aria-labelledby="overview-heading">
-          <h2 id="overview-heading">Overview</h2>
-          <p>{entry.summary}</p>
-        </section>
+        <div class="intro-aside">
+          <section class="overview" aria-labelledby="overview-heading">
+            <h2 id="overview-heading">Overview</h2>
+            <p>{entry.summary}</p>
+          </section>
+
+          {#if hasLinks}
+            <section class="desktop-entry-links" aria-labelledby="desktop-links-heading">
+              {@render entryLinks("desktop-links-heading")}
+            </section>
+          {/if}
+        </div>
       </div>
 
       {#if hasLinks}
@@ -83,20 +91,12 @@
         {/each}
       </ul>
 
-      {#if hasKeywords || hasLinks}
-        <div class:split={hasLinks && hasKeywords} class="entry-extras">
-          {#if hasKeywords}
-            <section id="entry-technologies" aria-labelledby="technologies-heading">
-              <h2 id="technologies-heading">Skills, tools & technology</h2>
-              <EntryKeywords {keywords} />
-            </section>
-          {/if}
-
-          {#if hasLinks}
-            <section class="desktop-entry-links" aria-labelledby="desktop-links-heading">
-              {@render entryLinks("desktop-links-heading")}
-            </section>
-          {/if}
+      {#if hasKeywords}
+        <div class="entry-extras">
+          <section id="entry-technologies" aria-labelledby="technologies-heading">
+            <h2 id="technologies-heading">Skills, tools & technology</h2>
+            <EntryKeywords {keywords} />
+          </section>
         </div>
       {/if}
     </div>
@@ -158,6 +158,7 @@
   .details-heading p,
   .overview h2,
   .entry-extras h2,
+  .desktop-entry-links h2,
   .mobile-entry-links h2 {
     margin: 0;
     font-size: 12px;
@@ -198,8 +199,19 @@
     background: var(--color-raised);
   }
 
+  .intro-aside {
+    display: grid;
+    gap: 22px;
+  }
+
+  .desktop-entry-links {
+    padding: clamp(24px, 2.4vw, 36px);
+    background: var(--color-raised);
+  }
+
   .overview h2,
   .entry-extras h2,
+  .desktop-entry-links h2,
   .mobile-entry-links h2 {
     color: var(--color-accent);
   }
@@ -247,10 +259,6 @@
     margin-top: clamp(34px, 5vh, 60px);
     display: grid;
     gap: 22px;
-  }
-
-  .entry-extras.split {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .entry-extras > section {
@@ -346,10 +354,6 @@
     .highlight-grid li {
       padding: 23px;
       font-size: 18px;
-    }
-
-    .entry-extras.split {
-      grid-template-columns: 1fr;
     }
 
     .mobile-entry-links {
