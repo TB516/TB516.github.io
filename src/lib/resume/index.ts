@@ -79,9 +79,9 @@ export const resume = {
       location: "New York, NY",
       summary: "Led project-based courses in Unreal Engine 5, Python, AI, and agentic development",
       highlights: [
-        "Led project-based instruction in Unreal Engine 5 and Python, teaching core programming, game design, software engineering, and debugging concepts",
-        "Guided students through hands-on projects incorporating AI and agentic development workflows, helping them turn course concepts into working software and game prototypes",
-        "Collaborated with camp leadership on daily operations, student supervision, and activities, maintaining a safe and engaging learning environment",
+        "Led project-based courses in Unreal Engine 5 and Python covering programming, game design, software engineering, and debugging",
+        "Coached students as they applied AI and agentic development workflows to build and iterate on software and game prototypes",
+        "Partnered with camp leadership to coordinate daily operations, supervise students, and maintain a safe, engaging learning environment",
       ],
       keywords: [
         "Unreal Engine 5",
@@ -101,9 +101,9 @@ export const resume = {
       summary:
         "Evaluated C# assignments and supported students with debugging and project implementation",
       highlights: [
-        "Evaluated and provided feedback on C# assignments covering data structures, algorithms, object-oriented programming, and GUI development",
-        "Assisted students with debugging and project implementation using C#, Windows Forms, and MonoGame",
-        "Supported course delivery across three semesters, reinforcing core software engineering concepts",
+        "Evaluated C# assignments and delivered actionable feedback on data structures, algorithms, object-oriented programming, and GUI development",
+        "Supported students in debugging and implementing projects with C#, Windows Forms, and MonoGame",
+        "Reinforced software engineering concepts across three semesters through assignment feedback and project guidance",
       ],
       keywords: [
         "C#",
@@ -122,9 +122,9 @@ export const resume = {
       period: { start: "2025-05", end: "2025-08" },
       summary: "Led a TypeScript backend rewrite and DevOps work for a 20-person team",
       highlights: [
-        "Led backend and DevOps efforts on a 20-person team, leading a full backend rewrite of a legacy Express/MySQL codebase into a modular architecture using Prisma, service/controller layers, and TypeScript",
-        "Containerized development and production environments using Docker Compose and Podman, eliminating manual database setup and improving onboarding with reproducible environments",
-        "Managed and configured production infrastructure including Apache HTTPD reverse proxy, Shibboleth SSO integration, and S3 storage",
+        "Led backend and DevOps work on a 20-person team, rewriting a legacy Express/MySQL backend as a modular TypeScript architecture with Prisma and service/controller layers",
+        "Containerized development and production environments with Docker Compose and Podman, eliminating manual database setup and streamlining onboarding with reproducible environments",
+        "Configured and maintained production infrastructure spanning an Apache HTTPD reverse proxy, Shibboleth SSO, and Amazon S3 storage",
       ],
       keywords: [
         "TypeScript",
@@ -145,13 +145,15 @@ export const resume = {
       location: "New York, NY",
       summary: "Led project-based C++ and Unreal Engine instruction for the Teen Academy program",
       highlights: [
-        "Led project-based instruction in C++ and Unreal Engine, teaching core software engineering, gameplay programming, and game development concepts",
-        "Guided students through hands-on game projects from initial design and implementation through debugging and final presentation",
-        "Assisted the director with daily camp operations, student supervision, and the planning of activities and off-site trips",
+        "Led project-based C++ and Unreal Engine instruction covering software engineering, gameplay programming, and game development",
+        "Mentored students through hands-on game projects in Unreal Engine and C++ graphics programming with SFML and Box2D, from initial design through final presentation",
+        "Partnered with the camp director to coordinate daily operations, supervise students, and plan activities and off-site trips",
       ],
       keywords: [
         "C++",
         "Unreal Engine",
+        "SFML",
+        "Box2D",
         "Gameplay Programming",
         "Game Development",
         "Software Engineering",
@@ -165,20 +167,11 @@ export const resume = {
       location: "New York, NY",
       summary: "Led project-based courses spanning Unreal Engine, Unity VR, C#, C++, and Python",
       highlights: [
-        "Led instruction in Unreal Engine, Unity VR, C#, C++, and Python fundamentals, teaching students core software engineering and game development concepts",
-        "Delivered hands-on projects integrating graphics programming with SFML and Box2D, 3D asset creation, API-driven features, and introductory machine learning workflows",
-        "Worked with the director to coordinate daily operations, supervise students, and support camp activities and events",
+        "Taught Unreal Engine, Unity VR, C#, C++, and Python through hands-on lessons in software engineering and game development",
+        "Guided students through projects spanning 3D asset creation, API-driven features, and introductory machine learning workflows",
+        "Partnered with the camp director to coordinate daily operations, supervise students, and support activities and events",
       ],
-      keywords: [
-        "Unreal Engine",
-        "Unity VR",
-        "C#",
-        "C++",
-        "Python",
-        "SFML",
-        "Box2D",
-        "Machine Learning",
-      ],
+      keywords: ["Unreal Engine", "Unity VR", "C#", "C++", "Python", "Machine Learning"],
     },
   ],
   projects: [
@@ -209,9 +202,9 @@ export const resume = {
       period: { start: "2026-02", end: "present" },
       summary: "Contributing upstream Linux and Flatpak fixes to r2modmanPlus",
       highlights: [
-        "Contributed upstream Linux/Flatpak fixes to r2modmanPlus, implementing portal-based Steam launching with xdg-open, Flatpak Steam permissions, and Steam Deck game-mode fallbacks",
+        "Contributed Linux and Flatpak fixes upstream to r2modmanPlus, implementing portal-based Steam launching with xdg-open, Flatpak Steam permissions, and Steam Deck game-mode fallbacks",
         "Prepared a Flathub-compatible Flatpak distribution with AppStream metadata, desktop integration, sandbox configuration, CI builds, and a signed Cloudflare R2 repository pipeline for automatic updates",
-        "Continuing to triage Linux and Flatpak issues, test changes across Steam environments, and submit upstream fixes as the project evolves",
+        "Continue to triage Linux and Flatpak issues, validate changes across Steam environments, and submit upstream fixes as the project evolves",
       ],
       keywords: [
         "Linux",
