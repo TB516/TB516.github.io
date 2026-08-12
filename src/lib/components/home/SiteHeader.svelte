@@ -48,7 +48,12 @@
       onclick={(event) => navigateToHomeSection(event, "skills")}>Skills</a
     >
   </nav>
-  <a class="resume-link" href="/Thomas_Berrios_Resume.pdf" target="_blank" rel="noreferrer"
+  <a
+    class="resume-link"
+    href="/Thomas_Berrios_Resume.pdf"
+    target="_blank"
+    rel="noreferrer"
+    aria-label="Résumé, opens in a new tab"
     >Résumé<span class="link-arrow" aria-hidden="true">↗</span></a
   >
 </header>

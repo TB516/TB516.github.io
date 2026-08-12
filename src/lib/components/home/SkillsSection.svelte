@@ -26,7 +26,12 @@
         {resume.basics.phone}<span class="link-arrow" aria-hidden="true">↗</span>
       </a>
       {#each resume.basics.profiles as profile}
-        <a href={profile.url} target="_blank" rel="noreferrer">
+        <a
+          href={profile.url}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={`${profile.label} profile for ${resume.basics.name}, opens in a new tab`}
+        >
           {profile.label}<span class="link-arrow" aria-hidden="true">↗</span>
         </a>
       {/each}

@@ -22,7 +22,12 @@
   <h2 id={headingId}>Links</h2>
   <div class="entry-links">
     {#each entry.links ?? [] as link}
-      <a href={link.url} target="_blank" rel="noreferrer">
+      <a
+        href={link.url}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={`${link.label} for ${entry.name}, opens in a new tab`}
+      >
         {link.label}<span class="link-arrow" aria-hidden="true">↗</span>
       </a>
     {/each}

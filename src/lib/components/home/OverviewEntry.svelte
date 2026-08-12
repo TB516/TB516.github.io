@@ -23,6 +23,11 @@
     links?: Link[];
     href: string;
   } = $props();
+
+  const spokenDate = $derived(date.replace(/\s*\n\s*/g, ", "));
+  const entryContext = $derived(
+    `${roleTitle} ${primaryLabel === "Company" ? "at" : "on"} ${primaryTitle}, ${spokenDate}`,
+  );
 </script>
 
 <article>
@@ -40,11 +45,17 @@
   {#if keywords?.length}
     <div class="entry-keywords">
       <span class="label">Skills & technology</span>
-      <EntryKeywords {keywords} compact limit={3} moreHref={`${href}#entry-technologies`} />
+      <EntryKeywords
+        {keywords}
+        compact
+        limit={3}
+        moreHref={`${href}#entry-technologies`}
+        moreContext={entryContext}
+      />
     </div>
   {/if}
   <div class="entry-actions">
-    <a class="entry-link" {href} aria-label={`View details for ${primaryTitle}`}>
+    <a class="entry-link" {href} aria-label={`View details: ${entryContext}`}>
       View details<span class="link-arrow" aria-hidden="true">→</span>
     </a>
     {#if links?.length}
@@ -54,7 +65,7 @@
             href={link.url}
             target="_blank"
             rel="noreferrer"
-            aria-label={`${link.label} for ${primaryTitle}`}
+            aria-label={`${link.label} for ${primaryTitle}, opens in a new tab`}
           >
             {link.label}<span class="link-arrow" aria-hidden="true">↗</span>
           </a>

@@ -4,15 +4,20 @@
     compact = false,
     limit,
     moreHref,
+    moreContext,
   }: {
     keywords: string[];
     compact?: boolean;
     limit?: number;
     moreHref?: string;
+    moreContext?: string;
   } = $props();
 
   const visibleKeywords = $derived(limit ? keywords.slice(0, limit) : keywords);
   const remainingCount = $derived(keywords.length - visibleKeywords.length);
+  const moreLabel = $derived(
+    `View ${remainingCount} more skills, tools, and technologies${moreContext ? ` for ${moreContext}` : ""}`,
+  );
 </script>
 
 <ul class:compact>
@@ -22,10 +27,7 @@
   {#if remainingCount > 0}
     <li class="remaining">
       {#if moreHref}
-        <a
-          href={moreHref}
-          aria-label={`View ${remainingCount} more skills, tools, and technologies`}
-        >
+        <a href={moreHref} aria-label={moreLabel}>
           +{remainingCount} more
         </a>
       {:else}
@@ -40,6 +42,7 @@
     margin: 20px 0 0;
     padding: 0;
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
     gap: 8px 0;
     list-style: none;
@@ -76,6 +79,9 @@
 
   .remaining a {
     color: inherit;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
   }
 
   .compact li:not(:last-child)::after {
