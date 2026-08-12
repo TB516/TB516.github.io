@@ -10,7 +10,6 @@
   <meta name="description" content={resume.basics.description} />
 </svelte:head>
 
-<div id="top" aria-hidden="true"></div>
 <main>
   <Hero />
   <PortfolioOverview />

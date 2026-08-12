@@ -6,7 +6,7 @@
 </script>
 
 <header class="site-header">
-  <a class="name" href={isHome ? "#top" : "/#top"}>{resume.basics.name}</a>
+  <a class="name" href={isHome ? "#" : "/"}>{resume.basics.name}</a>
   <nav aria-label="Main navigation">
     <a href={isHome ? "#experience" : "/#experience"}>Experience</a>
     <a href={isHome ? "#projects" : "/#projects"}>Projects</a>
@@ -34,6 +34,7 @@
   }
 
   .name {
+    justify-self: start;
     font-weight: 650;
   }
 
