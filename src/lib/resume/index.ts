@@ -194,6 +194,7 @@ export const resume = {
       name: "VS Code Remote Flatpak",
       roles: ["Lead Developer"],
       period: { start: "2026-08", end: "present" },
+      excludeFromResume: true,
       summary:
         "Developing a VS Code extension that turns Flatpaks into authoritative, devcontainer-like development environments",
       highlights: [

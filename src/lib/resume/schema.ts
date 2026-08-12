@@ -72,6 +72,8 @@ export interface ResumeEntry {
   keywords?: string[];
   /** Relevant destinations such as an organization page, repository, or release. */
   links?: Link[];
+  /** Excludes this entry from the generated résumé while retaining it on the website. */
+  excludeFromResume?: true;
 }
 
 /** Complete source data for every résumé representation. */
