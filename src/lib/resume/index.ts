@@ -183,31 +183,24 @@ export const resume = {
   ],
   projects: [
     {
-      name: "Bootc Buddy",
+      name: "VS Code Remote Flatpak",
       roles: ["Lead Developer"],
-      period: { start: "2026-06", end: "present" },
-      summary: "Building a Flatpak-first bootc management app with React, TypeScript, and GTKX",
+      period: { start: "2026-08", end: "present" },
+      summary:
+        "Developing a VS Code extension that uses Flatpaks as authoritative, devcontainer-like development environments",
       highlights: [
-        "Building a Flatpak-first bootc management app with React, TypeScript, and GTKX",
-        "Built a reproducible GNOME Flatpak build and bundling pipeline with Node.js, pnpm, Vite hot module replacement, and automated scripts",
-        "Developing Flatpak-friendly IPC using Unix Domain Sockets",
+        "Building a VS Code extension that connects workspaces to Flatpak environments, creating a devcontainer-like workflow for reproducible Linux development",
+        "Treating the connected Flatpak as the authoritative development environment so projects use its compilers, SDKs, language servers, and dependencies rather than tools installed on the host",
+        "Integrating VS Code and its extensions with tools inside the Flatpak using TypeScript and VS Code's proposed remote resolver API",
       ],
       keywords: [
-        "React",
         "TypeScript",
-        "GTKX",
+        "VS Code Extension API",
         "Flatpak",
-        "GNOME",
-        "Node.js",
+        "Remote Development",
+        "Dev Containers",
+        "Linux",
         "pnpm",
-        "Vite",
-        "Unix Domain Sockets",
-      ],
-      links: [
-        {
-          label: "GitHub",
-          url: "https://github.com/TB516/bootc-buddy",
-        },
       ],
     },
     {
