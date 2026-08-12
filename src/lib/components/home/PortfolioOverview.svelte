@@ -23,6 +23,7 @@
     roleTitle: project.roles.join(", "),
     summary: project.summary,
     keywords: project.keywords,
+    links: project.links,
     href: `/projects/${getResumeEntrySlug(project)}`,
   }));
 </script>

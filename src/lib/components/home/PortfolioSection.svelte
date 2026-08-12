@@ -1,4 +1,6 @@
 <script lang="ts">
+  import type { Link } from "$lib/resume/schema";
+
   import OverviewEntry from "./OverviewEntry.svelte";
 
   let {
@@ -17,6 +19,7 @@
       roleTitle: string;
       summary: string;
       keywords?: string[];
+      links?: Link[];
       href: string;
     }>;
     alternate?: boolean;

@@ -203,6 +203,12 @@ export const resume = {
         "Vite",
         "Unix Domain Sockets",
       ],
+      links: [
+        {
+          label: "GitHub",
+          url: "https://github.com/TB516/bootc-buddy",
+        },
+      ],
     },
     {
       name: "r2modman",
@@ -224,6 +230,16 @@ export const resume = {
         "AppStream",
         "CI",
         "Cloudflare R2",
+      ],
+      links: [
+        {
+          label: "Homepage",
+          url: "https://thunderstore.io/c/riskofrain2/p/ebkr/r2modman/",
+        },
+        {
+          label: "Upstream repository",
+          url: "https://github.com/ebkr/r2modmanPlus",
+        },
       ],
     },
   ],

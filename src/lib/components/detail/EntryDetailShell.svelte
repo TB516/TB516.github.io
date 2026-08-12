@@ -18,6 +18,17 @@
   const backLabel = $derived(kind === "Project" ? "projects" : "experience");
 </script>
 
+{#snippet entryLinks(headingId: string)}
+  <h2 id={headingId}>Links</h2>
+  <div class="entry-links">
+    {#each entry.links ?? [] as link}
+      <a href={link.url} target="_blank" rel="noreferrer">
+        {link.label}<span class="link-arrow" aria-hidden="true">↗</span>
+      </a>
+    {/each}
+  </div>
+{/snippet}
+
 <main class="detail-page">
   <section class="entry-intro" aria-labelledby="entry-title">
     <div class="entry-inner">
@@ -41,6 +52,12 @@
           <p>{entry.summary}</p>
         </section>
       </div>
+
+      {#if entry.links?.length}
+        <section class="mobile-entry-links" aria-labelledby="mobile-links-heading">
+          {@render entryLinks("mobile-links-heading")}
+        </section>
+      {/if}
     </div>
   </section>
 
@@ -67,15 +84,8 @@
           {/if}
 
           {#if entry.links?.length}
-            <section aria-labelledby="links-heading">
-              <h2 id="links-heading">Links</h2>
-              <div class="entry-links">
-                {#each entry.links as link}
-                  <a href={link.url} target="_blank" rel="noreferrer">
-                    {link.label}<span class="link-arrow" aria-hidden="true">↗</span>
-                  </a>
-                {/each}
-              </div>
+            <section class="desktop-entry-links" aria-labelledby="desktop-links-heading">
+              {@render entryLinks("desktop-links-heading")}
             </section>
           {/if}
         </div>
@@ -137,7 +147,8 @@
   .entry-kind,
   .details-heading p,
   .overview h2,
-  .entry-extras h2 {
+  .entry-extras h2,
+  .mobile-entry-links h2 {
     margin: 0;
     font-size: 12px;
     font-weight: 700;
@@ -178,8 +189,13 @@
   }
 
   .overview h2,
-  .entry-extras h2 {
+  .entry-extras h2,
+  .mobile-entry-links h2 {
     color: var(--color-accent);
+  }
+
+  .mobile-entry-links {
+    display: none;
   }
 
   .overview p {
@@ -323,6 +339,17 @@
 
     .entry-extras.with-links {
       grid-template-columns: 1fr;
+    }
+
+    .mobile-entry-links {
+      margin-top: 7px;
+      padding: 25px 23px;
+      display: block;
+      background: var(--color-raised);
+    }
+
+    .desktop-entry-links {
+      display: none;
     }
 
     .entry-extras {

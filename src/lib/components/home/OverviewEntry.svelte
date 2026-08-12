@@ -1,5 +1,6 @@
 <script lang="ts">
   import EntryKeywords from "$lib/components/resume/EntryKeywords.svelte";
+  import type { Link } from "$lib/resume/schema";
 
   let {
     date,
@@ -9,6 +10,7 @@
     roleTitle,
     summary,
     keywords,
+    links,
     href,
   }: {
     date: string;
@@ -18,6 +20,7 @@
     roleTitle: string;
     summary: string;
     keywords?: string[];
+    links?: Link[];
     href: string;
   } = $props();
 </script>
@@ -40,9 +43,25 @@
       <EntryKeywords {keywords} compact limit={3} moreHref={`${href}#entry-technologies`} />
     </div>
   {/if}
-  <a class="entry-link" {href} aria-label={`View details for ${primaryTitle}`}>
-    View details<span class="link-arrow" aria-hidden="true">→</span>
-  </a>
+  <div class="entry-actions">
+    <a class="entry-link" {href} aria-label={`View details for ${primaryTitle}`}>
+      View details<span class="link-arrow" aria-hidden="true">→</span>
+    </a>
+    {#if links?.length}
+      <div class="external-links">
+        {#each links as link}
+          <a
+            href={link.url}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`${link.label} for ${primaryTitle}`}
+          >
+            {link.label}<span class="link-arrow" aria-hidden="true">↗</span>
+          </a>
+        {/each}
+      </div>
+    {/if}
+  </div>
 </article>
 
 <style>
@@ -100,15 +119,35 @@
     align-self: end;
   }
 
-  .entry-link {
-    width: fit-content;
+  .entry-actions {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    align-self: end;
+    gap: 8px 22px;
+    flex-wrap: wrap;
+  }
+
+  .entry-actions a {
     min-height: 44px;
     display: inline-flex;
     align-items: center;
-    align-self: end;
-    color: var(--color-text);
     font-size: 15px;
     font-weight: 600;
+  }
+
+  .entry-link {
+    color: var(--color-text);
+  }
+
+  .external-links {
+    display: flex;
+    gap: 8px 18px;
+    flex-wrap: wrap;
+  }
+
+  .external-links a {
+    color: var(--color-text);
   }
 
   @media (min-width: 901px) {
@@ -133,7 +172,7 @@
       font-size: 18px;
     }
 
-    .entry-link {
+    .entry-actions a {
       font-size: 16px;
     }
   }
