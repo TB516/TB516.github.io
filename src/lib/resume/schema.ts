@@ -61,8 +61,13 @@ export interface SkillGroup {
   keywords: string[];
 }
 
-/** Accomplishments, technologies, and references shared by work and project entries. */
-interface ResumeEntry {
+/** A work or project entry displayed throughout the portfolio and résumé. */
+export interface ResumeEntry extends Dated {
+  /** Employer, organization, or project name. */
+  name: string;
+  /** Capacities in which the work or project was performed. */
+  roles: string[];
+  location?: string;
   /** Brief overview used in portfolio summaries. */
   summary: string;
   /** Concrete accomplishments, responsibilities, or outcomes. */
@@ -73,28 +78,12 @@ interface ResumeEntry {
   links?: Link[];
 }
 
-/** A professional role held at an organization during one or more periods. */
-export interface WorkExperience extends ResumeEntry, Dated {
-  /** Employer, client, or organization name. */
-  name: string;
-  /** Title held within the organization. */
-  position: string;
-  location?: string;
-}
-
-/** A personal, academic, professional, or open-source project. */
-export interface Project extends ResumeEntry, Dated {
-  name: string;
-  /** Capacities in which the project was created or supported. */
-  roles: string[];
-}
-
 /** Complete source data for every résumé representation. */
 export interface Resume {
   basics: Basics;
   /** Entries are stored in their preferred display order. */
   education: Education[];
   skills: SkillGroup[];
-  work: WorkExperience[];
-  projects: Project[];
+  work: ResumeEntry[];
+  projects: ResumeEntry[];
 }

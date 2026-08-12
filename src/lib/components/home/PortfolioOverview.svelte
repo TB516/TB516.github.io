@@ -9,7 +9,7 @@
     primaryLabel: "Company",
     primaryTitle: job.name,
     primaryMeta: job.location,
-    roleTitle: job.position,
+    roleTitle: job.roles.join(", "),
     summary: job.summary,
   }));
 

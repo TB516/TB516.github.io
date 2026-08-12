@@ -56,7 +56,7 @@
       <article>
         <div class="heading">
           <div>
-            <strong>{job.position}</strong>, {job.name}{#if job.location}
+            <strong>{job.roles.join(", ")}</strong>, {job.name}{#if job.location}
               – {job.location}{/if}
           </div>
           <div>{formatResumePeriods(job.periods, "\n")}</div>

@@ -74,7 +74,7 @@ export const resume = {
   work: [
     {
       name: "iD Tech",
-      position: "Lead Instructor",
+      roles: ["Lead Instructor"],
       periods: [
         { start: "2026-07", end: "2026-08" },
         { start: "2024-06", end: "2024-08" },
@@ -89,7 +89,7 @@ export const resume = {
     },
     {
       name: "Rochester Institute of Technology",
-      position: "Teaching Assistant",
+      roles: ["Teaching Assistant"],
       periods: [{ start: "2024-08", end: "2025-12" }],
       location: "Rochester, NY",
       summary:
@@ -102,7 +102,7 @@ export const resume = {
     },
     {
       name: "RIT School of Interactive Games and Media",
-      position: "Backend Developer & Devops Lead",
+      roles: ["Backend Developer", "DevOps Lead"],
       periods: [{ start: "2025-05", end: "2025-08" }],
       summary: "Led a TypeScript backend rewrite and DevOps work for a 20-person team",
       highlights: [
