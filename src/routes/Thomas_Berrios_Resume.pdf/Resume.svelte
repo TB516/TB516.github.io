@@ -1,5 +1,24 @@
 <svelte:options css="injected" />
 
+<script module lang="ts">
+  import type { PdfConfig } from "sveltekit-pdf-renderer";
+
+  import bold from "./fonts/XCharter-Bold.woff2?inline";
+  import regular from "./fonts/XCharter-Regular.woff2?inline";
+
+  export const pdf = {
+    fonts: [
+      { family: "XCharter", source: regular, format: "woff2", weight: 400 },
+      { family: "XCharter", source: bold, format: "woff2", weight: 700 },
+    ],
+    pdf: {
+      format: "letter",
+      preferCSSPageSize: true,
+      printBackground: true,
+    },
+  } satisfies PdfConfig;
+</script>
+
 <script lang="ts">
   import { resume } from "$lib/resume";
   import { formatResumePeriod } from "$lib/resume/dates";

@@ -12,19 +12,18 @@
     "lint:fix": "oxlint --fix",
     "fmt": "oxfmt",
     "fmt:check": "oxfmt --check",
-    "prepare:puppeteer": "deno run --allow-all scripts/prepare-puppeteer.ts"
+    "prepare:puppeteer": "deno run -A npm:puppeteer browsers install chrome"
   },
   "devDependencies": {
-    "@puppeteer/browsers": "^2.13.0",
     "@sveltejs/adapter-static": "^3.0.10",
     "@sveltejs/kit": "^2.63.0",
     "@sveltejs/vite-plugin-svelte": "^7.1.2",
     "@types/deno": "^2.7.0",
     "oxfmt": "^0.58.0",
     "oxlint": "^1.73.0",
-    "puppeteer": "^24.0.0",
     "svelte": "^5.56.1",
     "svelte-check": "^4.6.0",
+    "sveltekit-pdf-renderer": "0.2.0",
     "typescript": "^6.0.3",
     "vite": "^8.0.16"
   }
