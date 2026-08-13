@@ -60,8 +60,6 @@
     <div class="headline">{resume.basics.label}</div>
     <address>
       <a href={`mailto:${resume.basics.email}`}>{resume.basics.email}</a>
-      <span>|</span>
-      <a href={`tel:${resume.basics.phone}`}>{resume.basics.phone}</a>
       {#each resume.basics.profiles as profile}
         <span>|</span>
         <a href={profile.url}>{profile.label}</a>

@@ -191,15 +191,15 @@ export const resume = {
   ],
   projects: [
     {
-      name: "sveltekit-pdf",
+      name: "sveltekit-pdf-renderer",
       roles: ["Lead Developer"],
       period: { start: "2026-08", end: "present" },
       summary:
-        "Building a typed SvelteKit library for rendering server-side Svelte components as configurable PDF responses",
+        "Published an open-source SvelteKit library for rendering server-side Svelte components as configurable PDF responses",
       highlights: [
-        "Designed a type-safe SvelteKit library that turns server-rendered Svelte components into configurable PDF responses with custom data, fonts, and download behavior",
-        "Built a reusable PDF generation service that shares browser resources for performance while keeping each request isolated and recovering cleanly from failures",
-        "Integrated PDF rendering with SvelteKit's request pipeline so application assets load reliably and documents wait for content and fonts before generation",
+        "Designed a type-safe API for combining component-level configuration with per-request props, fonts, PDF options, and response metadata",
+        "Built a reusable Puppeteer service that lazily launches and shares Chromium while isolating every render in its own browser context and recovering from browser failures",
+        "Integrated rendering with SvelteKit's request pipeline to load same-origin assets through event.fetch and wait for network activity and fonts before generating PDFs",
       ],
       keywords: [
         "TypeScript",

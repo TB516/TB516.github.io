@@ -22,9 +22,6 @@
       <a class="contact-email" href={`mailto:${resume.basics.email}`}>
         {resume.basics.email}<span class="link-arrow" aria-hidden="true">↗</span>
       </a>
-      <a href={`tel:${resume.basics.phone}`}>
-        {resume.basics.phone}<span class="link-arrow" aria-hidden="true">↗</span>
-      </a>
       {#each resume.basics.profiles as profile}
         <a
           href={profile.url}
