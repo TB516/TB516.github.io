@@ -111,9 +111,8 @@
     max-width: 1600px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(4, max-content);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     align-items: center;
-    justify-content: space-between;
     gap: 14px 28px;
     color: var(--color-text-muted);
     font-size: 14px;
@@ -123,6 +122,15 @@
     min-height: 44px;
     display: inline-flex;
     align-items: center;
+    justify-self: start;
+  }
+
+  .contact-links a:nth-child(2) {
+    justify-self: center;
+  }
+
+  .contact-links a:last-child {
+    justify-self: end;
   }
 
   .contact-email {
@@ -161,10 +169,6 @@
       min-height: 0;
       grid-column: span 1;
     }
-
-    .contact-links {
-      grid-template-columns: repeat(2, max-content);
-    }
   }
 
   @media (max-width: 720px) {
@@ -194,6 +198,10 @@
       justify-items: center;
       gap: 10px;
       text-align: center;
+    }
+
+    .contact-links a {
+      justify-self: center;
     }
   }
 </style>
