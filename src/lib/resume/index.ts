@@ -10,12 +10,12 @@ export const resume = {
     email: "thomas@thomasberrios.com",
     profiles: [
       {
-        label: "LinkedIn",
-        url: "https://linkedin.com/in/thomas-berrios",
-      },
-      {
         label: "GitHub",
         url: "https://github.com/TB516",
+      },
+      {
+        label: "LinkedIn",
+        url: "https://linkedin.com/in/thomas-berrios",
       },
     ],
   },
