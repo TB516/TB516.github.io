@@ -200,7 +200,9 @@
       text-align: center;
     }
 
-    .contact-links a {
+    .contact-links a,
+    .contact-links a:nth-child(2),
+    .contact-links a:last-child {
       justify-self: center;
     }
   }
