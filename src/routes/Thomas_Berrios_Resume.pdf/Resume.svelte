@@ -26,7 +26,9 @@
   import type { ResumeEntry } from "$lib/resume/schema";
 
   const work = resume.work.slice(0, 3);
-  const projects = resume.projects.filter((project) => !project.excludeFromResume).slice(0, 2);
+  const projects = resume.projects
+    .filter((project: ResumeEntry) => !project.excludeFromResume)
+    .slice(0, 2);
 
   const groupAdjacentEntries = (entries: readonly ResumeEntry[]) => {
     const groups: ResumeEntry[][] = [];

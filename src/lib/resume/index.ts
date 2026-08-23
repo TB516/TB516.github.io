@@ -219,28 +219,6 @@ export const resume = {
       ],
     },
     {
-      name: "VS Code Remote Flatpak",
-      roles: ["Lead Developer"],
-      period: { start: "2026-08", end: "present" },
-      excludeFromResume: true,
-      summary:
-        "Developing a VS Code extension that turns Flatpaks into authoritative, devcontainer-like development environments",
-      highlights: [
-        "Building a VS Code extension that connects workspaces to Flatpak environments, creating a devcontainer-like workflow for reproducible Linux development",
-        "Treating the connected Flatpak as the authoritative development environment so projects use its compilers, SDKs, language servers, and dependencies rather than tools installed on the host",
-        "Integrating VS Code and its extensions with tools inside the Flatpak using TypeScript and VS Code's proposed remote resolver API",
-      ],
-      keywords: [
-        "TypeScript",
-        "Flatpak",
-        "Remote Development",
-        "VS Code Extension API",
-        "Dev Containers",
-        "Linux",
-        "pnpm",
-      ],
-    },
-    {
       name: "r2modman",
       roles: ["Open-source Contributor"],
       period: { start: "2026-02", end: "present" },
