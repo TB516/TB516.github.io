@@ -5,7 +5,9 @@ import * as ResumeModule from "./Resume.svelte";
 export const prerender = true;
 
 const createPdfResponse = createPdfResponder({
-  args: Deno.env.get("CI") === "true" ? ["--no-sandbox", "--disable-setuid-sandbox"] : [],
+  launchOptions: {
+    args: Deno.env.get("CI") === "true" ? ["--no-sandbox", "--disable-setuid-sandbox"] : [],
+  },
 });
 
 export async function GET(event) {
