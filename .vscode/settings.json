@@ -6,7 +6,6 @@
     "source.fixAll.oxc": "always"
   },
   "oxc.lint.run": "onSave",
-  "oxc.path.oxfmt": "./scripts/oxc/oxfmt",
-  "oxc.path.oxlint": "./scripts/oxc/oxlint",
-  "js/ts.tsdk.path": "node_modules/typescript/lib"
+  "js/ts.tsdk.path": "node_modules/typescript/lib",
+  "oxc.useExecPath": true
 }
