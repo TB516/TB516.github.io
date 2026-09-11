@@ -267,7 +267,7 @@ export const resume = {
         end: "2026-09",
       },
       summary:
-        "A Linux desktop app that brings hardware-style game and voice-chat balance controls to software. It started as a testbed for GTKX and my Flatpak development environment, with game and chat balance controls inspired by audio hardware I’d used.",
+        "A Linux desktop app for balancing game and voice-chat audio, inspired by controls on audio hardware I’d used. It started as a testbed for GTKX and my Flatpak development environment.",
       highlights: [
         "Routes game and voice audio through separate outputs to the system’s default output.",
         "Adjusts the balance between the two outputs and saves the setting between sessions.",
