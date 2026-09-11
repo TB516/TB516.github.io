@@ -12,4 +12,8 @@
   <meta name="description" content={data.entry.summary} />
 </svelte:head>
 
-<EntryDetailShell kind="Project" entry={data.entry} backHref="/#projects" />
+<EntryDetailShell
+  kind="Project"
+  entry={data.entry}
+  backHref={data.entry.category === "contribution" ? "/#contributions" : "/#projects"}
+/>

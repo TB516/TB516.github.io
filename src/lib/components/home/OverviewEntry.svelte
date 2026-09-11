@@ -1,191 +1,72 @@
 <script lang="ts">
-  import EntryKeywords from "$lib/components/resume/EntryKeywords.svelte";
-  import { formatResumePeriod } from "$lib/resume/dates";
   import type { ResumeEntry } from "$lib/resume/schema";
   import { getResumeEntrySlug } from "$lib/resume/slugs";
 
-  let {
-    entry,
-    kind,
-  }: {
-    entry: ResumeEntry;
-    kind: "experience" | "project";
-  } = $props();
+  let { entry }: { entry: ResumeEntry } = $props();
 
-  const date = $derived(formatResumePeriod(entry.period));
-  const primaryLabel = $derived(kind === "experience" ? "Company" : "Project");
   const roleTitle = $derived(entry.roles.join(", "));
-  const entryPath = $derived(kind === "experience" ? "experience" : "projects");
-  const href = $derived(`/${entryPath}/${getResumeEntrySlug(entry)}`);
-  const spokenDate = $derived(date.replace(/\s*\n\s*/g, ", "));
-  const entryContext = $derived(
-    `${roleTitle} ${kind === "experience" ? "at" : "on"} ${entry.name}, ${spokenDate}`,
-  );
+  const href = $derived(`/projects/${getResumeEntrySlug(entry)}`);
 </script>
 
-<article>
-  <time>{date}</time>
-  <div>
-    <span class="label">{primaryLabel}</span>
-    <h3>{entry.name}</h3>
-    {#if entry.location}<p>{entry.location}</p>{/if}
+<a class="project" {href} aria-label={`Read about ${entry.name}`}>
+  <div class="project-content">
+    <h3>
+      <span class="details-link">{entry.name}<span aria-hidden="true">→</span></span>
+    </h3>
+    <p class="project-meta">{roleTitle}</p>
+    <p class="summary">{entry.summary}</p>
   </div>
-  <div>
-    <span class="label">Role</span>
-    <p class="entry-title">{roleTitle}</p>
-  </div>
-  <p class="summary">{entry.summary}</p>
-  {#if entry.keywords?.length}
-    <div class="entry-keywords">
-      <span class="label">Skills & technology</span>
-      <EntryKeywords
-        keywords={entry.keywords}
-        compact
-        limit={3}
-        moreHref={`${href}#entry-technologies`}
-        moreContext={entryContext}
-      />
-    </div>
-  {/if}
-  <div class="entry-actions">
-    <a class="entry-link" {href} aria-label={`View details: ${entryContext}`}>
-      View details<span class="link-arrow" aria-hidden="true">→</span>
-    </a>
-    {#if entry.links?.length}
-      <div class="external-links">
-        {#each entry.links as link}
-          <a
-            href={link.url}
-            target="_blank"
-            rel="noreferrer"
-            aria-label={`${link.label} for ${entry.name}, opens in a new tab`}
-          >
-            {link.label}<span class="link-arrow" aria-hidden="true">↗</span>
-          </a>
-        {/each}
-      </div>
-    {/if}
-  </div>
-</article>
+</a>
 
 <style>
-  article {
-    min-height: 290px;
-    padding: clamp(22px, 2vw, 30px);
-    display: grid;
-    grid-template-rows: auto auto auto 1fr auto auto;
-    gap: 22px;
-    align-items: start;
+  h3 {
+    margin: 0;
+    font-weight: 550;
+    line-height: 1.45;
+    letter-spacing: -0.02em;
+    overflow-wrap: anywhere;
+  }
+  .project {
+    background: var(--color-surface);
+    border-radius: 8px;
+    padding: 20px 24px;
+    text-decoration: none;
+    transition: background 150ms ease;
+    display: flex;
+  }
+  .project:hover {
     background: var(--color-raised);
   }
-
-  time {
-    color: var(--color-text-dim);
-    font:
-      13px/1.45 ui-monospace,
-      SFMono-Regular,
-      Menlo,
-      monospace;
-    white-space: pre-line;
+  .project-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .project h3 {
+    font-size: clamp(22px, 1.7vw, 28px);
+  }
+  .details-link {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: baseline;
   }
 
-  .label {
-    color: var(--color-accent);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-  }
-
-  h3,
-  .entry-title {
-    margin: 5px 0 0;
-    color: var(--color-text);
-    font-size: clamp(21px, 1.65vw, 25px);
-    font-weight: 570;
-    line-height: 1.18;
-  }
-
-  div > p {
-    margin: 4px 0 0;
+  .project-meta {
+    margin: 4px 0 12px;
     color: var(--color-text-muted);
-    font-size: 13px;
+    font-size: 15px;
   }
-
   .summary {
+    max-width: 72ch;
     margin: 0;
     color: var(--color-text-muted);
-    font-size: 17px;
-    line-height: 1.55;
+    font-size: 18px;
+    line-height: 1.6;
   }
-
-  .entry-keywords {
-    align-self: end;
-  }
-
-  .entry-actions {
-    min-width: 0;
-    display: flex;
-    align-items: center;
-    align-self: end;
-    gap: 8px 22px;
-    flex-wrap: wrap;
-  }
-
-  .entry-actions a {
-    min-height: 44px;
-    display: inline-flex;
-    align-items: center;
-    font-size: 15px;
-    font-weight: 600;
-  }
-
-  .entry-link {
-    color: var(--color-text);
-  }
-
-  .external-links {
-    display: flex;
-    gap: 8px 18px;
-    flex-wrap: wrap;
-  }
-
-  .external-links a {
-    color: var(--color-text);
-  }
-
-  @media (min-width: 901px) {
-    time {
-      font-size: 14px;
-    }
-
-    .label {
-      font-size: 12px;
-    }
-
-    h3,
-    .entry-title {
-      font-size: clamp(23px, 1.8vw, 28px);
-    }
-
-    div > p {
-      font-size: 14px;
-    }
-
-    .summary {
-      font-size: 18px;
-    }
-
-    .entry-actions a {
-      font-size: 16px;
-    }
-  }
-
-  @media (max-width: 720px) {
-    article {
-      min-height: 0;
-      padding: 21px 23px;
-      gap: 26px;
+  @media (max-width: 640px) {
+    .project {
+      padding: 20px;
     }
   }
 </style>

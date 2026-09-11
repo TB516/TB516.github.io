@@ -1,117 +1,123 @@
 <script lang="ts">
   import { resume } from "$lib/resume";
 
-  import LandingFacts from "./LandingFacts.svelte";
+  import EducationSection from "./EducationSection.svelte";
 </script>
 
-<section class="hero">
-  <div class="hero-top">
-    <div class="title">
-      <p class="role">{resume.basics.label}</p>
-      <h1>{resume.basics.name}</h1>
-      {#if resume.basics.availability}
-        <p class="availability">
-          <span aria-hidden="true"></span>{resume.basics.availability}
-        </p>
-      {/if}
-    </div>
-    <LandingFacts />
+<section class="hero" aria-labelledby="intro-heading">
+  <h1 id="intro-heading">{resume.basics.name}</h1>
+  <div class="role-line">
+    <p class="role">{resume.basics.label}</p>
+    {#if resume.basics.availability}<p class="availability">
+        <span aria-hidden="true">·</span>{resume.basics.availability}
+      </p>{/if}
   </div>
+  <div id="about">
+    <p class="description">{resume.basics.description}</p>
+  </div>
+  <div class="intro-actions">
+    <a
+      class="email-address"
+      href={`mailto:${resume.basics.email}`}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={`Email ${resume.basics.email}, opens your email app`}
+      >{resume.basics.email}<span class="link-arrow" aria-hidden="true">↗</span></a
+    >
+    <nav aria-label="Contact and profile links">
+      {#each resume.basics.profiles as profile}
+        <a
+          href={profile.url}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={`${profile.label} profile, opens in a new tab`}
+          >{profile.label}<span class="link-arrow" aria-hidden="true">↗</span></a
+        >
+      {/each}
+    </nav>
+  </div>
+  <EducationSection />
 </section>
 
 <style>
+  .email-address {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    margin-top: 0;
+    font-size: var(--font-size-link);
+    overflow-wrap: anywhere;
+  }
   .hero {
-    height: calc(100svh - var(--header-height));
-    padding: 6vh 4.5vw 5vh;
-    display: grid;
-    align-items: center;
+    position: sticky;
+    top: calc(var(--header-height) + 24px);
+    padding-bottom: 0;
   }
-
-  .hero-top {
-    display: grid;
-    grid-template-columns: 1.5fr 0.5fr;
-    gap: 6vw;
-    align-items: center;
-  }
-
-  .role {
-    margin: 0;
-    color: var(--color-accent);
-    font-size: 18px;
-  }
-
-  h1 {
-    max-width: 1000px;
-    margin: 24px 0 0;
-    color: var(--color-text);
-    white-space: nowrap;
-    font-size: clamp(60px, 6.8vw, 96px);
-    line-height: 0.85;
-    letter-spacing: -0.07em;
-  }
-
-  .availability {
-    margin: 36px 0 0;
+  .role-line {
     display: flex;
-    align-items: center;
-    gap: 10px;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px 12px;
+  }
+  .availability {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin: 0;
     color: var(--color-text-muted);
     font-size: 15px;
+    font-weight: 500;
   }
-
-  .availability span {
-    width: 7px;
-    height: 7px;
-    flex: none;
-    background: var(--color-accent);
+  h1 {
+    max-width: 8ch;
+    margin: 0 0 18px;
+    font-size: clamp(44px, 4vw, 76px);
+    font-weight: 700;
+    line-height: 1.04;
+    letter-spacing: -0.035em;
   }
-
-  @media (min-width: 901px) {
-    .role {
-      font-size: 20px;
-    }
-
-    .title .availability {
-      margin-top: 48px;
-      font-size: 16px;
-    }
-
-    h1 {
-      font-size: clamp(68px, 7.2vw, 108px);
-    }
+  .role {
+    margin: 0;
+    font-size: 21px;
+    letter-spacing: -0.025em;
   }
-
-  @media (max-width: 1040px) {
-    .hero-top {
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 4vw;
-    }
-
-    h1 {
-      white-space: normal;
-    }
+  .description {
+    max-width: 42ch;
+    margin: 24px 0 0;
+    color: var(--color-text-muted);
+    font-size: var(--font-size-body);
+    line-height: 1.65;
   }
-
-  @media (max-width: 720px) {
+  .intro-actions {
+    margin-top: 24px;
+  }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 4px;
+    font-size: var(--font-size-link);
+  }
+  nav a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+  @media (max-width: 1000px) {
     .hero {
-      height: auto;
-      min-height: calc(100svh - var(--header-height));
-      padding-top: 56px;
-      padding-bottom: 56px;
+      position: static;
+      padding-bottom: 16px;
     }
-
-    .hero-top {
-      grid-template-columns: 1fr;
-      gap: 48px;
+    h1 {
+      max-width: none;
+    }
+    .description {
+      max-width: 54ch;
     }
   }
-
-  @media (max-height: 700px) and (min-width: 721px) {
+  @media (max-height: 700px) {
     .hero {
-      height: auto;
-      min-height: calc(100svh - var(--header-height));
-      padding-top: 42px;
-      padding-bottom: 42px;
+      position: static;
     }
   }
 </style>

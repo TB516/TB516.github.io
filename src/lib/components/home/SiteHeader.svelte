@@ -1,67 +1,20 @@
 <script lang="ts">
-  import { goto } from "$app/navigation";
-  import { page } from "$app/state";
   import { resume } from "$lib/resume";
-
-  const sections = [
-    { id: "experience", label: "Experience" },
-    { id: "projects", label: "Projects" },
-    { id: "skills", label: "Skills" },
-  ];
-
-  const isHome = $derived(page.url.pathname === "/");
-
-  const isUnmodifiedPrimaryClick = (event: MouseEvent) =>
-    event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey;
-
-  async function navigateToHomeTop(event: MouseEvent) {
-    if (!isHome || !isUnmodifiedPrimaryClick(event)) return;
-
-    event.preventDefault();
-
-    if (page.url.hash) {
-      await goto("/", { noScroll: true, keepFocus: true });
-    }
-
-    window.scrollTo(0, 0);
-  }
-
-  async function navigateToHomeSection(event: MouseEvent, id: string) {
-    if (!isHome || !isUnmodifiedPrimaryClick(event)) return;
-
-    const target = document.getElementById(id);
-    if (!target) return;
-
-    event.preventDefault();
-
-    const hash = `#${id}`;
-    if (page.url.hash !== hash) {
-      await goto(hash, { noScroll: true, keepFocus: true });
-    }
-
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
-  }
 </script>
 
+<a class="skip-link" href="#main-content">Skip to content</a>
 <header class="site-header">
-  <a class="name" href="/" onclick={navigateToHomeTop}>{resume.basics.name}</a>
-  <nav aria-label="Main navigation">
-    {#each sections as section}
-      <a
-        href={isHome ? `#${section.id}` : `/#${section.id}`}
-        onclick={(event) => navigateToHomeSection(event, section.id)}>{section.label}</a
-      >
-    {/each}
-  </nav>
-  <a
-    class="resume-link"
-    href="/Thomas_Berrios_Resume.pdf"
-    target="_blank"
-    rel="noreferrer"
-    aria-label="Résumé, opens in a new tab"
-    >Résumé<span class="link-arrow" aria-hidden="true">↗</span></a
-  >
+  <div class="header-inner container">
+    <a class="name" href="/" aria-label={`${resume.basics.name}, home`}>{resume.basics.name}</a>
+    <a
+      class="resume-link"
+      href="/Thomas_Berrios_Resume.pdf"
+      target="_blank"
+      rel="noreferrer"
+      aria-label="Résumé PDF, opens in a new tab"
+      >Résumé<span class="link-arrow" aria-hidden="true">↗</span>
+    </a>
+  </div>
 </header>
 
 <style>
@@ -69,55 +22,44 @@
     position: sticky;
     z-index: 20;
     top: 0;
+    background: color-mix(in srgb, var(--color-background) 96%, transparent);
+    backdrop-filter: blur(12px);
+  }
+  .header-inner {
     min-height: var(--header-height);
-    padding: 0 4.5vw;
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns: 1fr auto;
     align-items: center;
     gap: 28px;
-    background: color-mix(in srgb, var(--color-background) 94%, transparent);
-    box-shadow: 0 12px 32px #0003;
-    backdrop-filter: blur(14px);
   }
-
-  .site-header a {
+  a {
     min-height: 44px;
     display: inline-flex;
     align-items: center;
   }
-
   .name {
-    justify-self: start;
+    color: var(--color-text);
+    width: fit-content;
+    font-size: 16px;
     font-weight: 650;
   }
-
-  nav {
-    display: flex;
-    gap: 28px;
-    color: var(--color-text-muted);
-    font-size: 15px;
-  }
-
   .resume-link {
-    justify-self: end;
-    color: var(--color-accent);
-    font-size: 15px;
+    padding: 0 14px;
+    background: var(--color-surface);
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
   }
-
-  @media (min-width: 901px) {
-    nav,
+  @media (max-width: 640px) {
+    .header-inner {
+      gap: 16px;
+    }
+    .name {
+      color: var(--color-text);
+      font-size: 15px;
+    }
     .resume-link {
-      font-size: 16px;
-    }
-  }
-
-  @media (max-width: 720px) {
-    .site-header {
-      grid-template-columns: 1fr auto;
-    }
-
-    nav {
-      display: none;
+      padding-inline: 10px;
     }
   }
 </style>

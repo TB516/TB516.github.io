@@ -4,11 +4,13 @@
   import PortfolioSection from "./PortfolioSection.svelte";
 </script>
 
-<PortfolioSection id="experience" title="Experience" entries={resume.work} kind="experience" />
+<PortfolioSection
+  id="contributions"
+  title="Open-source contributions"
+  entries={resume.projects.filter((entry) => entry.category === "contribution")}
+/>
 <PortfolioSection
   id="projects"
   title="Projects"
-  entries={resume.projects}
-  kind="project"
-  alternate
+  entries={resume.projects.filter((entry) => entry.category !== "contribution")}
 />

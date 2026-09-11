@@ -16,7 +16,7 @@
   <meta name="robots" content="noindex" />
 </svelte:head>
 
-<main class="error-page">
+<main id="main-content" tabindex="-1" class="error-page">
   <div class="error-inner">
     <p class="status">{page.status}</p>
     <h1>{heading}</h1>
@@ -24,7 +24,7 @@
 
     <nav aria-label="Error recovery">
       <a class="home-link" href="/">Return home</a>
-      <a href="/#experience">View experiences</a>
+      <a href="/#experience">View experience</a>
       <a href="/#projects">View projects</a>
     </nav>
   </div>
@@ -32,8 +32,8 @@
 
 <style>
   .error-page {
-    min-height: calc(100svh - var(--header-height));
-    padding: clamp(56px, 9vh, 104px) 4.5vw;
+    min-height: 60svh;
+    padding: clamp(56px, 9vh, 104px) var(--page-gutter);
     display: grid;
     align-items: center;
     background: var(--color-surface);
@@ -41,8 +41,8 @@
 
   .error-inner {
     width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
+    max-width: var(--content-width);
+    margin: 0;
   }
 
   .status {
@@ -59,9 +59,9 @@
   h1 {
     max-width: 900px;
     margin: 18px 0 0;
-    font-size: clamp(52px, 7vw, 104px);
+    font-size: clamp(44px, 6vw, 72px);
     font-weight: 650;
-    line-height: 0.95;
+    line-height: 1.1;
     letter-spacing: -0.055em;
   }
 

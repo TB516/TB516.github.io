@@ -23,7 +23,7 @@ export interface Basics {
   name: string;
   /** Professional title or headline. */
   label: string;
-  /** Concise professional overview used in page metadata. */
+  /** Personal overview used in the introduction and page metadata. */
   description: string;
   /** Current availability or employment-search status. */
   availability?: string;
@@ -59,12 +59,21 @@ export interface SkillGroup {
 export interface ResumeEntry {
   /** Employer, organization, or project name. */
   name: string;
+  /** Distinguishes owned projects from contributions without changing résumé selection. */
+  category?: "project" | "contribution";
+  /** Optional explanations of the work; each presentation selects the content it needs. */
+  sections?: {
+    title: string;
+    paragraphs?: string[];
+    bullets?: string[];
+    links?: Link[];
+  }[];
   /** Capacities in which the work or project was performed. */
   roles: string[];
   /** The single continuous interval covered by this engagement. */
   period: DatePeriod;
   location?: string;
-  /** Brief overview used in portfolio summaries. */
+  /** Brief overview of the work. */
   summary: string;
   /** Concrete accomplishments, responsibilities, or outcomes. */
   highlights: string[];

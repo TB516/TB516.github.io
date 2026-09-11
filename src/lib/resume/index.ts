@@ -5,7 +5,7 @@ export const resume = {
     name: "Thomas Berrios",
     label: "Full Stack Developer",
     description:
-      "Full stack developer working across TypeScript applications, backend systems, DevOps, and open-source Linux tooling.",
+      "I build web applications and Linux tooling, often around games. I studied Game Design & Development at RIT and have worked on backend infrastructure and taught programming. I care about readable code, reproducible setups, and keeping solutions simple.",
     availability: "Looking for work",
     email: "thomas@thomasberrios.com",
     profiles: [
@@ -30,46 +30,27 @@ export const resume = {
     },
   ],
   skills: [
-    {
-      name: "Programming Languages",
-      keywords: ["JavaScript", "TypeScript", "Node.js", "C#", "Python", "Java", "C++"],
-    },
+    { name: "Languages", keywords: ["TypeScript", "JavaScript", "C#", "Python", "Java", "C++"] },
     {
       name: "Frameworks",
       keywords: [
-        "React",
-        "Next",
-        "Svelte",
         "SvelteKit",
+        "Svelte",
+        "React",
+        "Next.js",
         "Express",
         "Electron",
-        "Jest",
-        "Vitest",
-        "Playwright",
         "ASP.NET",
         "Spring Boot",
       ],
     },
+    { name: "Databases", keywords: ["SQL", "PostgreSQL", "MySQL", "MongoDB", "Redis"] },
     {
-      name: "Database",
-      keywords: ["SQL", "PostgreSQL", "MySQL", "MongoDB", "Redis"],
+      name: "Infrastructure",
+      keywords: ["Linux (Ubuntu, RHEL, Fedora)", "Docker", "AWS", "CI/CD", "GitHub Actions"],
     },
-    {
-      name: "DevOps",
-      keywords: [
-        "Docker",
-        "Containerization",
-        "AWS",
-        "Cloud Computing",
-        "CI/CD",
-        "GitHub Actions",
-        "Linux (Ubuntu, RHEL, Fedora)",
-      ],
-    },
-    {
-      name: "Agentic Development",
-      keywords: ["OpenAI API", "OpenAI Codex", "Claude Code", "T3 Code"],
-    },
+    { name: "Testing", keywords: ["Vitest", "Playwright", "Jest"] },
+    { name: "Agentic Development", keywords: ["OpenAI Codex", "Claude Code", "T3 Code"] },
   ],
   work: [
     {
@@ -78,11 +59,11 @@ export const resume = {
       period: { start: "2026-07", end: "2026-08" },
       location: "New York, NY",
       summary:
-        "Led project-based courses in Unreal Engine 5, Python, AI, and OpenAI API development",
+        "Taught game development and AI programming courses using Unreal Engine 5, Python, and the OpenAI API.",
       highlights: [
-        "Led project-based instruction in Unreal Engine 5 and Python, teaching game design, software engineering, debugging, and AI application development with OpenAI APIs",
-        "Coached students through hands-on game and software projects, helping them apply agentic workflows to turn course concepts into working prototypes",
-        "Partnered with camp leadership to coordinate daily operations, supervise students, and maintain a safe, engaging learning environment",
+        "Taught students to build and debug games in Unreal Engine 5 and AI applications in Python with the OpenAI API.",
+        "Helped students use AI coding tools to build, test, and debug their game and software projects.",
+        "Coordinated daily camp operations and student supervision with camp leadership.",
       ],
       keywords: [
         "Unreal Engine 5",
@@ -100,12 +81,10 @@ export const resume = {
       roles: ["Teaching Assistant"],
       period: { start: "2024-08", end: "2025-12" },
       location: "Rochester, NY",
-      summary:
-        "Evaluated C# coursework and guided students through debugging and project implementation",
+      summary: "Supported C# programming courses across three semesters.",
       highlights: [
-        "Evaluated C# assignments and delivered actionable feedback on data structures, algorithms, object-oriented programming, and GUI development",
-        "Supported students in debugging and implementing projects with C#, Windows Forms, and MonoGame",
-        "Reinforced software engineering concepts across three semesters through assignment feedback and project guidance",
+        "Reviewed C# assignments and gave feedback on data structures, algorithms, object-oriented programming, and GUI development.",
+        "Helped students implement and debug projects using C#, Windows Forms, and MonoGame.",
       ],
       keywords: [
         "C#",
@@ -123,11 +102,12 @@ export const resume = {
       roles: ["Backend Developer", "DevOps Lead"],
       period: { start: "2025-05", end: "2025-08" },
       summary:
-        "Led a TypeScript backend rewrite and managed production infrastructure for a 20-person team",
+        "Built backend and deployment infrastructure for LFG, a platform for RIT students to find project collaborators.",
       highlights: [
-        "Led backend and DevOps work on a 20-person team, rewriting a legacy Express/MySQL backend as a modular TypeScript architecture with Prisma and service/controller layers",
-        "Containerized development and production environments with Docker Compose and Podman, eliminating manual database setup and streamlining onboarding with reproducible environments",
-        "Configured and maintained production infrastructure spanning an Apache HTTPD reverse proxy, Shibboleth SSO, and Amazon S3 storage",
+        "Implemented substantial parts of the TypeScript backend refactor, including Prisma integration, service/controller structure, and shared frontend/backend types.",
+        "Set up the deployment server with Apache HTTPD, Shibboleth single sign-on, and Podman; built GitHub Actions workflows to deploy the client and server.",
+        "Configured repository permissions and development tooling, and documented setup for the 20-person team. Containerized MySQL to remove manual database setup.",
+        "Established S3-compatible storage infrastructure and client configuration using MinIO and the AWS SDK.",
       ],
       keywords: [
         "TypeScript",
@@ -140,7 +120,9 @@ export const resume = {
         "Podman",
         "Apache HTTPD",
         "Shibboleth",
-        "Amazon S3",
+        "GitHub Actions",
+        "MinIO",
+        "S3-compatible storage",
       ],
     },
     {
@@ -148,12 +130,11 @@ export const resume = {
       roles: ["Lead Instructor – Teen Academy"],
       period: { start: "2024-07", end: "2024-08" },
       location: "New York, NY",
-      summary:
-        "Led project-based C++ and Unreal Engine instruction with an emphasis on graphics and gameplay programming",
+      summary: "Taught C++ and Unreal Engine courses focused on graphics and gameplay programming.",
       highlights: [
-        "Led project-based instruction in C++ and Unreal Engine, teaching graphics programming, software engineering, gameplay programming, and game development",
-        "Mentored students through hands-on projects using SFML and Box2D, from initial design and implementation through debugging and final presentation",
-        "Partnered with the camp director to coordinate daily operations, supervise students, and plan activities and off-site trips",
+        "Taught graphics and gameplay programming in C++ and Unreal Engine.",
+        "Guided students through designing, building, debugging, and presenting projects using SFML and Box2D.",
+        "Coordinated daily operations, student supervision, activities, and off-site trips with the camp director.",
       ],
       keywords: [
         "C++",
@@ -172,11 +153,11 @@ export const resume = {
       period: { start: "2024-06", end: "2024-07" },
       location: "New York, NY",
       summary:
-        "Led project-based courses across programming, game development, virtual reality, and machine learning",
+        "Taught programming, game development, virtual reality, and introductory machine learning.",
       highlights: [
-        "Taught Unreal Engine, Unity VR, C#, C++, and Python through hands-on lessons in software engineering and game development",
-        "Guided students through projects spanning 3D asset creation, API-driven features, and introductory machine learning workflows",
-        "Partnered with the camp director to coordinate daily operations, supervise students, and support activities and events",
+        "Taught students to build games and VR projects using Unreal Engine, Unity, C#, C++, and Python.",
+        "Helped students create 3D assets, integrate APIs, and build introductory machine learning projects.",
+        "Coordinated daily operations, student supervision, and camp activities with the camp director.",
       ],
       keywords: [
         "Unreal Engine",
@@ -192,14 +173,31 @@ export const resume = {
   projects: [
     {
       name: "sveltekit-pdf-renderer",
+      category: "project",
+      sections: [
+        {
+          title: "Capabilities",
+          bullets: [
+            "Pass typed props to the component being rendered.",
+            "Configure fonts, page size, and backgrounds.",
+            "Set component defaults and override them per request.",
+            "Customize response metadata and browser launch options.",
+          ],
+        },
+        {
+          title: "Built for SvelteKit",
+          paragraphs: [
+            "The renderer loads application assets through SvelteKit’s request handling and waits for fonts before generating a PDF. It reuses a browser across requests while keeping each render in a separate browser context.",
+          ],
+        },
+      ],
       roles: ["Lead Developer"],
       period: { start: "2026-08", end: "present" },
-      summary:
-        "Published an open-source SvelteKit library for rendering server-side Svelte components as configurable PDF responses",
+      summary: "A library for generating PDFs from Svelte components in SvelteKit server routes.",
       highlights: [
-        "Designed a type-safe API for combining component-level configuration with per-request props, fonts, PDF options, and response metadata",
-        "Built a reusable Puppeteer service that lazily launches and shares Chromium while isolating every render in its own browser context and recovering from browser failures",
-        "Integrated rendering with SvelteKit's request pipeline to load same-origin assets through event.fetch and wait for network activity and fonts before generating PDFs",
+        "Designed a type-safe API with component defaults and per-request props, fonts, PDF options, and response metadata.",
+        "Built a reusable Puppeteer service with isolated render contexts, shared Chromium, and browser-failure recovery.",
+        "Integrated SvelteKit asset loading through event.fetch, waiting for network activity and fonts before PDF generation.",
       ],
       keywords: [
         "TypeScript",
@@ -214,20 +212,70 @@ export const resume = {
       links: [
         {
           label: "GitHub",
-          url: "https://github.com/TB516/sveltekit-pdf-handler",
+          url: "https://github.com/TB516/sveltekit-pdf-renderer",
         },
       ],
     },
     {
       name: "r2modman",
+      category: "contribution",
+      sections: [
+        {
+          title: "Flatpak packaging and updates",
+          bullets: [
+            "Built packaging and distribution infrastructure with desktop integration, AppStream metadata, and signed updates hosted on Cloudflare R2.",
+            "Simplified Flatpak builds to use one manifest and added repository publishing for automatic updates.",
+          ],
+          links: [
+            {
+              label: "Build and publishing changes · PR #2208",
+              url: "https://github.com/ebkr/r2modmanPlus/pull/2208",
+            },
+            {
+              label: "Flathub build preparation · PR #2093",
+              url: "https://github.com/ebkr/r2modmanPlus/pull/2093",
+            },
+          ],
+        },
+        {
+          title: "Steam and Linux compatibility",
+          bullets: [
+            "Fixed Steam launching from Flatpak using xdg-open, with separate handling for Steam Deck game mode.",
+            "Added access to Steam’s Flatpak directory so r2modman can detect Flatpak Steam installations.",
+          ],
+          links: [
+            {
+              label: "Steam launching fix · PR #2077",
+              url: "https://github.com/ebkr/r2modmanPlus/pull/2077",
+            },
+            {
+              label: "Flatpak Steam detection · PR #2163",
+              url: "https://github.com/ebkr/r2modmanPlus/pull/2163",
+            },
+          ],
+        },
+        {
+          title: "Ongoing work",
+          paragraphs: [
+            "I maintain the Flatpak packaging and update pipeline, test Steam integration, and investigate Linux compatibility issues.",
+          ],
+          links: [
+            {
+              label: "My merged pull requests",
+              url: "https://github.com/ebkr/r2modmanPlus/pulls?q=is%3Apr+is%3Amerged+author%3ATB516",
+            },
+          ],
+        },
+      ],
+
       roles: ["Open-source Contributor"],
       period: { start: "2026-02", end: "present" },
       summary:
-        "Building Linux and Flatpak distribution, CI/CD, and update infrastructure for r2modmanPlus alongside upstream compatibility fixes",
+        "r2modman is a game mod manager. I work on its Linux and Flatpak distribution and contribute compatibility fixes to the upstream project.",
       highlights: [
-        "Built an end-to-end Flatpak distribution pipeline for r2modmanPlus with sandbox configuration, AppStream metadata, desktop integration, automated CI builds, and signed updates through a Cloudflare R2 repository",
-        "Contributed Linux and Flatpak compatibility fixes upstream, implementing portal-based Steam launching with xdg-open, Flatpak Steam permissions, and Steam Deck game-mode fallbacks",
-        "Continue to maintain the packaging and update infrastructure, validate changes across Steam environments, triage Linux and Flatpak issues, and submit upstream fixes",
+        "Built Flatpak packaging and CI with AppStream metadata, desktop integration, and signed repository updates on Cloudflare R2.",
+        "Contributed merged upstream fixes for Steam launching with xdg-open, Flatpak Steam detection, and Steam Deck game-mode handling.",
+        "Maintain the packaging pipeline, test Steam integration, and investigate Linux and Flatpak issues.",
       ],
       keywords: [
         "Linux",
