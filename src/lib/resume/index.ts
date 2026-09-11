@@ -172,6 +172,50 @@ export const resume = {
   ],
   projects: [
     {
+      name: "Bluefin Server",
+      category: "contribution",
+      roles: ["Open-source Contributor"],
+      period: {
+        start: "2026-09",
+        end: "present",
+      },
+      summary:
+        "Bluefin Server is a Linux server operating system built from freedesktop-sdk, with image-based updates and atomic rollbacks. I contribute to installation and testing on physical hardware and virtual machines.",
+      sections: [
+        {
+          title: "Installer display",
+          paragraphs: [
+            "The interactive installer followed the system console to a serial terminal. I changed it to use the local virtual console so the interface appears on the machine’s monitor, while retaining serial boot diagnostics.",
+          ],
+          bullets: [
+            "Tested installation on physical hardware and verified that the installed system booted successfully.",
+            "Updated the interactive QEMU target to expose the same console in a graphical window.",
+            "Validated the unattended installation workflow and the project’s automated checks.",
+          ],
+          links: [
+            {
+              label: "Installer display fix · PR #79",
+              url: "https://github.com/projectbluefin/server/pull/79",
+            },
+          ],
+        },
+      ],
+      highlights: [
+        "Fixed local-console installer display and validated installation on physical hardware and QEMU.",
+      ],
+      keywords: ["Linux", "systemd", "QEMU", "Installation", "Hardware testing"],
+      links: [
+        {
+          label: "Upstream repository",
+          url: "https://github.com/projectbluefin/server",
+        },
+        {
+          label: "My merged pull requests",
+          url: "https://github.com/projectbluefin/server/pulls?q=is%3Apr+is%3Amerged+author%3ATB516",
+        },
+      ],
+    },
+    {
       name: "sveltekit-pdf-renderer",
       category: "project",
       sections: [
@@ -191,13 +235,11 @@ export const resume = {
           ],
         },
       ],
-      roles: ["Lead Developer"],
+      roles: ["Developer"],
       period: { start: "2026-08", end: "present" },
       summary: "A library for generating PDFs from Svelte components in SvelteKit server routes.",
       highlights: [
-        "Designed a type-safe API with component defaults and per-request props, fonts, PDF options, and response metadata.",
-        "Built a reusable Puppeteer service with isolated render contexts, shared Chromium, and browser-failure recovery.",
-        "Integrated SvelteKit asset loading through event.fetch, waiting for network activity and fonts before PDF generation.",
+        "Recovers from browser failures so subsequent PDF requests can start a new browser.",
       ],
       keywords: [
         "TypeScript",
@@ -215,6 +257,86 @@ export const resume = {
           url: "https://github.com/TB516/sveltekit-pdf-renderer",
         },
       ],
+    },
+    {
+      name: "Mixamp",
+      category: "project",
+      roles: ["Developer"],
+      period: {
+        start: "2026-08",
+        end: "2026-09",
+      },
+      summary:
+        "A Linux desktop app that brings hardware-style game and voice-chat balance controls to software. It started as a testbed for GTKX and my Flatpak development environment, with game and chat balance controls inspired by audio hardware I’d used.",
+      highlights: [
+        "Routes game and voice audio through separate outputs to the system’s default output.",
+        "Adjusts the balance between the two outputs and saves the setting between sessions.",
+        "Uses GTKX to build a GTK 4 and libadwaita interface, with WirePlumber for audio routing.",
+        "Supports background operation with permission and reconnecting after the audio service disconnects.",
+      ],
+      keywords: ["TypeScript", "GTK 4", "libadwaita", "WirePlumber", "PipeWire", "Flatpak"],
+      links: [
+        {
+          label: "GitHub",
+          url: "https://github.com/TB516/mixamp",
+        },
+      ],
+      excludeFromResume: true,
+    },
+    {
+      name: "Flatpak SSH development template",
+      category: "project",
+      roles: ["Developer"],
+      period: {
+        start: "2026-08",
+        end: "present",
+      },
+      summary:
+        "A reusable VS Code development environment that runs the app and workspace extensions inside the same Flatpak SDK. I built it to make testing inside the sandbox part of everyday development, including hot module replacement for JavaScript and Node.js apps.",
+      highlights: [
+        "Connects VS Code through Remote-SSH so workspace extensions and development tools use the same SDK as the app.",
+        "Keeps a persistent development home and project-local SSH keys.",
+        "Uses separate development and production manifests.",
+        "Provides commands to build the environment, run tools, and start or stop development sessions.",
+        "Manages the session through a systemd user service and stops it after disconnection.",
+        "Keeps the development session running for live app testing and hot module replacement, and reuses it for one-off commands without rebuilding the SDK environment.",
+      ],
+      keywords: ["Flatpak", "OpenSSH", "VS Code Remote-SSH", "systemd", "Shell"],
+      links: [
+        {
+          label: "GitHub",
+          url: "https://github.com/TB516/flatpak-ssh-dev-template",
+        },
+      ],
+      excludeFromResume: true,
+    },
+    {
+      name: "Linux Homebrew packaging",
+      category: "project",
+      roles: ["Maintainer"],
+      period: {
+        start: "2026-04",
+        end: "present",
+      },
+      summary:
+        "Unofficial Linux casks for Helium, T3 Code, and ChatGPT, with update automation and desktop integration.",
+      highlights: [
+        "Maintain Linux installation definitions and desktop integration across a personal tap and a dedicated Helium tap.",
+        "Update casks as upstream releases and Homebrew packaging conventions change.",
+        "Fix upgrade and installation issues, including staged paths and desktop icon locations.",
+      ],
+      keywords: ["Homebrew", "Linux", "Ruby", "GitHub Actions", "Desktop integration"],
+      links: [
+        {
+          label: "Personal tap",
+          url: "https://github.com/TB516/homebrew-tap",
+        },
+        {
+          label: "Helium cask",
+          url: "https://github.com/TB516/homebrew-helium-browser-linux",
+        },
+      ],
+      excludeFromResume: true,
     },
     {
       name: "r2modman",

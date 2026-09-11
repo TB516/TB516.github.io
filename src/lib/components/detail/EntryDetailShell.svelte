@@ -48,8 +48,8 @@
         </nav>
       {/if}
     </header>
-    <div class="entry-story" class:section-cards={!!entry.sections?.length}>
-      {#if entry.sections?.length}
+    {#if entry.sections?.length}
+      <div class="entry-story section-cards">
         {#each entry.sections as section}
           <section class="story-section">
             <h2>{section.title}</h2>
@@ -75,15 +75,15 @@
             </div>
           </section>
         {/each}
-      {:else}
-        <section aria-labelledby="highlights-heading">
-          <h2 class="section-heading" id="highlights-heading">Highlights</h2>
-          <ul class="highlight-cards section-cards">
-            {#each entry.highlights as highlight}<li class="story-section">{highlight}</li>{/each}
-          </ul>
-        </section>
-      {/if}
-    </div>
+      </div>
+    {:else if entry.highlights.length}
+      <section aria-labelledby="highlights-heading">
+        <h2 class="section-heading" id="highlights-heading">Highlights</h2>
+        <ul class="highlight-cards section-cards">
+          {#each entry.highlights as highlight}<li class="story-section">{highlight}</li>{/each}
+        </ul>
+      </section>
+    {/if}
     {#if entry.keywords?.length}
       <section class="entry-skills" aria-labelledby="skills-heading">
         <h2 id="skills-heading">

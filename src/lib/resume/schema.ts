@@ -61,7 +61,7 @@ export interface ResumeEntry {
   name: string;
   /** Distinguishes owned projects from contributions without changing résumé selection. */
   category?: "project" | "contribution";
-  /** Optional explanations of the work; each presentation selects the content it needs. */
+  /** Substantial explanations grouped by topic, with paragraphs, bullets, and supporting links. Used on the website instead of highlights when present. */
   sections?: {
     title: string;
     paragraphs?: string[];
@@ -75,7 +75,7 @@ export interface ResumeEntry {
   location?: string;
   /** Brief overview of the work. */
   summary: string;
-  /** Concrete accomplishments, responsibilities, or outcomes. */
+  /** Concise accomplishments, responsibilities, or outcomes. Used by the résumé and rendered as individual website cards when sections are absent. */
   highlights: string[];
   /** Technologies, tools, and areas of expertise applied to the entry. */
   keywords?: string[];
