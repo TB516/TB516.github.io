@@ -30,8 +30,8 @@ body {
   margin: 0;
 }
 ::selection {
-  color: var(--color-background);
-  background: var(--color-accent);
+  color: var(--color-text);
+  background: color-mix(in srgb, var(--color-accent) 30%, var(--color-background));
 }
 
 a {

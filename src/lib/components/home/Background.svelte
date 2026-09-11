@@ -1,11 +1,14 @@
 <script lang="ts">
+  import { getJobHistory } from "$lib/job-history-context";
   import { resume } from "$lib/resume";
   import { formatResumePeriod } from "$lib/resume/dates";
   import { getResumeEntrySlug } from "$lib/resume/slugs";
+
+  const jobHistory = getJobHistory();
 </script>
 
 <div class="resume-section container">
-  <details id="experience">
+  <details id="experience" bind:open={jobHistory.open}>
     <summary>Job history</summary>
     <ul>
       {#each resume.work as entry}
