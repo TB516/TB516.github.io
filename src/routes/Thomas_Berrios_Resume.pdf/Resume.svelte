@@ -26,8 +26,11 @@
   import type { ResumeEntry } from "$lib/resume/schema";
 
   const work = resume.work.slice(0, 3);
-  const projects = resume.projects.filter(
+  const contributions = resume.projects.filter(
     (project: ResumeEntry) => project.category === "contribution" && !project.excludeFromResume,
+  );
+  const projects = resume.projects.filter(
+    (project: ResumeEntry) => project.category === "project" && !project.excludeFromResume,
   );
 
   const groupAdjacentEntries = (entries: readonly ResumeEntry[]) => {
@@ -130,8 +133,30 @@
   </section>
 
   <section>
-    <h2>Open-source Contributions</h2>
+    <h2>Projects</h2>
     {#each projects as project}
+      {@const repositoryUrl = getProjectRepositoryUrl(project)}
+      <article>
+        <div class="heading">
+          <strong>
+            {#if repositoryUrl}
+              <a href={repositoryUrl}>{project.name}</a>
+            {:else}
+              {project.name}
+            {/if}
+          </strong>
+          <div>{formatResumePeriod(project.period)}</div>
+        </div>
+        <ul>
+          {#each project.highlights as highlight}<li>{highlight}</li>{/each}
+        </ul>
+      </article>
+    {/each}
+  </section>
+
+  <section>
+    <h2>Open-source Contributions</h2>
+    {#each contributions as project}
       {@const repositoryUrl = getProjectRepositoryUrl(project)}
       <article>
         <div class="heading">

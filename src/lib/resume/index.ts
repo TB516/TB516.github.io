@@ -239,7 +239,8 @@ export const resume = {
       period: { start: "2026-08", end: "present" },
       summary: "A library for generating PDFs from Svelte components in SvelteKit server routes.",
       highlights: [
-        "Recovers from browser failures so subsequent PDF requests can start a new browser.",
+        "Built a type-safe SvelteKit library that generates PDFs from Svelte components through server-side rendering and Puppeteer.",
+        "Reused Chromium across requests, isolated each render in a separate browser context, and added recovery after browser failures.",
       ],
       keywords: [
         "TypeScript",
