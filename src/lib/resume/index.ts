@@ -172,7 +172,7 @@ export const resume = {
   ],
   projects: [
     {
-      name: "Bluefin Server",
+      name: "Bluefin",
       category: "contribution",
       roles: ["Open-source Contributor"],
       period: {
@@ -180,12 +180,12 @@ export const resume = {
         end: "present",
       },
       summary:
-        "Bluefin Server is a Linux server operating system built from freedesktop-sdk, with image-based updates and atomic rollbacks. I contribute to installation and testing on physical hardware and virtual machines.",
+        "I contribute to Bluefin Server installation and hardware testing, and investigate and report bugs in Bluefin’s desktop tooling.",
       sections: [
         {
           title: "Installer display",
           paragraphs: [
-            "The interactive installer followed the system console to a serial terminal. I changed it to use the local virtual console so the interface appears on the machine’s monitor, while retaining serial boot diagnostics.",
+            "Bluefin Server is a Linux server operating system built from freedesktop-sdk, with image-based updates and atomic rollbacks. Its interactive installer followed the system console to a serial terminal. I investigated the issue and contributed a fix with AI-agent assistance, using the local virtual console so the interface appears on the machine’s monitor while retaining serial boot diagnostics.",
           ],
           bullets: [
             "Tested installation on physical hardware and verified that the installed system booted successfully.",
@@ -199,6 +199,12 @@ export const resume = {
             },
           ],
         },
+        {
+          title: "Hive",
+          paragraphs: [
+            "I also support Bluefin’s automated development by contributing AI-agent capacity through Hive. Agents autonomously pick up work from project queues. My participation is mostly hands-off, providing tokens and agent capacity rather than personally implementing or reviewing each change.",
+          ],
+        },
       ],
       highlights: [
         "Fixed local-console installer display and validated installation on physical hardware and QEMU.",
@@ -206,11 +212,11 @@ export const resume = {
       keywords: ["Linux", "systemd", "QEMU", "Installation", "Hardware testing"],
       links: [
         {
-          label: "Upstream repository",
+          label: "Bluefin Server repository",
           url: "https://github.com/projectbluefin/server",
         },
         {
-          label: "My merged pull requests",
+          label: "My merged Bluefin Server pull requests",
           url: "https://github.com/projectbluefin/server/pulls?q=is%3Apr+is%3Amerged+author%3ATB516",
         },
       ],
