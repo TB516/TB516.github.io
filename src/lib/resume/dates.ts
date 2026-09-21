@@ -1,5 +1,16 @@
 import type { DatePeriod, ResumeDate, YearMonth } from "./schema";
 
+/** Orders ongoing entries first, then by latest end date and latest start date. */
+export const compareEntryDates = (a: { period: DatePeriod }, b: { period: DatePeriod }) => {
+  if (a.period.end !== b.period.end) {
+    if (a.period.end === "present") return -1;
+    if (b.period.end === "present") return 1;
+    return b.period.end.localeCompare(a.period.end);
+  }
+
+  return b.period.start.localeCompare(a.period.start);
+};
+
 const MONTH_ABBREVIATIONS = [
   "Jan",
   "Feb",

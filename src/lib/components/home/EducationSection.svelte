@@ -1,12 +1,12 @@
 <script lang="ts">
-  import { resume } from "$lib/resume";
   import { formatResumePeriod } from "$lib/resume/dates";
   import { formatEducationDetails } from "$lib/resume/education";
+  import { education as educationEntries } from "$lib/resume/education-data";
 </script>
 
 <section class="education" id="education" aria-labelledby="education-heading">
   <h2 class="section-heading" id="education-heading">Education</h2>
-  {#each resume.education as education}
+  {#each educationEntries as education}
     <article>
       <div class="education-heading">
         <h3>{education.institution}</h3>

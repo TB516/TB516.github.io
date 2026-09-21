@@ -1,6 +1,6 @@
 <script lang="ts">
   import EntryDetailShell from "$lib/components/detail/EntryDetailShell.svelte";
-  import { resume } from "$lib/resume";
+  import { basics } from "$lib/resume/basics";
 
   import type { PageProps } from "./$types";
 
@@ -8,7 +8,7 @@
 </script>
 
 <svelte:head>
-  <title>{data.entry.roles.join(", ")} at {data.entry.name} – {resume.basics.name}</title>
+  <title>{data.entry.roles.join(", ")} at {data.entry.name} – {basics.name}</title>
   <meta name="description" content={data.entry.summary} />
 </svelte:head>
 

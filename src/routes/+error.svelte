@@ -1,6 +1,6 @@
 <script lang="ts">
   import { page } from "$app/state";
-  import { resume } from "$lib/resume";
+  import { basics } from "$lib/resume/basics";
 
   const isNotFound = $derived(page.status === 404);
   const heading = $derived(isNotFound ? "Page not found" : "Something went wrong");
@@ -12,7 +12,7 @@
 </script>
 
 <svelte:head>
-  <title>{page.status} {heading} – {resume.basics.name}</title>
+  <title>{page.status} {heading} – {basics.name}</title>
   <meta name="robots" content="noindex" />
 </svelte:head>
 

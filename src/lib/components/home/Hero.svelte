@@ -1,31 +1,31 @@
 <script lang="ts">
-  import { resume } from "$lib/resume";
+  import { basics } from "$lib/resume/basics";
 
   import EducationSection from "./EducationSection.svelte";
 </script>
 
 <section class="hero" aria-labelledby="intro-heading">
-  <h1 id="intro-heading">{resume.basics.name}</h1>
+  <h1 id="intro-heading">{basics.name}</h1>
   <div class="role-line">
-    <p class="role">{resume.basics.label}</p>
-    {#if resume.basics.availability}<p class="availability">
-        <span aria-hidden="true">·</span>{resume.basics.availability}
+    <p class="role">{basics.label}</p>
+    {#if basics.availability}<p class="availability">
+        <span aria-hidden="true">·</span>{basics.availability}
       </p>{/if}
   </div>
   <div id="about">
-    <p class="description">{resume.basics.description}</p>
+    <p class="description">{basics.description}</p>
   </div>
   <div class="intro-actions">
     <a
       class="email-address"
-      href={`mailto:${resume.basics.email}`}
+      href={`mailto:${basics.email}`}
       target="_blank"
       rel="noreferrer"
-      aria-label={`Email ${resume.basics.email}, opens your email app`}
-      >{resume.basics.email}<span class="link-arrow" aria-hidden="true">↗</span></a
+      aria-label={`Email ${basics.email}, opens your email app`}
+      >{basics.email}<span class="link-arrow" aria-hidden="true">↗</span></a
     >
     <nav aria-label="Contact and profile links">
-      {#each resume.basics.profiles as profile}
+      {#each basics.profiles as profile}
         <a
           href={profile.url}
           target="_blank"

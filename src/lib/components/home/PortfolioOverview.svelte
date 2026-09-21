@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { resume } from "$lib/resume";
+  import { projects } from "$lib/resume/projects";
 
   import PortfolioSection from "./PortfolioSection.svelte";
 </script>
@@ -7,10 +7,10 @@
 <PortfolioSection
   id="contributions"
   title="Open-source contributions"
-  entries={resume.projects.filter((entry) => entry.category === "contribution")}
+  entries={projects.filter((entry) => entry.category === "contribution")}
 />
 <PortfolioSection
   id="projects"
   title="Projects"
-  entries={resume.projects.filter((entry) => entry.category !== "contribution")}
+  entries={projects.filter((entry) => entry.category !== "contribution")}
 />

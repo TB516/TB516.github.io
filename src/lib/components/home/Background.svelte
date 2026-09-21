@@ -1,8 +1,8 @@
 <script lang="ts">
   import { getJobHistory } from "$lib/job-history-context";
-  import { resume } from "$lib/resume";
   import { formatResumePeriod } from "$lib/resume/dates";
   import { getResumeEntrySlug } from "$lib/resume/slugs";
+  import { work } from "$lib/resume/work";
 
   const jobHistory = getJobHistory();
 </script>
@@ -11,7 +11,7 @@
   <details id="experience" bind:open={jobHistory.open}>
     <summary>Job history</summary>
     <ul>
-      {#each resume.work as entry}
+      {#each work as entry}
         <li>
           <a href={`/experience/${getResumeEntrySlug(entry)}`}>
             <span class="job-info">

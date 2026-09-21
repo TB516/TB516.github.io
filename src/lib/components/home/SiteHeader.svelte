@@ -1,11 +1,11 @@
 <script lang="ts">
-  import { resume } from "$lib/resume";
+  import { basics } from "$lib/resume/basics";
 </script>
 
 <a class="skip-link" href="#main-content">Skip to content</a>
 <header class="site-header">
   <div class="header-inner container">
-    <a class="name" href="/" aria-label={`${resume.basics.name}, home`}>{resume.basics.name}</a>
+    <a class="name" href="/" aria-label={`${basics.name}, home`}>{basics.name}</a>
     <a
       class="resume-link"
       href="/Thomas_Berrios_Resume.pdf"

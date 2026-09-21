@@ -81,16 +81,4 @@ export interface ResumeEntry {
   keywords?: string[];
   /** Relevant destinations such as an organization page, repository, or release. */
   links?: Link[];
-  /** Excludes this entry from the generated résumé while retaining it on the website. */
-  excludeFromResume?: true;
-}
-
-/** Complete source data for every résumé representation. */
-export interface Resume {
-  basics: Basics;
-  /** Entries are stored in their preferred display order. */
-  education: Education[];
-  skills: SkillGroup[];
-  work: ResumeEntry[];
-  projects: ResumeEntry[];
 }

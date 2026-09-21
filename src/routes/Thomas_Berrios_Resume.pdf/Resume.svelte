@@ -20,18 +20,23 @@
 </script>
 
 <script lang="ts">
-  import { resume } from "$lib/resume";
+  import { basics } from "$lib/resume/basics";
   import { formatResumePeriod } from "$lib/resume/dates";
   import { formatEducationDetails } from "$lib/resume/education";
+  import { education as educationEntries } from "$lib/resume/education-data";
+  import { bluefin } from "$lib/resume/projects/bluefin";
+  import { personalOS } from "$lib/resume/projects/personal-os";
+  import { r2modman } from "$lib/resume/projects/r2modman";
+  import { sveltekitPdfRenderer } from "$lib/resume/projects/sveltekit-pdf-renderer";
   import type { ResumeEntry } from "$lib/resume/schema";
+  import { skills } from "$lib/resume/skills";
+  import { idTechTeenAcademy2026 } from "$lib/resume/work/id-tech";
+  import { ritTeachingAssistant, ritBackendDeveloper } from "$lib/resume/work/rit";
 
-  const work = resume.work.slice(0, 3);
-  const contributions = resume.projects.filter(
-    (project: ResumeEntry) => project.category === "contribution" && !project.excludeFromResume,
-  );
-  const projects = resume.projects.filter(
-    (project: ResumeEntry) => project.category === "project" && !project.excludeFromResume,
-  );
+  // PDF selection and order are independent of the website's date sorting.
+  const work = [idTechTeenAcademy2026, ritTeachingAssistant, ritBackendDeveloper];
+  const projects = [personalOS, sveltekitPdfRenderer];
+  const contributions = [bluefin, r2modman];
 
   const groupAdjacentEntries = (entries: readonly ResumeEntry[]) => {
     const groups: ResumeEntry[][] = [];
@@ -56,16 +61,16 @@
 </script>
 
 <svelte:head>
-  <title>{resume.basics.name} - Resume</title>
+  <title>{basics.name} - Resume</title>
 </svelte:head>
 
 <main>
   <header>
-    <h1>{resume.basics.name}</h1>
-    <div class="headline">{resume.basics.label}</div>
+    <h1>{basics.name}</h1>
+    <div class="headline">{basics.label}</div>
     <address>
-      <a href={`mailto:${resume.basics.email}`}>{resume.basics.email}</a>
-      {#each resume.basics.profiles as profile}
+      <a href={`mailto:${basics.email}`}>{basics.email}</a>
+      {#each basics.profiles as profile}
         <span>|</span>
         <a href={profile.url}>{profile.label}</a>
       {/each}
@@ -74,7 +79,7 @@
 
   <section>
     <h2>Education</h2>
-    {#each resume.education as education}
+    {#each educationEntries as education}
       <article>
         <div class="heading">
           <div>
@@ -89,7 +94,7 @@
 
   <section>
     <h2>Technical Skills</h2>
-    {#each resume.skills as skill}
+    {#each skills as skill}
       <div class="skill"><strong>{skill.name}:</strong> {skill.keywords.join(", ")}</div>
     {/each}
   </section>

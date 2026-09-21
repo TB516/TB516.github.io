@@ -1,11 +1,11 @@
 <script lang="ts">
-  import { resume } from "$lib/resume";
+  import { skills } from "$lib/resume/skills";
 </script>
 
 <section class="resume-section container" id="skills" aria-labelledby="skills-heading">
   <h2 class="section-heading" id="skills-heading">Skills</h2>
   <dl class="skill-groups">
-    {#each resume.skills as group}
+    {#each skills as group}
       <div>
         <dt>{group.name}</dt>
         <dd>{group.keywords.join(", ")}</dd>
