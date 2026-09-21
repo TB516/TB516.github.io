@@ -39,18 +39,6 @@ export const r2modman = {
       ],
     },
     {
-      title: "Ongoing maintenance",
-      paragraphs: [
-        "I maintain the Flatpak packaging and update pipeline, test Steam integration, and investigate Linux compatibility issues.",
-      ],
-      links: [
-        {
-          label: "My merged pull requests",
-          url: "https://github.com/ebkr/r2modmanPlus/pulls?q=is%3Apr+is%3Amerged+author%3ATB516",
-        },
-      ],
-    },
-    {
       title: "Northstar across the Thunderstore ecosystem",
       paragraphs: [
         "My Northstar compatibility work spans Thunderstore's game definitions, r2modman, and NorthstarLauncher.",
@@ -76,6 +64,18 @@ export const r2modman = {
         },
       ],
     },
+    {
+      title: "Ongoing maintenance",
+      paragraphs: [
+        "I maintain the Flatpak packaging and update pipeline, test Steam integration, and investigate Linux compatibility issues.",
+      ],
+      links: [
+        {
+          label: "My merged pull requests",
+          url: "https://github.com/ebkr/r2modmanPlus/pulls?q=is%3Apr+is%3Amerged+author%3ATB516",
+        },
+      ],
+    },
   ],
 
   roles: ["Open-source Contributor"],
@@ -85,9 +85,9 @@ export const r2modman = {
   highlights: [
     "Built Flatpak packaging and CI with AppStream metadata, desktop integration, and signed repository updates on Cloudflare R2.",
     "Contributed merged upstream fixes for Steam launching with xdg-open, Flatpak Steam detection, and Steam Deck game-mode handling.",
-    "Maintain the packaging pipeline, test Steam integration, and investigate Linux and Flatpak issues.",
     "Fixed Northstar launching on Linux through a merged Thunderstore ecosystem-schema change to use the standard Steam runner.",
     "Diagnosed a cross-project Proton path bug, submitted coordinated fixes to r2modman and NorthstarLauncher, and verified patched builds through Flatpak and Proton.",
+    "Maintain the packaging pipeline, test Steam integration, and investigate Linux and Flatpak issues.",
   ],
   keywords: [
     "Linux",
