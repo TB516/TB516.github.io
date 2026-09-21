@@ -169,7 +169,6 @@
           </strong>
           <div>{formatResumePeriod(project.period)}</div>
         </div>
-        <div>{project.roles.join(", ")}</div>
         <ul>
           {#each project.highlights as highlight}<li>{highlight}</li>{/each}
         </ul>
@@ -279,7 +278,7 @@
   }
 
   li {
-    line-height: 1.5;
+    line-height: 1.4;
   }
 
   li::marker {
