@@ -15,5 +15,7 @@
 <EntryDetailShell
   kind="Project"
   entry={data.entry}
-  backHref={data.entry.category === "contribution" ? "/#contributions" : "/#projects"}
+  backHref={data.entry.category === "contribution"
+    ? "/projects?category=contribution"
+    : "/projects?category=project"}
 />

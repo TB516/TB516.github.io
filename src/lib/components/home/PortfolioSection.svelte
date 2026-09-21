@@ -7,15 +7,22 @@
     id,
     title,
     entries,
+    hideHeading = false,
   }: {
     id: string;
     title: string;
     entries: readonly ResumeEntry[];
+    hideHeading?: boolean;
   } = $props();
 </script>
 
-<section class="resume-section container" {id} aria-labelledby={`${id}-heading`}>
-  <h2 class="section-heading" id={`${id}-heading`}>{title}</h2>
+<section
+  class="resume-section container"
+  {id}
+  aria-label={hideHeading ? title : undefined}
+  aria-labelledby={hideHeading ? undefined : `${id}-heading`}
+>
+  {#if !hideHeading}<h2 class="section-heading" id={`${id}-heading`}>{title}</h2>{/if}
   <div class="entry-list" class:multiple={entries.length > 1}>
     {#each entries as entry}<OverviewEntry {entry} />{/each}
   </div>
