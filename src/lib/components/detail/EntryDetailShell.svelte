@@ -49,7 +49,7 @@
       {/if}
     </header>
     {#if entry.sections?.length}
-      <div class="entry-story section-cards">
+      <div class="entry-story">
         {#each entry.sections as section}
           <section class="story-section">
             <h2>{section.title}</h2>
@@ -142,8 +142,9 @@
   }
   .entry-story {
     display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
     gap: 24px;
-    align-items: stretch;
+    align-items: start;
   }
   .section-cards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -166,6 +167,9 @@
     border-radius: 10px;
   }
   @media (max-width: 850px) {
+    .entry-story {
+      grid-template-columns: minmax(0, 1fr);
+    }
     .section-cards {
       grid-template-columns: minmax(0, 1fr);
     }
