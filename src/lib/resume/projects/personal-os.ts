@@ -15,6 +15,15 @@ export const personalOS = {
       ],
     },
     {
+      title: "Builds and updates",
+      paragraphs: [
+        "Renovate opens dependency update pull requests for upstream components and tools. GitHub Actions validates OS changes in pull requests and publishes built images to GHCR with date-based and commit tags.",
+      ],
+      bullets: [
+        "Configured installed systems to check for bootc updates and stage them for the next user-initiated reboot.",
+      ],
+    },
+    {
       title: "Bring-up and validation",
       paragraphs: [
         "I installed the image onto a fresh virtual disk and tested it in QEMU/KVM through GNOME initial setup, login, and reboot. The validation covered persistent writable state, native and Flatpak applications, container networking, virtualization, and desktop integration.",
@@ -30,7 +39,7 @@ export const personalOS = {
   summary:
     "A personal variation on Project Bluefin's Dakota, reusing upstream components with a different system configuration and application selection.",
   highlights: [
-    "Maintain a personal variation on Project Bluefin's Dakota, adapting upstream build recipes and desktop configuration with automated image builds and publishing through GitHub Actions.",
+    "Maintain a personal variation on Project Bluefin's Dakota, with automated dependency updates, validated bootc image builds, and versioned publishing to GHCR.",
     "Tested installation, reboot persistence, desktop applications, and Docker and Podman networking in virtual machines.",
   ],
   keywords: [
