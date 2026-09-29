@@ -34,7 +34,14 @@ export const linuxApplicationPackaging = {
       bullets: [
         "Published signed Flatpak repositories on GitHub Pages with AppStream metadata and rollback history.",
         "Added daily release checks that open draft update pull requests and validate packages before publication, including native builds for both Helium architectures.",
-        "Continue maintaining the Helium Homebrew cask for users who install it that way.",
+      ],
+    },
+    {
+      title: "Homebrew",
+      bullets: [
+        "Maintain the Helium Linux cask, including release updates, installation definitions, and desktop integration.",
+        "Built GitHub Actions automation for upstream releases and fixed upgrade issues involving staged paths and desktop icons.",
+        "Previously maintained a personal tap for T3 Code and ChatGPT. I retired that tap in September 2026; the Helium cask remains active.",
       ],
     },
   ],
@@ -63,12 +70,12 @@ export const linuxApplicationPackaging = {
       url: "https://github.com/TB516/helium-flatpak",
     },
     {
-      label: "Install T3 Code",
-      url: "https://t3code.thomasberrios.com/com.t3tools.t3code.flatpakref",
+      label: "T3 Code Flatpak repository",
+      url: "https://t3code.thomasberrios.com/",
     },
     {
-      label: "Install Helium",
-      url: "https://helium.thomasberrios.com/net.imput.helium.flatpakref",
+      label: "Helium Flatpak repository",
+      url: "https://helium.thomasberrios.com/",
     },
     {
       label: "Helium Homebrew cask",
