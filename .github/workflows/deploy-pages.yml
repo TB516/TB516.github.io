@@ -25,13 +25,13 @@ jobs:
         uses: jdx/mise-action@v3
 
       - name: Install dependencies
-        run: deno install --frozen
+        run: pnpm install --frozen-lockfile
 
       - name: Prepare Puppeteer
-        run: deno task prepare:puppeteer
+        run: pnpm prepare:puppeteer
 
       - name: Build site
-        run: deno task build
+        run: pnpm build
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5

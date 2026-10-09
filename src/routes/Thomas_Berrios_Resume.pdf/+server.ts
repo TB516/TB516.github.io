@@ -6,7 +6,7 @@ export const prerender = true;
 
 const createPdfResponse = createPdfResponder({
   launchOptions: {
-    args: Deno.env.get("CI") === "true" ? ["--no-sandbox", "--disable-setuid-sandbox"] : [],
+    args: process.env.CI === "true" ? ["--no-sandbox", "--disable-setuid-sandbox"] : [],
   },
 });
 

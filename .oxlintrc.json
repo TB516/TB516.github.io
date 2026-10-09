@@ -15,8 +15,8 @@
           {
             "globals": [
               {
-                "name": "Deno",
-                "message": "Deno APIs are unavailable in client-side code."
+                "name": "process",
+                "message": "Node.js APIs are unavailable in client-side code."
               }
             ],
             "checkGlobalObject": true
