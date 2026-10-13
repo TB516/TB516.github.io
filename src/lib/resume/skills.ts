@@ -3,7 +3,7 @@ import type { SkillGroup } from "./schema";
 export const skills = [
   {
     name: "Languages",
-    keywords: ["TypeScript", "JavaScript", "C#", "Java", "C++", "Python"],
+    keywords: ["TypeScript", "C#", "JavaScript", "Java", "Python", "C++"],
   },
   {
     name: "Frameworks & Libraries",
