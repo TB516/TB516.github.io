@@ -8,6 +8,7 @@ export const skills = [
   {
     name: "Frameworks & Libraries",
     keywords: [
+      "Node.js",
       "SvelteKit",
       "Svelte",
       "React",
