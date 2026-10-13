@@ -29,7 +29,7 @@ export const t3CodeFlatpak = {
   ],
   highlights: [
     "Adapted T3 Code's TypeScript/Electron desktop so AI agents, terminals, and development tools run on the host while the interface runs inside Flatpak.",
-    "Resolved folder-picker portal paths and added Flatpak editor discovery while preserving remote development support.",
+    "Fixed folder-picker portal paths and added Flatpak editor discovery, with automated tests for both integrations.",
     "Published a signed Flatpak repository with GitHub Actions release automation and update validation.",
   ],
   keywords: ["Flatpak", "Linux", "TypeScript", "Electron", "Shell", "GitHub Actions", "AppStream"],

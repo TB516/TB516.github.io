@@ -23,7 +23,7 @@ export const skills = [
   { name: "Databases", keywords: ["SQL", "PostgreSQL", "MySQL", "MongoDB", "Redis"] },
   {
     name: "Infrastructure & DevOps",
-    keywords: ["AWS", "Linux", "Docker", "Podman", "CI/CD", "GitHub Actions"],
+    keywords: ["AWS", "Linux", "Docker", "Podman", "Git", "CI/CD", "GitHub Actions"],
   },
   { name: "Testing", keywords: ["Vitest", "Playwright", "Jest"] },
   { name: "AI Development Tools", keywords: ["OpenAI Codex", "Claude Code", "T3 Code"] },
