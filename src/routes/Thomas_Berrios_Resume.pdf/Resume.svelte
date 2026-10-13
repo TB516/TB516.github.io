@@ -25,9 +25,9 @@
   import { formatEducationDetails } from "$lib/resume/education";
   import { education as educationEntries } from "$lib/resume/education-data";
   import { bluefin } from "$lib/resume/projects/bluefin";
-  import { personalOS } from "$lib/resume/projects/personal-os";
   import { r2modman } from "$lib/resume/projects/r2modman";
   import { sveltekitPdfRenderer } from "$lib/resume/projects/sveltekit-pdf-renderer";
+  import { t3CodeFlatpak } from "$lib/resume/projects/t3-code-flatpak";
   import type { ResumeEntry } from "$lib/resume/schema";
   import { skills } from "$lib/resume/skills";
   import { idTechTeenAcademy2026 } from "$lib/resume/work/id-tech";
@@ -35,7 +35,7 @@
 
   // PDF selection and order are independent of the website's date sorting.
   const work = [idTechTeenAcademy2026, ritTeachingAssistant, ritBackendDeveloper];
-  const projects = [personalOS, sveltekitPdfRenderer];
+  const projects = [t3CodeFlatpak, sveltekitPdfRenderer];
   const contributions = [bluefin, r2modman];
 
   const groupAdjacentEntries = (entries: readonly ResumeEntry[]) => {

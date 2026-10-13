@@ -1,12 +1,13 @@
 <script lang="ts">
-  import { linuxApplicationPackaging } from "$lib/resume/projects/linux-application-packaging";
+  import { heliumPackaging } from "$lib/resume/projects/helium-packaging";
   import { personalOS } from "$lib/resume/projects/personal-os";
   import { r2modman } from "$lib/resume/projects/r2modman";
   import { sveltekitPdfRenderer } from "$lib/resume/projects/sveltekit-pdf-renderer";
+  import { t3CodeFlatpak } from "$lib/resume/projects/t3-code-flatpak";
 
   import PortfolioSection from "./PortfolioSection.svelte";
 
-  const featuredWork = [r2modman, personalOS, linuxApplicationPackaging, sveltekitPdfRenderer];
+  const featuredWork = [r2modman, personalOS, t3CodeFlatpak, heliumPackaging, sveltekitPdfRenderer];
 </script>
 
 <div class="featured-work">

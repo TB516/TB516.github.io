@@ -29,7 +29,7 @@ export const ritBackendDeveloper = {
   summary:
     "Built backend and deployment infrastructure for LFG, a platform for RIT students to find project collaborators.",
   highlights: [
-    "Implemented substantial parts of the TypeScript backend refactor, including Prisma integration, service/controller structure, and shared frontend/backend types.",
+    "Implemented substantial parts of LFG's TypeScript/Express backend refactor, including Prisma integration, service/controller structure, and shared frontend/backend types.",
     "Set up the deployment server with Apache HTTPD, Shibboleth single sign-on, and Podman; built GitHub Actions workflows to deploy the client and server.",
     "Configured repository permissions and development tooling, and documented setup for the 20-person team. Containerized MySQL to remove manual database setup.",
     "Established S3-compatible storage infrastructure and client configuration using MinIO and the AWS SDK.",

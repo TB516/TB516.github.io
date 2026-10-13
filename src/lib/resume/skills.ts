@@ -26,5 +26,5 @@ export const skills = [
     keywords: ["AWS", "Linux", "Docker", "Podman", "CI/CD", "GitHub Actions"],
   },
   { name: "Testing", keywords: ["Vitest", "Playwright", "Jest"] },
-  { name: "Agentic Development", keywords: ["OpenAI Codex", "Claude Code", "T3 Code"] },
+  { name: "AI Development Tools", keywords: ["OpenAI Codex", "Claude Code", "T3 Code"] },
 ] satisfies SkillGroup[];

@@ -46,7 +46,7 @@ export const r2modman = {
       ],
       bullets: [
         "Contributed a merged Thunderstore ecosystem-schema fix that switches Titanfall 2's Northstar configuration from steam-direct to the standard Steam runner, fixing Linux launching while preserving Northstar launch arguments.",
-        "Submitted coordinated fixes that translate the profile path for Proton and preserve absolute paths in both Northstar loaders.",
+        "Contributed a merged NorthstarLauncher fix that preserves absolute profile paths in both loaders; submitted the companion r2modman fix to translate profile paths for Proton.",
         "Built the patched launcher with MSVC under Wine, built a local r2modman Flatpak, and verified the combined fix under Proton.",
       ],
       links: [
@@ -86,7 +86,7 @@ export const r2modman = {
     "Built Flatpak packaging and CI with AppStream metadata, desktop integration, and signed repository updates on Cloudflare R2.",
     "Contributed merged upstream fixes for Steam launching with xdg-open, Flatpak Steam detection, and Steam Deck game-mode handling.",
     "Fixed Northstar launching on Linux through a merged Thunderstore ecosystem-schema change to use the standard Steam runner.",
-    "Diagnosed a cross-project Proton path bug, submitted coordinated fixes to r2modman and NorthstarLauncher, and verified patched builds through Flatpak and Proton.",
+    "Diagnosed a cross-project Proton path bug; contributed a merged NorthstarLauncher fix, submitted the companion r2modman fix, and verified patched builds through Flatpak and Proton.",
     "Maintain the packaging pipeline, test Steam integration, and investigate Linux and Flatpak issues.",
   ],
   keywords: [
