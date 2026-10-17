@@ -9,7 +9,7 @@ export const bluefin = {
     end: "present",
   },
   summary:
-    "I contribute to Bluefin Server installation and hardware testing, and investigate and report bugs in Bluefin’s desktop tooling.",
+    "I contribute installer and hardware compatibility fixes to Bluefin Server, and investigate and report bugs in Bluefin’s desktop tooling.",
   sections: [
     {
       title: "Installer display",
@@ -28,11 +28,29 @@ export const bluefin = {
         },
       ],
     },
+    {
+      title: "TPM compatibility and boot health",
+      paragraphs: [
+        "On my physical server, optional TPM PCR-lock services failed because the hardware lacked required capabilities, causing Bluefin’s boot-health check to reject an otherwise working boot. I investigated the failures and contributed a merged fix with AI-agent assistance that checks support before running those services.",
+      ],
+      bullets: [
+        "Added systemd capability checks so unsupported hardware skips PCR locking cleanly while failures on supported hardware remain visible.",
+        "Verified equivalent service overrides across reboots on the affected server, with no failed system services and passing boot-health checks.",
+        "Documented the compatibility behavior while preserving other TPM functions and credential sealing.",
+      ],
+      links: [
+        {
+          label: "TPM compatibility fix · PR #469",
+          url: "https://github.com/projectbluefin/server/pull/469",
+        },
+      ],
+    },
   ],
   highlights: [
     "Fixed Bluefin Server’s local installer display and validated installations on physical hardware and QEMU.",
+    "Fixed boot-health failures on unsupported TPM hardware by adding systemd capability checks.",
   ],
-  keywords: ["Linux", "systemd", "QEMU", "Installation", "Hardware testing"],
+  keywords: ["Linux", "systemd", "TPM", "QEMU", "Installation", "Hardware testing"],
   links: [
     {
       label: "Upstream repository",

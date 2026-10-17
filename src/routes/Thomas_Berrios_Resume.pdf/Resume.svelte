@@ -243,7 +243,7 @@
   }
 
   article {
-    margin-bottom: 0.28cm;
+    margin-bottom: 0.15cm;
     break-inside: avoid;
   }
 
