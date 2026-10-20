@@ -98,6 +98,13 @@ a:focus-visible {
   letter-spacing: -0.02em;
 }
 
+.back-link {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--font-size-link);
+}
+
 /* Link arrows. The empty text after "/" keeps screen readers from announcing them. */
 .link-back::before {
   content: "←" / "";

@@ -32,9 +32,20 @@
     gap: 2px;
     padding-block: 12px;
     font-size: var(--font-size-link);
+    text-decoration: none;
   }
+  /* Matches the cards: white names with an orange arrow, turning orange on hover or focus. */
   .employer {
     font-weight: 600;
+    color: var(--color-text);
+    transition: color 150ms ease;
+  }
+  .employer::after {
+    color: var(--color-accent);
+  }
+  a:hover .employer,
+  a:focus-visible .employer {
+    color: var(--color-accent);
   }
   .job-role,
   .job-date {

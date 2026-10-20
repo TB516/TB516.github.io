@@ -20,12 +20,6 @@
   .browse-page {
     padding-block: 16px 48px;
   }
-  .back-link {
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
-    font-size: var(--font-size-link);
-  }
   h1 {
     margin: 24px 0 28px;
     font-size: clamp(28px, 2.5vw, 48px);

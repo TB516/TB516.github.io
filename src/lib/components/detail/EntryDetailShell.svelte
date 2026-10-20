@@ -96,13 +96,6 @@
   .entry-page {
     padding-block: 16px 48px;
   }
-  .back-link {
-    min-height: 44px;
-    display: inline-flex;
-    align-items: center;
-    color: var(--color-accent);
-    font-size: var(--font-size-link);
-  }
   .entry-header {
     min-width: 0;
   }
