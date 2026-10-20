@@ -24,8 +24,8 @@
 
     <nav aria-label="Error recovery">
       <a class="home-link" href="/">Return home</a>
-      <a href="/#experience">View experience</a>
-      <a href="/#projects">View projects</a>
+      <a href="/experience">View experience</a>
+      <a href="/projects">View projects</a>
     </nav>
   </div>
 </main>

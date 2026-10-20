@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Background from "$lib/components/home/Background.svelte";
+  import ExperienceSection from "$lib/components/home/ExperienceSection.svelte";
   import Hero from "$lib/components/home/Hero.svelte";
   import PortfolioOverview from "$lib/components/home/PortfolioOverview.svelte";
   import SkillsSection from "$lib/components/home/SkillsSection.svelte";
@@ -15,8 +15,8 @@
   <Hero />
   <div class="portfolio-content">
     <PortfolioOverview />
+    <ExperienceSection />
     <SkillsSection />
-    <Background />
   </div>
 </main>
 

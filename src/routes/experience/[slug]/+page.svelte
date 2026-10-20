@@ -12,4 +12,4 @@
   <meta name="description" content={data.entry.summary} />
 </svelte:head>
 
-<EntryDetailShell kind="Experience" entry={data.entry} backHref="/#experience" />
+<EntryDetailShell kind="Experience" entry={data.entry} backHref="/experience" />

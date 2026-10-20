@@ -1,19 +1,25 @@
 <script lang="ts">
+  import { formatResumePeriod } from "$lib/resume/dates";
   import type { ResumeEntry } from "$lib/resume/schema";
   import { getResumeEntrySlug } from "$lib/resume/slugs";
 
-  let { entry }: { entry: ResumeEntry } = $props();
+  let { entry, kind }: { entry: ResumeEntry; kind: "Experience" | "Project" } = $props();
 
   const roleTitle = $derived(entry.roles.join(", "));
-  const href = $derived(`/projects/${getResumeEntrySlug(entry)}`);
+  // Dates tell repeated employers apart, such as several seasons at the same company.
+  const meta = $derived(
+    kind === "Experience" ? `${roleTitle} · ${formatResumePeriod(entry.period)}` : roleTitle,
+  );
+  const basePath = $derived(kind === "Experience" ? "/experience" : "/projects");
+  const href = $derived(`${basePath}/${getResumeEntrySlug(entry)}`);
 </script>
 
-<a class="project" {href} aria-label={`Read about ${entry.name}`}>
+<a class="project" {href} aria-label={`Read about ${entry.name}, ${meta}`}>
   <div class="project-content">
     <h3>
       <span class="details-link">{entry.name}<span aria-hidden="true">→</span></span>
     </h3>
-    <p class="project-meta">{roleTitle}</p>
+    <p class="project-meta">{meta}</p>
     <p class="summary">{entry.summary}</p>
   </div>
 </a>

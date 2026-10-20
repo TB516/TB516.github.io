@@ -7,11 +7,13 @@
     id,
     title,
     entries,
+    kind = "Project",
     hideHeading = false,
   }: {
     id: string;
     title: string;
     entries: readonly ResumeEntry[];
+    kind?: "Experience" | "Project";
     hideHeading?: boolean;
   } = $props();
 </script>
@@ -24,7 +26,7 @@
 >
   {#if !hideHeading}<h2 class="section-heading" id={`${id}-heading`}>{title}</h2>{/if}
   <div class="entry-list" class:multiple={entries.length > 1}>
-    {#each entries as entry}<OverviewEntry {entry} />{/each}
+    {#each entries as entry}<OverviewEntry {entry} {kind} />{/each}
   </div>
 </section>
 
