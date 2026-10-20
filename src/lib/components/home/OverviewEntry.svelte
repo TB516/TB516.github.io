@@ -50,6 +50,15 @@
   }
   .project h3 {
     font-size: clamp(22px, 1.7vw, 28px);
+    color: var(--color-text);
+    transition: color 150ms ease;
+  }
+  .project:hover h3,
+  .project:focus-visible h3 {
+    color: var(--color-accent);
+  }
+  .details-link::after {
+    color: var(--color-accent);
   }
   .details-link {
     display: flex;

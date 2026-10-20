@@ -74,10 +74,10 @@
         {/each}
       </div>
     {:else if entry.highlights.length}
-      <section aria-labelledby="highlights-heading">
-        <h2 class="section-heading" id="highlights-heading">Highlights</h2>
-        <ul class="highlight-cards section-cards">
-          {#each entry.highlights as highlight}<li class="story-section">{highlight}</li>{/each}
+      <section class="story-section" aria-labelledby="highlights-heading">
+        <h2 id="highlights-heading">Highlights</h2>
+        <ul>
+          {#each entry.highlights as highlight}<li>{highlight}</li>{/each}
         </ul>
       </section>
     {/if}
@@ -144,18 +144,6 @@
     break-inside: avoid;
     margin-bottom: 24px;
   }
-  .section-cards {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .highlight-cards {
-    display: grid;
-    gap: 24px;
-    padding: 0;
-    list-style: none;
-  }
-  .highlight-cards > li {
-    margin: 0;
-  }
   .story-section {
     display: flex;
     flex-direction: column;
@@ -168,9 +156,6 @@
     .entry-story {
       columns: 1;
     }
-    .section-cards {
-      grid-template-columns: minmax(0, 1fr);
-    }
   }
   .section-content {
     min-width: 0;
@@ -178,8 +163,7 @@
     flex-direction: column;
     flex: 1;
   }
-  .story-section h2,
-  .section-heading {
+  .story-section h2 {
     margin: 0 0 20px;
     font-size: clamp(22px, 1.4vw, 27px);
     font-weight: 600;
