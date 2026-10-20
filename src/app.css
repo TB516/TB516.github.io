@@ -97,9 +97,20 @@ a:focus-visible {
   letter-spacing: -0.02em;
 }
 
-.link-arrow {
+/* Link arrows. The empty text after "/" keeps screen readers from announcing them. */
+.link-back::before {
+  content: "←" / "";
+  margin-right: 0.4em;
+}
+.link-forward::after,
+a[target="_blank"]::after {
   margin-left: 0.4em;
-  color: var(--color-accent);
+}
+.link-forward::after {
+  content: "→" / "";
+}
+a[target="_blank"]::after {
+  content: "↗" / "";
 }
 
 .skip-link {

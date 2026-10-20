@@ -21,8 +21,7 @@
       href={`mailto:${basics.email}`}
       target="_blank"
       rel="noreferrer"
-      aria-label={`Email ${basics.email}, opens your email app`}
-      >{basics.email}<span class="link-arrow" aria-hidden="true">↗</span></a
+      aria-label={`Email ${basics.email}, opens your email app`}>{basics.email}</a
     >
     <nav aria-label="Contact and profile links">
       {#each basics.profiles as profile}
@@ -30,8 +29,7 @@
           href={profile.url}
           target="_blank"
           rel="noreferrer"
-          aria-label={`${profile.label} profile, opens in a new tab`}
-          >{profile.label}<span class="link-arrow" aria-hidden="true">↗</span></a
+          aria-label={`${profile.label} profile, opens in a new tab`}>{profile.label}</a
         >
       {/each}
     </nav>

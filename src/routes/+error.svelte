@@ -23,16 +23,16 @@
     <p class="description">{description}</p>
 
     <nav aria-label="Error recovery">
-      <a class="home-link" href="/">Return home</a>
-      <a href="/experience">View experience</a>
-      <a href="/projects">View projects</a>
+      <a class="link-forward" href="/">Return home</a>
+      <a class="link-forward" href="/experience">View experience</a>
+      <a class="link-forward" href="/projects">View projects</a>
     </nav>
   </div>
 </main>
 
 <style>
   .error-page {
-    min-height: 60svh;
+    min-height: calc(100svh - var(--header-height));
     padding: clamp(56px, 9vh, 104px) var(--page-gutter);
     display: grid;
     align-items: center;
@@ -85,10 +85,6 @@
     min-height: 44px;
     display: inline-flex;
     align-items: center;
-  }
-
-  .home-link {
-    color: var(--color-text);
   }
 
   @media (max-width: 720px) {

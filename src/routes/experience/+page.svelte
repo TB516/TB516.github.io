@@ -10,7 +10,7 @@
 </svelte:head>
 
 <main class="browse-page container" id="main-content" tabindex="-1">
-  <a class="back-link" href="/">← Back to home</a>
+  <a class="back-link link-back" href="/">Back to home</a>
   <h1>Experience</h1>
   <PortfolioSection id="work" title="Experience" entries={work} kind="Experience" hideHeading />
 </main>

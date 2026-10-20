@@ -29,7 +29,7 @@
 </svelte:head>
 
 <main class="browse-page container" id="main-content" tabindex="-1">
-  <a class="back-link" href="/">← Back to home</a>
+  <a class="back-link link-back" href="/">Back to home</a>
   <h1>Projects and contributions</h1>
   <nav class="filters" aria-label="Filter work">
     {#each filters as filter}

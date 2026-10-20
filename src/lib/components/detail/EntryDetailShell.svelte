@@ -24,7 +24,7 @@
 </script>
 
 <main id="main-content" tabindex="-1" class="entry-page container">
-  <a class="back-link" href={backHref}><span aria-hidden="true">←</span>All {backLabel}</a>
+  <a class="back-link link-back" href={backHref}>All {backLabel}</a>
   <div class="entry-layout">
     <header class="entry-header">
       <h1>{entry.name}</h1>
@@ -41,8 +41,7 @@
               href={link.url}
               target="_blank"
               rel="noreferrer"
-              aria-label={`${link.label} for ${entry.name}, opens in a new tab`}
-              ><span>{link.label}</span><span class="link-arrow" aria-hidden="true">↗</span></a
+              aria-label={`${link.label} for ${entry.name}, opens in a new tab`}>{link.label}</a
             >
           {/each}
         </nav>
@@ -66,9 +65,7 @@
                       href={link.url}
                       target="_blank"
                       rel="noreferrer"
-                      aria-label={`${link.label}, opens in a new tab`}
-                      ><span>{link.label}</span><span class="link-arrow" aria-hidden="true">↗</span
-                      ></a
+                      aria-label={`${link.label}, opens in a new tab`}>{link.label}</a
                     >{/each}
                 </nav>
               {/if}
@@ -105,7 +102,6 @@
     min-height: 44px;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
     color: var(--color-accent);
     font-size: var(--font-size-link);
   }
@@ -122,7 +118,6 @@
   }
   .role {
     margin: 0;
-    font-size: 18px;
   }
   .entry-meta {
     margin-top: 0;

@@ -17,7 +17,7 @@
 <a class="project" {href} aria-label={`Read about ${entry.name}, ${meta}`}>
   <div class="project-content">
     <h3>
-      <span class="details-link">{entry.name}<span aria-hidden="true">→</span></span>
+      <span class="details-link link-forward">{entry.name}</span>
     </h3>
     <p class="project-meta">{meta}</p>
     <p class="summary">{entry.summary}</p>

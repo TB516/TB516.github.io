@@ -10,9 +10,7 @@
   {#each entries as entry}
     <li>
       <a href={`/experience/${getResumeEntrySlug(entry)}`}>
-        <span class="employer"
-          >{entry.name}<span class="link-arrow" aria-hidden="true">→</span></span
-        >
+        <span class="employer link-forward">{entry.name}</span>
         <span class="job-role">{entry.roles.join(", ")}</span>
         <span class="job-date">{formatResumePeriod(entry.period)}</span>
       </a>

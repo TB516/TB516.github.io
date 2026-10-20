@@ -11,9 +11,7 @@
 
 <div class="featured-work">
   <PortfolioSection id="projects" title="Featured work" entries={featuredWork} />
-  <a class="browse-link" href="/projects"
-    >Browse all projects and contributions<span aria-hidden="true">→</span></a
-  >
+  <a class="browse-link link-forward" href="/projects">Browse all projects and contributions</a>
 </div>
 
 <style>
@@ -23,7 +21,6 @@
   .browse-link {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
     min-height: 44px;
     font-size: var(--font-size-link);
   }

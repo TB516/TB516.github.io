@@ -11,9 +11,8 @@
       href="/Thomas_Berrios_Resume.pdf"
       target="_blank"
       rel="noreferrer"
-      aria-label="Résumé PDF, opens in a new tab"
-      >Résumé<span class="link-arrow" aria-hidden="true">↗</span>
-    </a>
+      aria-label="Résumé PDF, opens in a new tab">Résumé</a
+    >
   </div>
 </header>
 
