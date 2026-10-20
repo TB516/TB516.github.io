@@ -3,13 +3,11 @@
   import Hero from "$lib/components/home/Hero.svelte";
   import PortfolioOverview from "$lib/components/home/PortfolioOverview.svelte";
   import SkillsSection from "$lib/components/home/SkillsSection.svelte";
+  import PageMeta from "$lib/components/PageMeta.svelte";
   import { basics } from "$lib/resume/basics";
 </script>
 
-<svelte:head>
-  <title>{basics.name} – {basics.label}</title>
-  <meta name="description" content={basics.description} />
-</svelte:head>
+<PageMeta title={`${basics.name} – ${basics.label}`} description={basics.description} />
 
 <main class="portfolio-layout container" id="main-content" tabindex="-1">
   <Hero />

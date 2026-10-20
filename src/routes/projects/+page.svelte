@@ -2,6 +2,7 @@
   import { browser } from "$app/environment";
   import { page } from "$app/state";
   import PortfolioSection from "$lib/components/home/PortfolioSection.svelte";
+  import PageMeta from "$lib/components/PageMeta.svelte";
   import { basics } from "$lib/resume/basics";
   import { projects } from "$lib/resume/projects";
 
@@ -20,13 +21,10 @@
   );
 </script>
 
-<svelte:head>
-  <title>Projects and contributions – {basics.name}</title>
-  <meta
-    name="description"
-    content="Web applications, Linux projects, and open-source contributions by Thomas Berrios."
-  />
-</svelte:head>
+<PageMeta
+  title={`Projects and contributions – ${basics.name}`}
+  description={`Web applications, Linux projects, and open-source contributions by ${basics.name}.`}
+/>
 
 <main class="browse-page container" id="main-content" tabindex="-1">
   <a class="back-link link-back" href="/">Back to home</a>

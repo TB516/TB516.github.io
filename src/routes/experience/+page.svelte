@@ -1,13 +1,14 @@
 <script lang="ts">
   import PortfolioSection from "$lib/components/home/PortfolioSection.svelte";
+  import PageMeta from "$lib/components/PageMeta.svelte";
   import { basics } from "$lib/resume/basics";
   import { work } from "$lib/resume/work";
 </script>
 
-<svelte:head>
-  <title>Experience – {basics.name}</title>
-  <meta name="description" content="Work experience of Thomas Berrios." />
-</svelte:head>
+<PageMeta
+  title={`Experience – ${basics.name}`}
+  description={`Work experience of ${basics.name}.`}
+/>
 
 <main class="browse-page container" id="main-content" tabindex="-1">
   <a class="back-link link-back" href="/">Back to home</a>

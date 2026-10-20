@@ -7,6 +7,7 @@ export const basics = {
     "I build web applications and use web technologies in desktop and Linux projects, often around games. I studied Game Design & Development at RIT and have worked on backend infrastructure and taught programming. I care about readable code, reproducible setups, and keeping solutions simple.",
   availability: "Looking for work",
   email: "thomas@thomasberrios.com",
+  url: "https://thomasberrios.com",
   profiles: [
     {
       label: "GitHub",

@@ -28,6 +28,8 @@ export interface Basics {
   /** Current availability or employment-search status. */
   availability?: string;
   email: string;
+  /** Public website address, used for canonical and share links. */
+  url: string;
   /** Public professional and social profiles. */
   profiles: Link[];
 }
