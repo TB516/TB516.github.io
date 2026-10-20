@@ -77,10 +77,13 @@ export interface ResumeEntry {
   location?: string;
   /** Brief overview of the work. */
   summary: string;
-  /** Concise accomplishments, responsibilities, or outcomes. Used by the résumé and rendered as individual website cards when sections are absent. */
+  /** Concise accomplishments, responsibilities, or outcomes. Used by the résumé, and listed on the website when sections are absent. */
   highlights: string[];
   /** Technologies, tools, and areas of expertise applied to the entry. */
   keywords?: string[];
   /** Relevant destinations such as an organization page, repository, or release. */
   links?: Link[];
 }
+
+/** Which collection an entry belongs to, which decides where the website links to it. */
+export type ResumeEntryKind = "Experience" | "Project";

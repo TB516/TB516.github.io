@@ -78,7 +78,6 @@
     display: flex;
     gap: 18px 32px;
     flex-wrap: wrap;
-    color: var(--color-text-muted);
   }
 
   nav a {

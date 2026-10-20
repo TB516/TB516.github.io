@@ -1,8 +1,8 @@
 <script lang="ts">
   import { browser } from "$app/environment";
   import { page } from "$app/state";
-  import PortfolioSection from "$lib/components/home/PortfolioSection.svelte";
   import PageMeta from "$lib/components/PageMeta.svelte";
+  import PortfolioSection from "$lib/components/PortfolioSection.svelte";
   import { basics } from "$lib/resume/basics";
   import { projects } from "$lib/resume/projects";
 
@@ -51,6 +51,7 @@
   h1 {
     margin: 24px 0 12px;
     font-size: clamp(28px, 2.5vw, 48px);
+    font-weight: 650;
     line-height: 1.15;
     letter-spacing: -0.04em;
   }
@@ -72,9 +73,5 @@
   .filters a[aria-current="page"] {
     background: var(--color-raised);
     color: var(--color-accent);
-  }
-  .browse-page :global(.resume-section.container) {
-    width: 100%;
-    margin-inline: 0;
   }
 </style>

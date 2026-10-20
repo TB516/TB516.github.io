@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { ResumeEntry } from "$lib/resume/schema";
+  import type { ResumeEntry, ResumeEntryKind } from "$lib/resume/schema";
 
   import OverviewEntry from "./OverviewEntry.svelte";
 
@@ -13,13 +13,13 @@
     id: string;
     title: string;
     entries: readonly ResumeEntry[];
-    kind?: "Experience" | "Project";
+    kind?: ResumeEntryKind;
     hideHeading?: boolean;
   } = $props();
 </script>
 
 <section
-  class="resume-section container"
+  class="resume-section"
   {id}
   aria-label={hideHeading ? title : undefined}
   aria-labelledby={hideHeading ? undefined : `${id}-heading`}

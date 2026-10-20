@@ -13,10 +13,8 @@
   --color-raised: #1b1f28;
   --color-text: #f1f1ed;
   --color-text-muted: #a5a8b0;
-  --color-text-dim: #a5a8b0;
   --color-accent: #ff9673;
   --color-available: #6fd69a;
-  --color-border: #2a2e38;
   --font-sans: Cantarell, "Segoe UI", ui-sans-serif, sans-serif;
   --font-size-body: clamp(19px, 1.25vw, 25px);
   --font-size-link: clamp(16px, 1vw, 18px);
@@ -82,12 +80,6 @@ a:focus-visible {
   gap: 14px;
 }
 
-@media (max-width: 1000px) {
-  .resume-section {
-    grid-template-columns: 1fr;
-  }
-}
-
 .section-heading {
   margin: 0;
   font-size: 20px;
@@ -98,7 +90,10 @@ a:focus-visible {
   letter-spacing: -0.02em;
 }
 
-.back-link {
+/* Standalone navigation links, such as "Back to home" and "Browse all experience". */
+.back-link,
+.browse-link {
+  width: fit-content;
   min-height: 44px;
   display: inline-flex;
   align-items: center;
@@ -139,10 +134,6 @@ a[target="_blank"]::after {
 @media (max-width: 640px) {
   :root {
     --header-height: 64px;
-  }
-  .resume-section {
-    padding-block: 0 28px;
-    gap: 14px;
   }
 }
 

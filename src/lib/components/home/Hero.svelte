@@ -10,9 +10,7 @@
     <p class="role">{basics.label}</p>
     {#if basics.availability}<p class="availability">{basics.availability}</p>{/if}
   </div>
-  <div id="about">
-    <p class="description">{basics.description}</p>
-  </div>
+  <p class="description">{basics.description}</p>
   <div class="intro-actions">
     <a
       class="email-address"
@@ -40,14 +38,12 @@
     display: inline-flex;
     align-items: center;
     min-height: 44px;
-    margin-top: 0;
     font-size: var(--font-size-link);
     overflow-wrap: anywhere;
   }
   .hero {
     position: sticky;
     top: calc(var(--header-height) + 24px);
-    padding-bottom: 0;
   }
   .role-line {
     display: flex;

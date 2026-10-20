@@ -54,7 +54,6 @@
       gap: 16px;
     }
     .name {
-      color: var(--color-text);
       font-size: 15px;
     }
     .resume-link {

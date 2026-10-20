@@ -1,26 +1,24 @@
 <script lang="ts">
   import { formatResumePeriod } from "$lib/resume/dates";
-  import type { ResumeEntry } from "$lib/resume/schema";
+  import type { ResumeEntry, ResumeEntryKind } from "$lib/resume/schema";
 
   let {
     kind,
     entry,
     backHref,
   }: {
-    kind: "Experience" | "Project";
+    kind: ResumeEntryKind;
     entry: ResumeEntry;
     backHref: string;
   } = $props();
 
   const role = $derived(entry.roles.join(", "));
   const period = $derived(formatResumePeriod(entry.period));
-  const backLabel = $derived(
-    entry.category === "contribution"
-      ? "open-source contributions"
-      : kind === "Project"
-        ? "projects"
-        : "experience",
-  );
+  const backLabel = $derived.by(() => {
+    if (entry.category === "contribution") return "open-source contributions";
+    if (kind === "Project") return "projects";
+    return "experience";
+  });
 </script>
 
 <main id="main-content" tabindex="-1" class="entry-page container">
@@ -52,24 +50,22 @@
         {#each entry.sections as section}
           <section class="story-section">
             <h2>{section.title}</h2>
-            <div class="section-content">
-              {#each section.paragraphs ?? [] as paragraph}<p>{paragraph}</p>{/each}
-              {#if section.bullets?.length}
-                <ul>
-                  {#each section.bullets as bullet}<li>{bullet}</li>{/each}
-                </ul>
-              {/if}
-              {#if section.links?.length}
-                <nav class="source-links" aria-label={`${section.title} references`}>
-                  {#each section.links as link}<a
-                      href={link.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`${link.label}, opens in a new tab`}>{link.label}</a
-                    >{/each}
-                </nav>
-              {/if}
-            </div>
+            {#each section.paragraphs ?? [] as paragraph}<p>{paragraph}</p>{/each}
+            {#if section.bullets?.length}
+              <ul>
+                {#each section.bullets as bullet}<li>{bullet}</li>{/each}
+              </ul>
+            {/if}
+            {#if section.links?.length}
+              <nav class="source-links" aria-label={`${section.title} references`}>
+                {#each section.links as link}<a
+                    href={link.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`${link.label}, opens in a new tab`}>{link.label}</a
+                  >{/each}
+              </nav>
+            {/if}
           </section>
         {/each}
       </div>
@@ -107,11 +103,7 @@
     letter-spacing: -0.04em;
     overflow-wrap: anywhere;
   }
-  .role {
-    margin: 0;
-  }
   .entry-meta {
-    margin-top: 0;
     display: flex;
     flex-wrap: wrap;
     gap: 8px 28px;
@@ -136,9 +128,6 @@
     margin-bottom: 24px;
   }
   .story-section {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
     padding: clamp(24px, 2vw, 36px);
     background: var(--color-surface);
     border-radius: 10px;
@@ -147,12 +136,6 @@
     .entry-story {
       columns: 1;
     }
-  }
-  .section-content {
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
   }
   .story-section h2 {
     margin: 0 0 20px;
@@ -179,9 +162,6 @@
   li + li {
     margin-top: 14px;
   }
-  li::marker {
-    color: var(--color-text-dim);
-  }
   .source-links {
     display: flex;
     flex-direction: column;
@@ -190,7 +170,6 @@
   }
   .source-links a,
   .entry-links a {
-    color: var(--color-accent);
     min-height: 44px;
     display: inline-flex;
     align-items: center;

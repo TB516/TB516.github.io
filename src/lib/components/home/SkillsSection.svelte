@@ -2,7 +2,7 @@
   import { skills } from "$lib/resume/skills";
 </script>
 
-<section class="resume-section container" id="skills" aria-labelledby="skills-heading">
+<section class="resume-section" id="skills" aria-labelledby="skills-heading">
   <h2 class="section-heading" id="skills-heading">Skills</h2>
   <dl class="skill-groups">
     {#each skills as group}

@@ -29,10 +29,6 @@
   .portfolio-content {
     min-width: 0;
   }
-  .portfolio-content :global(.container) {
-    width: 100%;
-    margin: 0;
-  }
   .portfolio-content :global(.summary) {
     font-size: var(--font-size-body);
     max-width: 65ch;
@@ -40,10 +36,10 @@
   .portfolio-content :global(.section-heading) {
     font-size: clamp(20px, 1.4vw, 28px);
   }
-  .portfolio-content :global(.project h3) {
+  .portfolio-content :global(.card h3) {
     font-size: clamp(24px, 1.8vw, 36px);
   }
-  .portfolio-content :global(.project) {
+  .portfolio-content :global(.card) {
     padding: clamp(20px, 2vw, 40px);
   }
   .portfolio-content :global(.resume-section) {
