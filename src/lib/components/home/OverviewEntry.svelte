@@ -7,9 +7,8 @@
 
   const roleTitle = $derived(entry.roles.join(", "));
   // Dates tell repeated employers apart, such as several seasons at the same company.
-  const meta = $derived(
-    kind === "Experience" ? `${roleTitle} · ${formatResumePeriod(entry.period)}` : roleTitle,
-  );
+  const period = $derived(formatResumePeriod(entry.period));
+  const meta = $derived(kind === "Experience" ? `${roleTitle} · ${period}` : roleTitle);
   const basePath = $derived(kind === "Experience" ? "/experience" : "/projects");
   const href = $derived(`${basePath}/${getResumeEntrySlug(entry)}`);
 </script>
@@ -19,7 +18,10 @@
     <h3>
       <span class="details-link link-forward">{entry.name}</span>
     </h3>
-    <p class="project-meta">{meta}</p>
+    <p class="project-meta">
+      {roleTitle}
+      {#if kind === "Experience"}<span class="period">{period}</span>{/if}
+    </p>
     <p class="summary">{entry.summary}</p>
   </div>
 </a>
@@ -67,6 +69,9 @@
     align-items: baseline;
   }
 
+  .period {
+    display: block;
+  }
   .project-meta {
     margin: 4px 0 12px;
     color: var(--color-text-muted);

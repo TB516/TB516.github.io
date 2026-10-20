@@ -86,9 +86,7 @@
         <h2 id="skills-heading">
           {entry.category === "project" ? "Built with" : "Skills used"}
         </h2>
-        <ul>
-          {#each entry.keywords as keyword}<li>{keyword}</li>{/each}
-        </ul>
+        <p>{entry.keywords.join(", ")}</p>
       </section>
     {/if}
   </div>
@@ -233,22 +231,11 @@
     font-size: 18px;
     font-weight: 600;
   }
-  .entry-skills ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px 0;
-    padding: 0;
-    list-style: none;
-  }
-  .entry-skills li {
+  .entry-skills p {
     margin: 0;
+    color: var(--color-text-muted);
     font-size: var(--font-size-link);
-    overflow-wrap: anywhere;
-  }
-  .entry-skills li:not(:last-child)::after {
-    content: "·";
-    margin-inline: 10px;
-    color: var(--color-text-dim);
+    line-height: 1.65;
   }
   @media (max-width: 1000px) {
     .entry-layout {
