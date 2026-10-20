@@ -8,9 +8,7 @@
   <h1 id="intro-heading">{basics.name}</h1>
   <div class="role-line">
     <p class="role">{basics.label}</p>
-    {#if basics.availability}<p class="availability">
-        <span aria-hidden="true">·</span>{basics.availability}
-      </p>{/if}
+    {#if basics.availability}<p class="availability">{basics.availability}</p>{/if}
   </div>
   <div id="about">
     <p class="description">{basics.description}</p>
@@ -59,12 +57,20 @@
   }
   .availability {
     display: flex;
-    align-items: baseline;
-    gap: 12px;
+    align-items: center;
+    gap: 10px;
     margin: 0;
-    color: var(--color-text-muted);
+    color: var(--color-text);
     font-size: 15px;
     font-weight: 500;
+  }
+  .availability::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-available);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-available) 25%, transparent);
   }
   h1 {
     max-width: 8ch;
