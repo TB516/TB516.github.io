@@ -1,3 +1,11 @@
+/* Self-hosted so every visitor sees Cantarell, not just GNOME users. */
+@font-face {
+  font-family: Cantarell;
+  src: url("./lib/assets/fonts/Cantarell-VF.woff2") format("woff2");
+  font-weight: 100 800;
+  font-display: swap;
+}
+
 :root {
   color-scheme: dark;
   --color-background: #0d0f14;
@@ -13,7 +21,7 @@
   --font-size-link: clamp(16px, 1vw, 18px);
   --header-height: 72px;
   --page-gutter: clamp(24px, 3.5vw, 72px);
-  --content-width: 100%;
+  --content-width: 1920px;
   font: 16px/1.6 var(--font-sans);
   color: var(--color-text);
   background: var(--color-background);
@@ -60,8 +68,8 @@ a:focus-visible {
 }
 
 .container {
-  width: calc(100% - var(--page-gutter) * 2);
-  margin-inline: var(--page-gutter);
+  width: min(calc(100% - var(--page-gutter) * 2), var(--content-width));
+  margin-inline: auto;
 }
 
 .resume-section {

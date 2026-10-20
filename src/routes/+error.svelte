@@ -42,7 +42,7 @@
   .error-inner {
     width: 100%;
     max-width: var(--content-width);
-    margin: 0;
+    margin: 0 auto;
   }
 
   .status {
