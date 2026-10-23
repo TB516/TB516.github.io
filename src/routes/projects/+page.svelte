@@ -1,6 +1,7 @@
 <script lang="ts">
   import { browser } from "$app/environment";
   import { page } from "$app/state";
+  import { getProjectCard } from "$lib/components/cards";
   import PageMeta from "$lib/components/PageMeta.svelte";
   import PortfolioSection from "$lib/components/PortfolioSection.svelte";
   import { basics } from "$lib/resume/basics";
@@ -39,7 +40,7 @@
   <PortfolioSection
     id="work"
     title={activeFilter.value === "all" ? "All work" : activeFilter.label}
-    {entries}
+    cards={entries.map(getProjectCard)}
     hideHeading
   />
 </main>

@@ -1,55 +1,69 @@
+<script module lang="ts">
+  import type { EntrySection, Link } from "$lib/resume/schema";
+
+  /** A story card; `meta` is a short line under its heading, such as a position's dates. */
+  export type DetailSection = EntrySection & { meta?: string };
+</script>
+
 <script lang="ts">
-  import { formatResumePeriod } from "$lib/resume/dates";
-  import type { ResumeEntry, ResumeEntryKind } from "$lib/resume/schema";
-
   let {
-    kind,
-    entry,
+    title,
+    meta,
+    summary,
+    links = [],
+    sections,
+    stacked = false,
+    skillsHeading,
+    keywords = [],
     backHref,
+    backLabel,
   }: {
-    kind: ResumeEntryKind;
-    entry: ResumeEntry;
+    title: string;
+    /** Short facts under the title, such as role, dates, and location. */
+    meta: string[];
+    summary: string;
+    links?: Link[];
+    sections: DetailSection[];
+    /** Keeps sections in one column, in order, instead of packing them into two. */
+    stacked?: boolean;
+    skillsHeading: string;
+    keywords?: string[];
     backHref: string;
+    /** Completes the "All …" back link. */
+    backLabel: string;
   } = $props();
-
-  const role = $derived(entry.roles.join(", "));
-  const period = $derived(formatResumePeriod(entry.period));
-  const backLabel = $derived.by(() => {
-    if (entry.category === "contribution") return "open-source contributions";
-    if (kind === "Project") return "projects";
-    return "experience";
-  });
 </script>
 
 <main id="main-content" tabindex="-1" class="entry-page container">
   <a class="back-link link-back" href={backHref}>All {backLabel}</a>
   <div class="entry-layout">
     <header class="entry-header">
-      <h1>{entry.name}</h1>
-      <div class="entry-meta">
-        <p class="role">{role}</p>
-        <p>{period}</p>
-        {#if entry.location}<p>{entry.location}</p>{/if}
-      </div>
-      <p class="entry-summary">{entry.summary}</p>
-      {#if entry.links?.length}
-        <nav class="entry-links" aria-label={`${entry.name} links`}>
-          {#each entry.links as link}
+      <h1>{title}</h1>
+      {#if meta.length}
+        <div class="entry-meta">
+          {#each meta as line}<p>{line}</p>{/each}
+        </div>
+      {/if}
+      <p class="entry-summary">{summary}</p>
+      {#if links.length}
+        <nav class="entry-links" aria-label={`${title} links`}>
+          {#each links as link}
             <a
               href={link.url}
               target="_blank"
               rel="noreferrer"
-              aria-label={`${link.label} for ${entry.name}, opens in a new tab`}>{link.label}</a
+              aria-label={`${link.label} for ${title}, opens in a new tab`}>{link.label}</a
             >
           {/each}
         </nav>
       {/if}
     </header>
-    {#if entry.sections?.length}
-      <div class="entry-story">
-        {#each entry.sections as section}
+    {#if sections.length}
+      <div class="entry-story" class:stacked>
+        {#each sections as section}
           <section class="story-section">
-            <h2>{section.title}</h2>
+            <h2 class:has-meta={section.meta}>{section.title}</h2>
+            {#if section.meta}<p class="section-meta">{section.meta}</p>{/if}
             {#each section.paragraphs ?? [] as paragraph}<p>{paragraph}</p>{/each}
             {#if section.bullets?.length}
               <ul>
@@ -69,20 +83,11 @@
           </section>
         {/each}
       </div>
-    {:else if entry.highlights.length}
-      <section class="story-section" aria-labelledby="highlights-heading">
-        <h2 id="highlights-heading">Highlights</h2>
-        <ul>
-          {#each entry.highlights as highlight}<li>{highlight}</li>{/each}
-        </ul>
-      </section>
     {/if}
-    {#if entry.keywords?.length}
+    {#if keywords.length}
       <section class="entry-skills" aria-labelledby="skills-heading">
-        <h2 id="skills-heading">
-          {entry.category === "project" ? "Built with" : "Skills used"}
-        </h2>
-        <p>{entry.keywords.join(", ")}</p>
+        <h2 id="skills-heading">{skillsHeading}</h2>
+        <p>{keywords.join(", ")}</p>
       </section>
     {/if}
   </div>
@@ -127,6 +132,15 @@
     break-inside: avoid;
     margin-bottom: 24px;
   }
+  /* Positions read as a timeline, so they keep their order in a single column. */
+  .entry-story.stacked {
+    columns: auto;
+    display: grid;
+    gap: 24px;
+  }
+  .entry-story.stacked .story-section {
+    margin-bottom: 0;
+  }
   .story-section {
     padding: clamp(24px, 2vw, 36px);
     background: var(--color-surface);
@@ -142,6 +156,9 @@
     font-size: clamp(22px, 1.4vw, 27px);
     font-weight: 600;
   }
+  .story-section h2.has-meta {
+    margin-bottom: 4px;
+  }
   .story-section p,
   li {
     color: var(--color-text-muted);
@@ -150,6 +167,9 @@
   }
   .story-section p {
     margin: 0;
+  }
+  .story-section .section-meta {
+    font-size: 15px;
   }
   .story-section p + p,
   .story-section p + ul {
@@ -215,7 +235,7 @@
     }
   }
   @media (max-width: 640px) {
-    .entry-meta .role {
+    .entry-meta p:first-child {
       flex-basis: 100%;
     }
     .entry-page {

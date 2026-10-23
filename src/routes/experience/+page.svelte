@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { getExperienceCard } from "$lib/components/cards";
   import PageMeta from "$lib/components/PageMeta.svelte";
   import PortfolioSection from "$lib/components/PortfolioSection.svelte";
   import { basics } from "$lib/resume/basics";
@@ -13,7 +14,7 @@
 <main class="browse-page container" id="main-content" tabindex="-1">
   <a class="back-link link-back" href="/">Back to home</a>
   <h1>Experience</h1>
-  <PortfolioSection id="work" title="Experience" entries={work} kind="Experience" hideHeading />
+  <PortfolioSection id="work" title="Experience" cards={work.map(getExperienceCard)} hideHeading />
 </main>
 
 <style>

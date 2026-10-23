@@ -1,17 +1,18 @@
 import { error } from "@sveltejs/kit";
 
-import { getResumeEntrySlug, getUniqueResumeEntrySlugs } from "$lib/resume/slugs";
+import { getExperienceSlug } from "$lib/resume/experience";
+import { assertUniqueSlugs } from "$lib/resume/slugs";
 import { work } from "$lib/resume/work";
 
 import type { EntryGenerator, PageServerLoad } from "./$types";
 
 export const entries: EntryGenerator = () =>
-  getUniqueResumeEntrySlugs(work).map((slug) => ({ slug }));
+  assertUniqueSlugs(work.map(getExperienceSlug)).map((slug) => ({ slug }));
 
 export const load: PageServerLoad = ({ params }) => {
-  const entry = work.find((entry) => getResumeEntrySlug(entry) === params.slug);
+  const experience = work.find((experience) => getExperienceSlug(experience) === params.slug);
 
-  if (!entry) error(404, "Experience not found");
+  if (!experience) error(404, "Experience not found");
 
-  return { entry };
+  return { experience };
 };

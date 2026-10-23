@@ -1,28 +1,18 @@
 <script lang="ts">
-  import { formatResumePeriod } from "$lib/resume/dates";
-  import type { ResumeEntry, ResumeEntryKind } from "$lib/resume/schema";
-  import { getResumeEntrySlug } from "$lib/resume/slugs";
+  import type { CardContent } from "./cards";
 
-  let { entry, kind }: { entry: ResumeEntry; kind: ResumeEntryKind } = $props();
-
-  const roleTitle = $derived(entry.roles.join(", "));
-  const period = $derived(formatResumePeriod(entry.period));
-  // Dates tell repeated employers apart, such as several seasons at the same company.
-  const meta = $derived(kind === "Experience" ? `${roleTitle} · ${period}` : roleTitle);
-  const basePath = $derived(kind === "Experience" ? "/experience" : "/projects");
-  const href = $derived(`${basePath}/${getResumeEntrySlug(entry)}`);
+  let { title, meta, summary, href }: CardContent = $props();
 </script>
 
-<a class="card" {href} aria-label={`Read about ${entry.name}, ${meta}`}>
+<a class="card" {href} aria-label={`Read about ${title}, ${meta.join(", ")}`}>
   <div class="card-content">
     <h3>
-      <span class="card-title link-forward">{entry.name}</span>
+      <span class="card-title link-forward">{title}</span>
     </h3>
     <p class="card-meta">
-      {roleTitle}
-      {#if kind === "Experience"}<span class="period">{period}</span>{/if}
+      {#each meta as line}<span>{line}</span>{/each}
     </p>
-    <p class="summary">{entry.summary}</p>
+    <p class="summary">{summary}</p>
   </div>
 </a>
 
@@ -66,7 +56,7 @@
   .card-title::after {
     color: var(--color-accent);
   }
-  .period {
+  .card-meta span {
     display: block;
   }
   .card-meta {

@@ -1,19 +1,16 @@
 <script lang="ts">
-  import type { ResumeEntry, ResumeEntryKind } from "$lib/resume/schema";
-
+  import type { CardContent } from "./cards";
   import OverviewEntry from "./OverviewEntry.svelte";
 
   let {
     id,
     title,
-    entries,
-    kind = "Project",
+    cards,
     hideHeading = false,
   }: {
     id: string;
     title: string;
-    entries: readonly ResumeEntry[];
-    kind?: ResumeEntryKind;
+    cards: readonly CardContent[];
     hideHeading?: boolean;
   } = $props();
 </script>
@@ -25,8 +22,8 @@
   aria-labelledby={hideHeading ? undefined : `${id}-heading`}
 >
   {#if !hideHeading}<h2 class="section-heading" id={`${id}-heading`}>{title}</h2>{/if}
-  <div class="entry-list" class:multiple={entries.length > 1}>
-    {#each entries as entry}<OverviewEntry {entry} {kind} />{/each}
+  <div class="entry-list" class:multiple={cards.length > 1}>
+    {#each cards as card}<OverviewEntry {...card} />{/each}
   </div>
 </section>
 

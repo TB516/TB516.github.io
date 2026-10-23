@@ -28,33 +28,15 @@
   import { r2modman } from "$lib/resume/projects/r2modman";
   import { sveltekitPdfRenderer } from "$lib/resume/projects/sveltekit-pdf-renderer";
   import { t3CodeFlatpak } from "$lib/resume/projects/t3-code-flatpak";
-  import type { ResumeEntry } from "$lib/resume/schema";
+  import type { Experience, ResumeEntry } from "$lib/resume/schema";
   import { skills } from "$lib/resume/skills";
-  import { idTechTeenAcademy2026 } from "$lib/resume/work/id-tech";
+  import { idTech2026 } from "$lib/resume/work/id-tech";
   import { ritTeachingAssistant, ritBackendDeveloper } from "$lib/resume/work/rit";
 
   // PDF selection and order are independent of the website's date sorting.
-  const work = [idTechTeenAcademy2026, ritTeachingAssistant, ritBackendDeveloper];
+  const work: Experience[] = [idTech2026, ritTeachingAssistant, ritBackendDeveloper];
   const projects = [t3CodeFlatpak, sveltekitPdfRenderer];
   const contributions = [bluefin, r2modman];
-
-  const groupAdjacentEntries = (entries: readonly ResumeEntry[]) => {
-    const groups: ResumeEntry[][] = [];
-
-    for (const entry of entries) {
-      const previousGroup = groups.at(-1);
-
-      if (previousGroup?.[0].name === entry.name) {
-        previousGroup.push(entry);
-      } else {
-        groups.push([entry]);
-      }
-    }
-
-    return groups;
-  };
-
-  const workGroups = groupAdjacentEntries(work);
 
   const getProjectRepositoryUrl = (project: ResumeEntry) =>
     project.links?.find(({ label }) => label === "GitHub" || label === "Upstream repository")?.url;
@@ -101,38 +83,23 @@
 
   <section>
     <h2>Work Experience</h2>
-    {#each workGroups as jobs}
+    {#each work as experience}
       <article>
-        {#if jobs.length === 1}
-          {@const job = jobs[0]}
-          <div class="heading">
-            <div>
-              <strong>{job.roles.join(", ")}</strong>, {job.name}{#if job.location}{" – "}{job.location}{/if}
+        <div class="heading">
+          <strong>{experience.name}</strong>
+          {#if experience.location}<div>{experience.location}</div>{/if}
+        </div>
+        {#each experience.positions as position}
+          <div class="position">
+            <div class="heading">
+              <em>{position.roles.join(", ")}</em>
+              <div>{formatResumePeriod(position.period)}</div>
             </div>
-            <div>{formatResumePeriod(job.period)}</div>
+            <ul>
+              {#each position.highlights as highlight}<li>{highlight}</li>{/each}
+            </ul>
           </div>
-          <ul>
-            {#each job.highlights as highlight}<li>{highlight}</li>{/each}
-          </ul>
-        {:else}
-          <div class="company-name"><strong>{jobs[0].name}</strong></div>
-          <div class="engagements">
-            {#each jobs as job}
-              <div class="engagement">
-                <div class="heading">
-                  <div>
-                    <strong>{job.roles.join(", ")}</strong
-                    >{#if job.location}{" – "}{job.location}{/if}
-                  </div>
-                  <div>{formatResumePeriod(job.period)}</div>
-                </div>
-                <ul>
-                  {#each job.highlights as highlight}<li>{highlight}</li>{/each}
-                </ul>
-              </div>
-            {/each}
-          </div>
-        {/if}
+        {/each}
       </article>
     {/each}
   </section>
@@ -263,18 +230,8 @@
     white-space: pre-line;
   }
 
-  .company-name {
-    margin-bottom: 0.05cm;
-  }
-
-  .engagements {
-    margin-left: 0.08cm;
-    padding-left: 0.16cm;
-    border-left: 0.6pt solid #888;
-  }
-
-  .engagement + .engagement {
-    margin-top: 0.14cm;
+  .position + .position {
+    margin-top: 0.1cm;
   }
 
   ul {

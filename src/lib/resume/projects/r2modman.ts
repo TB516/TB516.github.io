@@ -83,11 +83,10 @@ export const r2modman = {
   summary:
     "r2modman is a game mod manager. I work on its Linux and Flatpak distribution and contribute Northstar compatibility fixes across r2modman, Thunderstore's ecosystem schema, and NorthstarLauncher.",
   highlights: [
-    "Built Flatpak packaging and CI with AppStream metadata, desktop integration, and signed repository updates on Cloudflare R2.",
-    "Contributed merged upstream fixes for Steam launching with xdg-open, Flatpak Steam detection, and Steam Deck game-mode handling.",
-    "Fixed Northstar launching on Linux through a merged Thunderstore ecosystem-schema change to use the standard Steam runner.",
-    "Diagnosed a cross-project Proton path bug; contributed a merged NorthstarLauncher fix, submitted the companion r2modman fix, and verified patched builds through Flatpak and Proton.",
-    "Maintain the packaging pipeline, test Steam integration, and investigate Linux and Flatpak issues.",
+    "Built Flatpak packaging and CI with desktop integration and signed automatic updates hosted on Cloudflare R2.",
+    "Contributed merged fixes for Steam launching via xdg-open, Flatpak Steam detection, and Steam Deck game mode.",
+    "Fixed Northstar launching on Linux with a merged Thunderstore change to use the standard Steam runner.",
+    "Traced Proton profile-path bugs; contributed a merged NorthstarLauncher fix and submitted the companion r2modman fix.",
   ],
   keywords: [
     "Linux",

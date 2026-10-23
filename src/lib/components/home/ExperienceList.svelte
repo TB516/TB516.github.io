@@ -1,18 +1,22 @@
 <script lang="ts">
   import { formatResumePeriod } from "$lib/resume/dates";
-  import type { ResumeEntry } from "$lib/resume/schema";
-  import { getResumeEntrySlug } from "$lib/resume/slugs";
+  import {
+    getExperiencePeriod,
+    getExperienceSlug,
+    getExperienceTitles,
+  } from "$lib/resume/experience";
+  import type { Experience } from "$lib/resume/schema";
 
-  let { entries }: { entries: readonly ResumeEntry[] } = $props();
+  let { experiences }: { experiences: readonly Experience[] } = $props();
 </script>
 
 <ul>
-  {#each entries as entry}
+  {#each experiences as experience}
     <li>
-      <a href={`/experience/${getResumeEntrySlug(entry)}`}>
-        <span class="employer link-forward">{entry.name}</span>
-        <span class="job-role">{entry.roles.join(", ")}</span>
-        <span class="job-date">{formatResumePeriod(entry.period)}</span>
+      <a href={`/experience/${getExperienceSlug(experience)}`}>
+        <span class="employer link-forward">{experience.name}</span>
+        {#each getExperienceTitles(experience) as title}<span class="job-role">{title}</span>{/each}
+        <span class="job-date">{formatResumePeriod(getExperiencePeriod(experience))}</span>
       </a>
     </li>
   {/each}

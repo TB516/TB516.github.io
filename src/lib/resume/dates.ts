@@ -1,14 +1,14 @@
 import type { DatePeriod, ResumeDate, YearMonth } from "./schema";
 
-/** Orders ongoing entries first, then by latest end date and latest start date. */
-export const compareEntryDates = (a: { period: DatePeriod }, b: { period: DatePeriod }) => {
-  if (a.period.end !== b.period.end) {
-    if (a.period.end === "present") return -1;
-    if (b.period.end === "present") return 1;
-    return b.period.end.localeCompare(a.period.end);
+/** Orders ongoing periods first, then by latest end date and latest start date. */
+export const compareDatePeriods = (a: DatePeriod, b: DatePeriod) => {
+  if (a.end !== b.end) {
+    if (a.end === "present") return -1;
+    if (b.end === "present") return 1;
+    return b.end.localeCompare(a.end);
   }
 
-  return b.period.start.localeCompare(a.period.start);
+  return b.start.localeCompare(a.start);
 };
 
 const MONTH_ABBREVIATIONS = [

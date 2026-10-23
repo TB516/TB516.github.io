@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { getProjectCard } from "$lib/components/cards";
   import PortfolioSection from "$lib/components/PortfolioSection.svelte";
   import { heliumPackaging } from "$lib/resume/projects/helium-packaging";
   import { personalOS } from "$lib/resume/projects/personal-os";
@@ -9,7 +10,7 @@
 </script>
 
 <div class="featured-work">
-  <PortfolioSection id="projects" title="Featured work" entries={featuredWork} />
+  <PortfolioSection id="projects" title="Featured work" cards={featuredWork.map(getProjectCard)} />
   <a class="browse-link link-forward" href="/projects">Browse all projects and contributions</a>
 </div>
 

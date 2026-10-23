@@ -1,12 +1,12 @@
 import { error } from "@sveltejs/kit";
 
 import { projects } from "$lib/resume/projects";
-import { getResumeEntrySlug, getUniqueResumeEntrySlugs } from "$lib/resume/slugs";
+import { assertUniqueSlugs, getResumeEntrySlug } from "$lib/resume/slugs";
 
 import type { EntryGenerator, PageServerLoad } from "./$types";
 
 export const entries: EntryGenerator = () =>
-  getUniqueResumeEntrySlugs(projects).map((slug) => ({ slug }));
+  assertUniqueSlugs(projects.map(getResumeEntrySlug)).map((slug) => ({ slug }));
 
 export const load: PageServerLoad = ({ params }) => {
   const entry = projects.find((entry) => getResumeEntrySlug(entry) === params.slug);

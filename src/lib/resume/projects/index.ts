@@ -1,4 +1,5 @@
-import { compareEntryDates } from "../dates";
+import { compareDatePeriods } from "../dates";
+import type { ResumeEntry } from "../schema";
 import { bluefin } from "./bluefin";
 import { flatpakSshDevTemplate } from "./flatpak-ssh-dev-template";
 import { heliumPackaging } from "./helium-packaging";
@@ -8,7 +9,7 @@ import { r2modman } from "./r2modman";
 import { sveltekitPdfRenderer } from "./sveltekit-pdf-renderer";
 import { t3CodeFlatpak } from "./t3-code-flatpak";
 
-export const projects = [
+export const projects: ResumeEntry[] = [
   personalOS,
   bluefin,
   sveltekitPdfRenderer,
@@ -17,4 +18,4 @@ export const projects = [
   t3CodeFlatpak,
   heliumPackaging,
   r2modman,
-].toSorted(compareEntryDates);
+].toSorted((a, b) => compareDatePeriods(a.period, b.period));

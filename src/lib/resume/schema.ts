@@ -57,24 +57,26 @@ export interface SkillGroup {
   keywords: string[];
 }
 
-/** One continuous work or project engagement displayed throughout the portfolio and résumé. */
+/** A titled explanation of one topic, with paragraphs, bullets, and supporting links. */
+export interface EntrySection {
+  title: string;
+  paragraphs?: string[];
+  bullets?: string[];
+  links?: Link[];
+}
+
+/** A project or open-source contribution displayed throughout the portfolio and résumé. */
 export interface ResumeEntry {
-  /** Employer, organization, or project name. */
+  /** Project name. */
   name: string;
   /** Distinguishes owned projects from contributions without changing résumé selection. */
   category?: "project" | "contribution";
-  /** Substantial explanations grouped by topic, with paragraphs, bullets, and supporting links. Used on the website instead of highlights when present. */
-  sections?: {
-    title: string;
-    paragraphs?: string[];
-    bullets?: string[];
-    links?: Link[];
-  }[];
-  /** Capacities in which the work or project was performed. */
+  /** Substantial explanations grouped by topic. Used on the website instead of highlights when present. */
+  sections?: EntrySection[];
+  /** Capacities in which the project was performed. */
   roles: string[];
-  /** The single continuous interval covered by this engagement. */
+  /** The single continuous interval covered by this project. */
   period: DatePeriod;
-  location?: string;
   /** Brief overview of the work. */
   summary: string;
   /** Concise accomplishments, responsibilities, or outcomes. Used by the résumé, and listed on the website when sections are absent. */
@@ -85,5 +87,28 @@ export interface ResumeEntry {
   links?: Link[];
 }
 
-/** Which collection an entry belongs to, which decides where the website links to it. */
-export type ResumeEntryKind = "Experience" | "Project";
+/** One title held over one continuous interval within an experience. */
+export interface Position {
+  /** Titles held at the same time, such as a developer who also led DevOps. */
+  roles: string[];
+  period: DatePeriod;
+  /** Concise accomplishments or responsibilities in this position. */
+  highlights: string[];
+}
+
+/**
+ * Continuous work at one organization, shown as one page and one résumé block.
+ * Holds several positions when they read as one story, such as a promotion;
+ * returning after time away or a different kind of job is a separate experience.
+ */
+export interface Experience {
+  /** Employer or organization name. */
+  name: string;
+  location?: string;
+  /** Brief overview covering every position. */
+  summary: string;
+  /** Ordered newest first; the experience's overall dates come from them. */
+  positions: [Position, ...Position[]];
+  /** Technologies, tools, and areas of expertise applied across the positions. */
+  keywords?: string[];
+}
