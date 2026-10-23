@@ -30,5 +30,4 @@
   skillsHeading={project.category === "project" ? "Built with" : "Skills used"}
   keywords={project.keywords}
   backHref={isContribution ? "/projects?category=contribution" : "/projects?category=project"}
-  backLabel={isContribution ? "open-source contributions" : "projects"}
 />

@@ -3,9 +3,24 @@
 
   /** A story card; `meta` is a short line under its heading, such as a position's dates. */
   export type DetailSection = EntrySection & { meta?: string };
+
+  /** Names the pages a back link can return to; anything else gets no back link label. */
+  const describeBackDestination = ({ pathname, searchParams }: URL) => {
+    if (pathname === "/") return "Back to home";
+    if (pathname === "/experience") return "All experience";
+    if (pathname !== "/projects") return undefined;
+
+    const category = searchParams.get("category");
+    if (category === "project") return "All projects";
+    if (category === "contribution") return "All open-source contributions";
+    return "All projects and contributions";
+  };
 </script>
 
 <script lang="ts">
+  import { afterNavigate } from "$app/navigation";
+  import { page } from "$app/state";
+
   let {
     title,
     meta,
@@ -16,7 +31,6 @@
     skillsHeading,
     keywords = [],
     backHref,
-    backLabel,
   }: {
     title: string;
     /** Short facts under the title, such as role, dates, and location. */
@@ -28,14 +42,52 @@
     stacked?: boolean;
     skillsHeading: string;
     keywords?: string[];
+    /** The entry's collection, used when the visitor didn't arrive from a known list. */
     backHref: string;
-    /** Completes the "All …" back link. */
-    backLabel: string;
   } = $props();
+
+  // Set after client-side navigation, so prerendered pages and direct visits use the collection.
+  let previousPage = $state<URL>();
+  let arrivedByLink = $state(false);
+
+  afterNavigate(({ from, type }) => {
+    previousPage = from?.url;
+    arrivedByLink = type === "link";
+  });
+
+  const back = $derived.by(() => {
+    const previousLabel = previousPage && describeBackDestination(previousPage);
+    if (previousPage && previousLabel) {
+      return {
+        href: previousPage.pathname + previousPage.search + previousPage.hash,
+        label: previousLabel,
+        isPreviousPage: true,
+      };
+    }
+
+    const collection = new URL(backHref, page.url);
+    return {
+      href: backHref,
+      label: describeBackDestination(collection) ?? "Back",
+      isPreviousPage: false,
+    };
+  });
+
+  // Going back through history restores the previous page's scroll position and filter.
+  const goBack = (event: MouseEvent) => {
+    if (!arrivedByLink || !back.isPreviousPage) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
+    event.preventDefault();
+    history.back();
+  };
 </script>
 
+<!-- In-page links such as "Skip to content" add a history entry, so going back would stay on this page. -->
+<svelte:window onhashchange={() => (arrivedByLink = false)} />
+
 <main id="main-content" tabindex="-1" class="entry-page container">
-  <a class="back-link link-back" href={backHref}>All {backLabel}</a>
+  <a class="back-link link-back" href={back.href} onclick={goBack}>{back.label}</a>
   <div class="entry-layout">
     <header class="entry-header">
       <h1>{title}</h1>

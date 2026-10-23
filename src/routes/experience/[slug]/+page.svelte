@@ -34,5 +34,4 @@
   skillsHeading="Skills used"
   keywords={experience.keywords}
   backHref="/experience"
-  backLabel="experience"
 />
